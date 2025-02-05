@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class movementscript : MonoBehaviour
+public class Dumovementscript : MonoBehaviour
 {
 
     public float speed;
