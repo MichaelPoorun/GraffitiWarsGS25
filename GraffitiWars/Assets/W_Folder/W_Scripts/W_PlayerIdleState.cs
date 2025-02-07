@@ -5,6 +5,8 @@ public class W_PlayerIdleState : W_PlayerBaseState
     private W_Animations Animations;
     private Animator animator;
 
+    private W_Dumovementscriptfixed Jumping;
+
     public bool CurrentlyWalking;
 
     public override void EnterState(W_PlayerStateManager player)
@@ -14,6 +16,7 @@ public class W_PlayerIdleState : W_PlayerBaseState
 
         animator = player.GetComponent<Animator>();
         Animations = player.GetComponent<W_Animations>();
+        Jumping = player.GetComponent<W_Dumovementscriptfixed>();
     }
 
     public override void UpdateState(W_PlayerStateManager player)
@@ -32,6 +35,15 @@ public class W_PlayerIdleState : W_PlayerBaseState
             Animations.PlayIdleAnimation();
         }
 
+        if (Input.GetKey(KeyCode.Space) && Jumping.OnGround == true)
+        {
+            player.SwitchState(player.JumpState);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            player.SwitchState(player.BlockState);
+        }
     }
 
     

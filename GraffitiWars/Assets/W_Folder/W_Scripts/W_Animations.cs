@@ -15,8 +15,33 @@ public class W_Animations : MonoBehaviour
         animator.Play("Idle");
     }
 
-    public void PlayWalkAnimation()
+    public void PlayForwardWalkAnimation()
     {
-        animator.Play("Walk");
+        animator.Play("ForwardWalk");
+    }
+
+    public void PlayLeftWalkAnimation()
+    {
+        animator.Play("LeftWalk");
+    }
+
+    public void PlayBackWalkAnimation()
+    {
+        animator.Play("BackWalk");
+    }
+
+    public void PlayRightWalkAnimation()
+    {
+        animator.Play("RightWalk");
+    }
+
+    public void PlayJumpAnimation()
+    {
+        animator.Play("Jump");
+    }
+
+    public void PlayBlockAnimation()
+    {
+        animator.Play("Block");
     }
 }

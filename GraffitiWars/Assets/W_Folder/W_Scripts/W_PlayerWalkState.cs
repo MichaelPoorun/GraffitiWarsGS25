@@ -18,9 +18,36 @@ public class W_PlayerWalkState : W_PlayerBaseState
 
     public override void UpdateState(W_PlayerStateManager player)
     {
-        if (CurrentlyWalking == true)
+        if (CurrentlyWalking == true && (Input.GetKey(KeyCode.W)))
         {
-            Animations.PlayWalkAnimation();
+            Animations.PlayForwardWalkAnimation();
+        }
+        else
+        {
+            player.SwitchState(player.IdleState);
+        }
+
+        if (CurrentlyWalking == true && (Input.GetKey(KeyCode.A)))
+        {
+            Animations.PlayLeftWalkAnimation();
+        }
+        else
+        {
+            player.SwitchState(player.IdleState);
+        }
+
+        if (CurrentlyWalking == true && (Input.GetKey(KeyCode.S)))
+        {
+            Animations.PlayBackWalkAnimation();
+        }
+        else
+        {
+            player.SwitchState(player.IdleState);
+        }
+
+        if (CurrentlyWalking == true && (Input.GetKey(KeyCode.D)))
+        {
+            Animations.PlayRightWalkAnimation();
         }
         else
         {
