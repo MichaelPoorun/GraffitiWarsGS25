@@ -29,7 +29,7 @@ public class W_PlayerIdleState : W_PlayerBaseState
         }
         else
         {
-            Playerr
+        
         }
 
     }
