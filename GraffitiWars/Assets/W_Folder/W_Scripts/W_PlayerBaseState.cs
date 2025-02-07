@@ -6,4 +6,6 @@ public abstract class W_PlayerBaseState
 
     public abstract void UpdateState(W_PlayerStateManager player);
 
+
+
 }

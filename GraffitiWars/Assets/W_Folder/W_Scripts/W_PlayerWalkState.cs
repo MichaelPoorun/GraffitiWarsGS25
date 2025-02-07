@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class W_PlayerWalkState : W_PlayerBaseState
 {
-    [SerializeField] private Animator Player;
-
-    [SerializeField] private string WalkA = "Walk";
+    private W_Animations Animations;
+    private Animator animator;
 
     public bool CurrentlyWalking;
 
@@ -12,20 +11,23 @@ public class W_PlayerWalkState : W_PlayerBaseState
     {
         Debug.Log("I am currently in WALKSTATE");
         CurrentlyWalking = true;
+
+        animator = player.GetComponent<Animator>();
+        Animations = player.GetComponent<W_Animations>();
     }
 
     public override void UpdateState(W_PlayerStateManager player)
     {
         if (CurrentlyWalking == true)
         {
-            Debug.Log("Walking Animation Is Playing");
+            Animations.PlayWalkAnimation();
         }
         else
         {
             player.SwitchState(player.IdleState);
         }
 
-        if (!Input.GetKey(KeyCode.W))
+        if (!Input.GetKey(KeyCode.W) || !Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.D))
         {
             CurrentlyWalking = false;
         }
