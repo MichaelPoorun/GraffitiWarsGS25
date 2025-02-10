@@ -4,6 +4,7 @@ public class Dumovementscript : MonoBehaviour
 {
 
     public float speed;
+    public float jumpForce;
     Vector3 myDir;
     // Update is called once per frame
     void Update()
@@ -29,7 +30,7 @@ public class Dumovementscript : MonoBehaviour
             transform.Translate(Vector3.right * speed);
         }
 
-    if (Input.GetKey(KeyCode.Space))
+    if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.Translate(Vector3.up * speed);
         }
