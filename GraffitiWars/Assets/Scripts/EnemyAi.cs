@@ -22,8 +22,6 @@ public class EnemyAi : MonoBehaviour
             Debug.LogWarning("Player not assigned in EnemyAI script.");
             return;
         }
-
-        
     }
 
     void FixedUpdate()
