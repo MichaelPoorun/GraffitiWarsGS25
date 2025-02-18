@@ -10,17 +10,18 @@ public class W_PlayerIdleState : W_PlayerBaseState
     public bool CurrentlyWalking;
     public bool CurrentlyAttacking;
 
-    //public W_PlayerHitMarker HitMarker;
+    public W_PlayerHitMarker HitMarker;
 
   
     public override void EnterState(W_PlayerStateManager player)
     {
         Debug.Log("Im am currently in IDLESTATE");
-
-        //HitMarker.TurnOffBox();
+        HitMarker = player.GetComponent<W_PlayerHitMarker>();
+        HitMarker.TurnOffBox();
 
         CurrentlyWalking = false;
         CurrentlyAttacking = false;
+        
         animator = player.GetComponent<Animator>();
         Animations = player.GetComponent<W_Animations>();
         Jumping = player.GetComponent<W_Dumovementscriptfixed>();

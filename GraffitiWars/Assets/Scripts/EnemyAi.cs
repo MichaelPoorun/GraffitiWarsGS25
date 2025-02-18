@@ -1,19 +1,26 @@
 using UnityEngine;
 
+
 public class EnemyAi : MonoBehaviour
 {
+    
     public Transform player; // Reference to the player
     public float moveSpeed = 5f; // Speed at which the enemy moves
     public float attackRange = 1.5f; // Distance at which the enemy attacks
     public float attackCooldown = 1f; // Time between attacks
+
+    public int damage = 25;
 
     private bool isAttacking = false;
     private Rigidbody rb;
 
     private Animator animator;
 
+    public HealthSystem HP;
+
     void Start()
     {
+        player = W_PlayerStateManager.Main.transform;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         animator.Play("Idle");
@@ -71,5 +78,14 @@ public class EnemyAi : MonoBehaviour
         animator.Play("Idle");
         isAttacking = false;
         Debug.Log("Enemy is ready to attack again");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Hit_Enemy")
+        {
+            Debug.Log("Enemy is Taking 25 Damage");
+            HP.TakeDamage(damage);
+        }
     }
 }

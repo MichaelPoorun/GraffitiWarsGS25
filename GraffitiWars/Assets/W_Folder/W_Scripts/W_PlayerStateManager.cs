@@ -9,9 +9,12 @@ public class W_PlayerStateManager : MonoBehaviour
     public W_PlayerAttackState AttackState = new W_PlayerAttackState();
     public W_PlayerBlockState BlockState = new W_PlayerBlockState();
     public W_PlayerJumpState JumpState = new W_PlayerJumpState();
+    public static W_PlayerStateManager Main;
   
     void Start()
     {
+        Main = this;
+
         currentState = IdleState;
 
         currentState.EnterState(this);

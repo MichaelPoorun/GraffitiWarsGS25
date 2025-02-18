@@ -14,13 +14,14 @@ public class W_PlayerAttackState : W_PlayerBaseState
 
     private W_PlayerStateManager player;
 
-    //private W_PlayerHitMarker HitMarker;
+    private W_PlayerHitMarker HitMarker;
     public HealthSystem Fight;
 
     public override void EnterState(W_PlayerStateManager player)
     {
         
         Debug.Log("Currently In Attacking State");
+        HitMarker = player.GetComponent<W_PlayerHitMarker>();
         animator = player.GetComponent<Animator>();
         Animations = player.GetComponent<W_Animations>();
 
@@ -36,14 +37,14 @@ public class W_PlayerAttackState : W_PlayerBaseState
 
        if (CurrentlyAttacking == true)
        {
-            //HitMarker.TurnOnBox();
+            HitMarker.TurnOnBox();
             Animations.PlayAttackAnimation();
             player.StartCoroutine(GoBackIdle());
        }
 
        if (CurrentlyAttacking == false)
        {
-            //HitMarker.TurnOffBox();
+            HitMarker.TurnOffBox();
             player.SwitchState(player.IdleState);
        }
 
