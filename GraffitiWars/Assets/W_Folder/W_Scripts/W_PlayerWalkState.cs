@@ -20,7 +20,7 @@ public class W_PlayerWalkState : W_PlayerBaseState
     {
         if (CurrentlyWalking == true && (Input.GetKey(KeyCode.W)))
         {
-            Animations.PlayForwardWalkAnimation();
+            Animations.PlayLeftWalkAnimation();
         }
         else
         {
@@ -29,7 +29,7 @@ public class W_PlayerWalkState : W_PlayerBaseState
 
         if (CurrentlyWalking == true && (Input.GetKey(KeyCode.A)))
         {
-            Animations.PlayLeftWalkAnimation();
+            Animations.PlayBackWalkAnimation();
         }
         else
         {
@@ -38,7 +38,7 @@ public class W_PlayerWalkState : W_PlayerBaseState
 
         if (CurrentlyWalking == true && (Input.GetKey(KeyCode.S)))
         {
-            Animations.PlayBackWalkAnimation();
+            Animations.PlayRightWalkAnimation();
         }
         else
         {
@@ -47,7 +47,7 @@ public class W_PlayerWalkState : W_PlayerBaseState
 
         if (CurrentlyWalking == true && (Input.GetKey(KeyCode.D)))
         {
-            Animations.PlayRightWalkAnimation();
+            Animations.PlayForwardWalkAnimation();
         }
         else
         {

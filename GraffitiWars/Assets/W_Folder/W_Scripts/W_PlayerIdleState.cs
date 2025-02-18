@@ -8,12 +8,19 @@ public class W_PlayerIdleState : W_PlayerBaseState
     private W_Dumovementscriptfixed Jumping;
 
     public bool CurrentlyWalking;
+    public bool CurrentlyAttacking;
 
+    //public W_PlayerHitMarker HitMarker;
+
+  
     public override void EnterState(W_PlayerStateManager player)
     {
         Debug.Log("Im am currently in IDLESTATE");
-        CurrentlyWalking = false;
 
+        //HitMarker.TurnOffBox();
+
+        CurrentlyWalking = false;
+        CurrentlyAttacking = false;
         animator = player.GetComponent<Animator>();
         Animations = player.GetComponent<W_Animations>();
         Jumping = player.GetComponent<W_Dumovementscriptfixed>();
@@ -43,6 +50,16 @@ public class W_PlayerIdleState : W_PlayerBaseState
         if (Input.GetMouseButtonDown(1))
         {
             player.SwitchState(player.BlockState);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            CurrentlyAttacking = true;
+        }
+
+        if (CurrentlyAttacking == true)
+        {
+            player.SwitchState(player.AttackState);
         }
     }
 

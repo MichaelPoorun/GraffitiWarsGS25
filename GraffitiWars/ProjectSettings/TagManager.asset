@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Floor
+  - Hit_Enemy
+  - Hit_Player
   layers:
   - Default
   - TransparentFX

@@ -10,9 +10,13 @@ public class EnemyAi : MonoBehaviour
     private bool isAttacking = false;
     private Rigidbody rb;
 
+    private Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        animator.Play("Idle");
     }
 
     void Update()
@@ -23,7 +27,6 @@ public class EnemyAi : MonoBehaviour
             return;
         }
 
-        
     }
 
     void FixedUpdate()
@@ -32,6 +35,7 @@ public class EnemyAi : MonoBehaviour
 
         if (distance > attackRange)
         {
+            animator.Play("ForwardWalk");
             MoveTowardsPlayer();
         }
         else
@@ -53,6 +57,8 @@ public class EnemyAi : MonoBehaviour
 
     void AttackPlayer()
     {
+        animator.Play("Punch");
+
         isAttacking = true;
         Debug.Log("Enemy is attacking the player");
 
@@ -62,6 +68,7 @@ public class EnemyAi : MonoBehaviour
 
     void ResetAttack()
     {
+        animator.Play("Idle");
         isAttacking = false;
         Debug.Log("Enemy is ready to attack again");
     }

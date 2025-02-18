@@ -9,7 +9,7 @@ public class W_Animations : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-    
+
     public void PlayIdleAnimation()
     {
         animator.Play("Idle");
@@ -43,5 +43,10 @@ public class W_Animations : MonoBehaviour
     public void PlayBlockAnimation()
     {
         animator.Play("Block");
+    }
+
+    public void PlayAttackAnimation()
+    {
+        animator.Play("Punch");
     }
 }
