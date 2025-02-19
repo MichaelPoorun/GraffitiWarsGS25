@@ -52,7 +52,7 @@ public class W_PlayerAttackState : W_PlayerBaseState
 
     IEnumerator GoBackIdle()
     {
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(.69f);
         CurrentlyAttacking = false;
     }
 

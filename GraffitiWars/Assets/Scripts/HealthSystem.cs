@@ -6,11 +6,8 @@ public class HealthSystem : MonoBehaviour
     public int maxHealth = 100; // Maximum health
     public int currentHealth;
     public int damage = 25;
-    public bool Alive;
-    void Awake()
-    {
-        Alive = true;
-    }
+    
+ 
 
     void Start()
     {
@@ -41,17 +38,10 @@ public class HealthSystem : MonoBehaviour
 
     private void Die()
     {
-        Respawn();
-        
-    }
-    
-    IEnumerator Respawn()
-    {
-        Alive = false;
-        yield return new WaitForSeconds(.1f);
         Debug.Log(gameObject.name + " has died.");
         // You can add death animations, effects, or destroy the object here
         Destroy(gameObject);
     }
+    
 }
 

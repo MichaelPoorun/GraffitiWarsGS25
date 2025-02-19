@@ -59,7 +59,7 @@ public class EnemyAi : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
 
-        Debug.Log("Enemy is moving towards the player");
+        //Debug.Log("Enemy is moving towards the player");
     }
 
     void AttackPlayer()
@@ -84,7 +84,7 @@ public class EnemyAi : MonoBehaviour
     {
         if (other.gameObject.tag == "Hit_Enemy")
         {
-            Debug.Log("Enemy is Taking 25 Damage");
+            Debug.Log("Enemy Took 25 Damage");
             HP.TakeDamage(damage);
         }
     }
