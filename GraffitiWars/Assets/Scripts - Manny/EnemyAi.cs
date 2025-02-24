@@ -1,18 +1,29 @@
 using UnityEngine;
 
+
 public class EnemyAi : MonoBehaviour
 {
+    
     public Transform player; // Reference to the player
     public float moveSpeed = 5f; // Speed at which the enemy moves
     public float attackRange = 1.5f; // Distance at which the enemy attacks
     public float attackCooldown = 1f; // Time between attacks
 
+    public int damage = 25;
+
     private bool isAttacking = false;
     private Rigidbody rb;
 
+    private Animator animator;
+
+    public HealthSystem HP;
+
     void Start()
     {
+        player = W_PlayerStateManager.Main.transform;
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        animator.Play("Idle");
     }
 
     void Update()
@@ -22,6 +33,7 @@ public class EnemyAi : MonoBehaviour
             Debug.LogWarning("Player not assigned in EnemyAI script.");
             return;
         }
+
     }
 
     void FixedUpdate()
@@ -30,6 +42,7 @@ public class EnemyAi : MonoBehaviour
 
         if (distance > attackRange)
         {
+            animator.Play("ForwardWalk");
             MoveTowardsPlayer();
         }
         else
@@ -46,11 +59,13 @@ public class EnemyAi : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
 
-        Debug.Log("Enemy is moving towards the player");
+        //Debug.Log("Enemy is moving towards the player");
     }
 
     void AttackPlayer()
     {
+        animator.Play("Punch");
+
         isAttacking = true;
         Debug.Log("Enemy is attacking the player");
 
@@ -60,7 +75,17 @@ public class EnemyAi : MonoBehaviour
 
     void ResetAttack()
     {
+        animator.Play("Idle");
         isAttacking = false;
         Debug.Log("Enemy is ready to attack again");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Hit_Enemy")
+        {
+            Debug.Log("Enemy Took 25 Damage");
+            HP.TakeDamage(damage);
+        }
     }
 }
