@@ -3,20 +3,33 @@ using UnityEngine;
 public class CameraLocks_W : MonoBehaviour
 {
     public GameObject Main;
-    public GameObject Part1;
-    public GameObject Part1Cam;
-    public GameObject Part2;
-    public GameObject Part2Cam;
-
     public bool MainCamOn = true;
-    public bool Part1On = false;
-    public bool Part2On = false;
+    
+    [Header("Part1--------------------------------------------------")]
+    public GameObject Part1Cam;
+    public bool P1Activated = false;
+    public GameObject Wall1;
+    public GameObject Wall2;
+
+    [Header("Part2--------------------------------------------------")]
+    public GameObject Part2Cam;
+    public bool P2Activated = false;
+    public GameObject Wall3;
+    public GameObject Wall4;
+
+    [Header("Part3--------------------------------------------------")]
+    public GameObject Part3Cam;
+    public bool P3Activated = false;
+    public GameObject Wall5;
+    public GameObject Wall6;
 
     private void Awake()
     {
         Main.SetActive(true);
         Part1Cam.SetActive(false);
         Part2Cam.SetActive(false);
+        Part3Cam.SetActive(false);
+
     }
     void Start()
     {
@@ -26,36 +39,60 @@ public class CameraLocks_W : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(MainCamOn == false)
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            Main.SetActive(false);
-            Part1Cam.SetActive(true);
-            Debug.Log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
+            Wall2.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Wall4.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Wall6.SetActive(false);
         }
     }
 
     public void HandleEvent(string e)
     {
-        if(e == "Event1")
+        if(e == "Part1")
         {
-            MainCamOn = false;
-            Part1On = true;
-            Debug.Log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+            Main.SetActive(false);
+            Part1Cam.SetActive(true);
+            Wall1.SetActive(true);
+            Wall2.SetActive(true);
         }
-        else if (e == "Event2")
+        else if (e == "MainCamOn1")
         {
-
+            Part1Cam.SetActive(false);
+            Main.SetActive(true);
+        }
+        else if (e == "Part2")
+        {
+            Main.SetActive(false);
+            Part2Cam.SetActive(true);
+            Wall3.SetActive(true);
+            Wall4.SetActive(true);
+        }
+        else if (e == "MainCamOn2")
+        {
+            Part2Cam.SetActive(false);
+            Main.SetActive(true);
+        }
+        else if (e == "Part3")
+        {
+            Main.SetActive(false);
+            Part3Cam.SetActive(true);
+            Wall5.SetActive(true);
+            Wall6.SetActive(true);
+        }
+        else if (e == "MainCamOn3")
+        {
+            Part2Cam.SetActive(false);
+            Main.SetActive(true);
         }
     }
 
-    /*
-    public void OnTriggerEnter(Collision other)
-    {
-        if (other.Part1.tag == "Player")
-        {
-            MainCamOn = false;
-            Part1On = true;
-        }
-    }
-    */
 }
