@@ -2926,7 +2926,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpPower: 0.05
+  currentlyAttacking: 0
   isJumping: 0
+  isBlocking: 0
+  AttackBox1: {fileID: 1073626598}
+  HP: {fileID: 571145263}
   animator: {fileID: 571145265}
   currentState: 0
 --- !u!1 &577375465
@@ -4209,12 +4213,12 @@ GameObject:
   - component: {fileID: 1073626601}
   - component: {fileID: 1073626600}
   m_Layer: 0
-  m_Name: HitMarker
+  m_Name: HitMarker1
   m_TagString: Hit_Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1073626599
 Transform:
   m_ObjectHideFlags: 0
@@ -4258,7 +4262,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073626598}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4274,7 +4278,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c9c53a69238593249bd3e28136381d95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
