@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class EnemyAi : MonoBehaviour
 {
-    
+
+    public GameObject AttackBox;
     public Transform player; // Reference to the player
     public float moveSpeed = 5f; // Speed at which the enemy moves
     public float attackRange = 1.5f; // Distance at which the enemy attacks
-    public float attackCooldown = 1f; // Time between attacks
+    public float attackCooldown = 1.5f; // Time between attacks
+    
 
     public int damage = 25;
 
@@ -18,6 +20,7 @@ public class EnemyAi : MonoBehaviour
 
     public HealthSystem HP;
 
+    
     void Start()
     {
         player = W_PlayerStateManager.Main.transform;
@@ -65,7 +68,7 @@ public class EnemyAi : MonoBehaviour
     void AttackPlayer()
     {
         animator.Play("Punch");
-
+        AttackBox.SetActive(true);
         isAttacking = true;
         Debug.Log("Enemy is attacking the player");
 
@@ -75,6 +78,7 @@ public class EnemyAi : MonoBehaviour
 
     void ResetAttack()
     {
+        AttackBox.SetActive(false);
         animator.Play("Idle");
         isAttacking = false;
         Debug.Log("Enemy is ready to attack again");

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class W_Dumovementscriptfixed : MonoBehaviour
 {
+    public W_PlayerBlockState Block;
 
     public float speed;
 
@@ -9,9 +10,20 @@ public class W_Dumovementscriptfixed : MonoBehaviour
 
     public bool OnGround;
 
+    public HealthSystem HP;
+    public int damage = 25;
+
     public void Start()
     {
-        
+        W_PlayerStateManager playerStateManager = GetComponent<W_PlayerStateManager>();
+        if (playerStateManager != null)
+        {
+            Block = playerStateManager.BlockState;
+        }
+        else
+        {
+            Debug.LogError("PlayerStateManager not found on player object!");
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +53,20 @@ public class W_Dumovementscriptfixed : MonoBehaviour
         if (other.gameObject.tag == "Floor")
         {
             OnGround = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Hit_Player" && Block.IsBlocking == false)
+        {
+            Debug.Log("Player Took 25 Damage");
+            HP.TakeDamage(damage);
+        }
+        else if (other.gameObject.tag == "Hit_Player" && Block.IsBlocking == true)
+        {
+            
+            Debug.Log("Player Blocked Enemy Attack");
         }
     }
 }
