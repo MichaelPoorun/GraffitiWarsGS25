@@ -6,8 +6,10 @@ public enum PlayerState //Where all player states are kept
 {
     Idle,
     Walking,
-    Attacking,
-    Jumping,
+    BasicPunch,
+    ComboPunch,
+    BasicKick,
+    Jump,
     Blocking
 }
 
@@ -23,7 +25,9 @@ public class NEWPlayerState_W : MonoBehaviour
     public bool isBlocking = false;
 
     [Header("Player Attack Hitboxes")]
-    public GameObject AttackBox1;
+    public GameObject Punch1;
+    public GameObject Punch2;
+    public GameObject Kick1;
 
     [Header("References")]
     public HealthSystem HP;
@@ -35,7 +39,9 @@ public class NEWPlayerState_W : MonoBehaviour
 
     void Awake()
     {
-        AttackBox1.SetActive(false);
+        Punch1.SetActive(false);
+        Punch2.SetActive(false);
+        Kick1.SetActive(false);
     }
     void Start()
     {
@@ -55,18 +61,18 @@ public class NEWPlayerState_W : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.Idle:
-                Debug.Log("NEW Player Is IDLE");
+                Debug.Log("In Idle State");
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
                     ChangeState(PlayerState.Walking);
                 }
                 if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
                 {
-                    ChangeState(PlayerState.Jumping);
+                    ChangeState(PlayerState.Jump);
                 }
                 if (Input.GetMouseButtonDown(0) && currentlyAttacking == false)
                 {
-                    ChangeState(PlayerState.Attacking);
+                    ChangeState(PlayerState.BasicPunch);
                 }
                 if (Input.GetMouseButton(1))
                 {
@@ -75,7 +81,6 @@ public class NEWPlayerState_W : MonoBehaviour
                 break;
 
             case PlayerState.Walking:
-                Debug.Log("NEW Player Is Walking");
                 PlayerMovement();
                 if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
                 {
@@ -83,11 +88,11 @@ public class NEWPlayerState_W : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
                 {
-                    ChangeState(PlayerState.Jumping);
+                    ChangeState(PlayerState.Jump);
                 }
                 if (Input.GetMouseButtonDown(0) && currentlyAttacking == false)
                 {
-                    ChangeState(PlayerState.Attacking);
+                    ChangeState(PlayerState.BasicPunch);
                 }
                 if (Input.GetMouseButton(1))
                 {
@@ -95,19 +100,28 @@ public class NEWPlayerState_W : MonoBehaviour
                 }
                 break;
 
-            case PlayerState.Attacking:
-                Debug.Log("NEW Player Is Attacking");
-                StartCoroutine(Attack());
+            case PlayerState.BasicPunch:
+                Debug.Log("In BasicPunch State");
+                StartCoroutine(BasicPunchAttack());
+                break;
+            
+            case PlayerState.ComboPunch:
+                Debug.Log("In ComboPunch State");
+                StartCoroutine(ComboPunchAttack1());
                 break;
 
-            case PlayerState.Jumping:
-                Debug.Log("NEW Player Is Jumping");
+            case PlayerState.BasicKick:
+                Debug.Log("In Kick State");
+                StartCoroutine(BasicKickAttack());
+                break;
+
+            case PlayerState.Jump:
+                Debug.Log("In Jump State");
                 isJumping = true;
                 Jumping();
                 break;
 
             case PlayerState.Blocking:
-                Debug.Log("NEW Player Is Blocking");
                 Blocking();
                 if (Input.GetMouseButtonUp(1))
                 {
@@ -148,11 +162,19 @@ public class NEWPlayerState_W : MonoBehaviour
        
         animator.SetBool("isBlocking", newState == PlayerState.Blocking); //Set isBlocking to true in the animator
 
-        if (newState == PlayerState.Attacking)
+        if (newState == PlayerState.BasicPunch)
         {
-            animator.SetTrigger("isAttacking"); //Triggers the punch animation based on the trigger that was made in the animator
+            animator.SetTrigger("isBasicPunch"); //Triggers the punch animation based on the trigger that was made in the animator
         }
-        if (newState == PlayerState.Jumping)
+        if (newState == PlayerState.ComboPunch)
+        {
+            animator.SetTrigger("isComboPunch"); //Triggers the punch animation based on the trigger that was made in the animator
+        }
+        if (newState == PlayerState.BasicKick)
+        {
+            animator.SetTrigger("isBasicKick"); //Triggers the punch animation based on the trigger that was made in the animator
+        }
+        if (newState == PlayerState.Jump)
         {
             animator.SetTrigger("isJumping"); //Triggers the jump animation based on the trigger that was made in the animator
         }
@@ -169,18 +191,84 @@ public class NEWPlayerState_W : MonoBehaviour
     }
 
     //======================================================================//
-    //                            Player Attack                             //   
+    //                           Player Attacks                             //   
     //======================================================================//
-    IEnumerator Attack()
+    IEnumerator BasicPunchAttack()
     {
-        Debug.Log("Player Has Attacked");
-        AttackBox1.SetActive(true);
+        Debug.Log("Player Has Punched");
+
+        float timer = .8f;
+
+        Punch1.SetActive(true);
         currentlyAttacking = true;
-        yield return new WaitForSeconds(.55f);
-        AttackBox1.SetActive(false);
+
+        yield return null;
+
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if (Input.GetMouseButtonDown(0) && currentlyAttacking == true)
+            {
+                Punch1.SetActive(false);
+                ChangeState(PlayerState.ComboPunch);  
+                yield break;
+            }
+            yield return null;
+        }
+        Punch1.SetActive(false);
         currentlyAttacking = false;
         ChangeState(PlayerState.Idle);
-    }   
+    }
+    IEnumerator ComboPunchAttack1()
+    {
+        Debug.Log("Player Has Comboed");
+
+        float timer = 1f;
+
+        Punch2.SetActive(true);
+
+        yield return null;
+
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if (Input.GetMouseButtonDown(0) && currentlyAttacking == true)
+            {
+                Punch2.SetActive(false);
+                ChangeState(PlayerState.BasicKick);
+                yield break;
+            }
+            yield return null;
+        }
+        Punch2.SetActive(false);
+        currentlyAttacking = false;
+        ChangeState(PlayerState.Idle);
+    }
+    IEnumerator BasicKickAttack()
+    {
+        Debug.Log("Player Has Kicked");
+
+        float timer = 1.2f;
+
+        Kick1.SetActive(true);
+
+        yield return null;
+
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if (Input.GetMouseButtonDown(0) && currentlyAttacking == true)
+            {
+                Kick1.SetActive(false);
+                //ChangeState(PlayerState.X);
+                yield break;
+            }
+            yield return null;
+        }
+        Kick1.SetActive(false);
+        currentlyAttacking = false;
+        ChangeState(PlayerState.Idle);
+    }
 
     //======================================================================//
     //                             Player Jump                              //   
@@ -217,12 +305,12 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hit_Player") && isBlocking == false)
         {
-            Debug.Log("NEW Player Took 25 Damage");
+            Debug.Log("Player Took 25 Damage");
             HP.TakeDamage(HP.damage);
         }
         else if (isBlocking == true)
         {
-            Debug.Log("NEW Player Negated Damage");
+            Debug.Log("Player Blocked Incoming Damage");
             HP.damage = 0;
         }
     }

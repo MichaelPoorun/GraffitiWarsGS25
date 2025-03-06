@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e38b9ee765f523e4ebe8e15df08214dc
+guid: 54061194441f3d04eb42f12f81aa4ccc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Punch
+      name: ComboPunch
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

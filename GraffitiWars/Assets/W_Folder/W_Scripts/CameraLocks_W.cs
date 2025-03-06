@@ -90,7 +90,7 @@ public class CameraLocks_W : MonoBehaviour
         }
         else if (e == "MainCamOn3")
         {
-            Part2Cam.SetActive(false);
+            Part3Cam.SetActive(false);
             Main.SetActive(true);
         }
     }
