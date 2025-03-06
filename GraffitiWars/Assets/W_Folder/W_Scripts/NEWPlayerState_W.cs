@@ -89,6 +89,10 @@ public class NEWPlayerState_W : MonoBehaviour
                 {
                     ChangeState(PlayerState.Attacking);
                 }
+                if (Input.GetMouseButton(1))
+                {
+                    ChangeState(PlayerState.Blocking);
+                }
                 break;
 
             case PlayerState.Attacking:
@@ -116,7 +120,32 @@ public class NEWPlayerState_W : MonoBehaviour
     public void ChangeState(PlayerState newState)
     {
         currentState = newState;
-        animator.SetBool("isWalking", newState == PlayerState.Walking); //SetBool makes the animator bool T or F. Same as doing if isWalking == true {play animation} else {iswalking == false}
+
+        animator.SetBool("isWalkingUp", false);
+        animator.SetBool("isWalkingLeft", false);
+        animator.SetBool("isWalkingDown", false);
+        animator.SetBool("isWalkingRight", false);
+        // animator.SetBool("isWalkingUp", newState == PlayerState.X); - Sets the Bool makes the animator bool T or F. Same as doing if isWalking == true {play animation} else {iswalking == false}
+        if (newState == PlayerState.Walking)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                animator.SetBool("isWalkingUp", true);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                animator.SetBool("isWalkingDown", true);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                animator.SetBool("isWalkingRight", true);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                animator.SetBool("isWalkingLeft", true);
+            }
+        }
+       
         animator.SetBool("isBlocking", newState == PlayerState.Blocking); //Set isBlocking to true in the animator
 
         if (newState == PlayerState.Attacking)
