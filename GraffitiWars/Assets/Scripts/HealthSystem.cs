@@ -6,12 +6,16 @@ public class HealthSystem : MonoBehaviour
     public int maxHealth = 100; // Maximum health
     public int currentHealth;
     public int damage = 25;
+
+    //Misha inserted this, talk to him about it
+    public DuHealthBar HB;
     
  
 
     void Start()
     {
         currentHealth = maxHealth;
+        HB.Updatehp(maxHealth, currentHealth);//Misha added this
         Debug.Log(gameObject.name + " Health: " + currentHealth);
     }
 
@@ -19,7 +23,7 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log(gameObject.name + " took " + damage + " damage. Current health: " + currentHealth);
-
+        HB.Updatehp(maxHealth, currentHealth);//Misha added this
         if (currentHealth <= 0)
         {
             Die();
@@ -33,6 +37,7 @@ public class HealthSystem : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+        HB.Updatehp(maxHealth, currentHealth);//Misha added this
         Debug.Log(gameObject.name + " healed " + amount + ". Current health: " + currentHealth);
     }
 
