@@ -100,21 +100,6 @@ public class NEWPlayerState_W : MonoBehaviour
                 }
                 break;
 
-            case PlayerState.BasicPunch:
-                Debug.Log("In BasicPunch State");
-                StartCoroutine(BasicPunchAttack());
-                break;
-            
-            case PlayerState.ComboPunch:
-                Debug.Log("In ComboPunch State");
-                StartCoroutine(ComboPunchAttack1());
-                break;
-
-            case PlayerState.BasicKick:
-                Debug.Log("In Kick State");
-                StartCoroutine(BasicKickAttack());
-                break;
-
             case PlayerState.Jump:
                 Debug.Log("In Jump State");
                 isJumping = true;
@@ -133,7 +118,26 @@ public class NEWPlayerState_W : MonoBehaviour
     }
     public void ChangeState(PlayerState newState)
     {
+        
         currentState = newState;
+
+        switch (currentState)
+        {
+            case PlayerState.BasicPunch:
+                Debug.Log("In BasicPunch State");
+                StartCoroutine(BasicPunchAttack());
+                break;
+
+            case PlayerState.ComboPunch:
+                Debug.Log("In ComboPunch State");
+                StartCoroutine(ComboPunchAttack1());
+                break;
+
+            case PlayerState.BasicKick:
+                Debug.Log("In Kick State");
+                StartCoroutine(BasicKickAttack());
+                break;
+        }
 
         animator.SetBool("isWalkingUp", false);
         animator.SetBool("isWalkingLeft", false);
