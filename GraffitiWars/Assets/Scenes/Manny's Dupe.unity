@@ -1107,6 +1107,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 52.474632
@@ -1427,25 +1431,16 @@ PrefabInstance:
       addedObject: {fileID: 1629845346}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1629845345}
+      addedObject: {fileID: 1629845341}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1629845344}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1629845342}
+      addedObject: {fileID: 1629845340}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1629845348}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1629845349}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1629845341}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1629845340}
   m_SourcePrefab: {fileID: 100100000, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
 --- !u!1 &374393823
 GameObject:
@@ -3682,45 +3677,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1629845342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629845339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b53a791d3896c46bfa02bfa60d0d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1629845344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629845339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59ac4a216710344ab7766460c835357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1629845345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629845339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2dedcc139d56324080ecc9e61d901b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  jumpPower: 100
-  OnGround: 1
 --- !u!95 &1629845346
 Animator:
   serializedVersion: 7
@@ -3757,9 +3713,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629845339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89470b8c4541f3b4f9454fa290c29fba, type: 3}
+  m_Script: {fileID: 11500000, guid: 2781d5479c77f534d902e31ad49c7599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  jumpPower: 5
+  currentlyAttacking: 0
+  isJumping: 0
+  isBlocking: 0
+  AttackBox1: {fileID: 1241036582}
+  HP: {fileID: 1629845349}
+  animator: {fileID: 1629845346}
+  currentState: 0
 --- !u!114 &1629845349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3769,10 +3734,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629845339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5be2fe8353cdde4c8e73d68633eb048, type: 3}
+  m_Script: {fileID: 11500000, guid: adba9fbd4c34cb54cb04dcdd3b798610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackBox: {fileID: 1241036582}
+  maxHealth: 100
+  currentHealth: 0
+  damage: 25
 --- !u!1 &1744839338
 GameObject:
   m_ObjectHideFlags: 0

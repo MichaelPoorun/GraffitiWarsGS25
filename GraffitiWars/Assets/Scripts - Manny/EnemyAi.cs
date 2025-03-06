@@ -20,16 +20,48 @@ public class EnemyAi : MonoBehaviour
 
     public HealthSystem HP;
 
-    
-    void Start()
+    void Awake()
     {
-        player = W_PlayerStateManager.Main.transform;
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
+        else
+        {
+            Debug.LogError("Player not found! Ensure the player GameObject has the 'Player' tag.");
+        }
+
+        /*if (HP == null)
+        {
+            Debug.LogError("HealthSystem component not found on the player object!");
+        }*/
+    }
+
+    /*void Start()
+    {
+        if (player == null)
+        {
+            GameObject playerObject = GameObject.FindWithTag("Player");
+            if (playerObject != null)
+            {
+                player = playerObject.transform;
+            }
+            else
+            {
+                Debug.LogError("Player not found! Ensure the player GameObject has the 'Player' tag.");
+            }
+        }
+        //player = W_PlayerStateManager.Main.transform;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         animator.Play("Idle");
-    }
+    }*/
 
-    void Update()
+     void Update()
     {
         if (player == null)
         {
@@ -41,6 +73,8 @@ public class EnemyAi : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (player == null) return;
+
         float distance = Vector3.Distance(transform.position, player.position);
 
         if (distance > attackRange)
@@ -48,25 +82,27 @@ public class EnemyAi : MonoBehaviour
             animator.Play("ForwardWalk");
             MoveTowardsPlayer();
         }
-        else
+        else if (!isAttacking)
         {
-            if (!isAttacking)
-            {
-                AttackPlayer();
-            }
+            AttackPlayer();
         }
     }
 
     void MoveTowardsPlayer()
     {
+        if (player == null) return;
+
         Vector3 direction = (player.position - transform.position).normalized;
         rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+
 
         //Debug.Log("Enemy is moving towards the player");
     }
 
     void AttackPlayer()
     {
+        if (player == null) return;
+
         animator.Play("Punch");
         AttackBox.SetActive(true);
         isAttacking = true;
@@ -86,10 +122,14 @@ public class EnemyAi : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Hit_Enemy")
+        if (other.gameObject.CompareTag("Hit_Enemy"))
         {
             Debug.Log("Enemy Took 25 Damage");
-            HP.TakeDamage(damage);
+            if (HP != null)
+            {
+                HP.TakeDamage(damage);
+            }
+            
         }
     }
 }
