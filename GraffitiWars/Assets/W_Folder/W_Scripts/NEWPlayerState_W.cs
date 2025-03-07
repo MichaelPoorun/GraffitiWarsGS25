@@ -296,7 +296,7 @@ public class NEWPlayerState_W : MonoBehaviour
 
         ComboPunch1.SetActive(true);
 
-        yield return null;
+        //yield return null;
 
         while (timer > 0)
         {
