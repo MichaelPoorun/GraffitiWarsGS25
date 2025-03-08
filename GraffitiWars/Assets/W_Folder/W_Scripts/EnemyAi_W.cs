@@ -1,7 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyAi_W : MonoBehaviour
 {
+    Renderer ren;
+    public GameObject joint;
+    public Color originalcolor;
+
 
     public GameObject AttackBox;
     public Transform player; // Reference to the player
@@ -22,6 +27,8 @@ public class EnemyAi_W : MonoBehaviour
 
     void Start()
     {
+        ren = joint.GetComponent<Renderer>();
+    
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         animator.Play("Idle");
@@ -36,6 +43,12 @@ public class EnemyAi_W : MonoBehaviour
             {
                 player = playerObject.transform;
             }
+            else
+            {
+                Debug.LogWarning("Player not assigned in EnemyAI script.");
+            }
+
+            return;
         }
 
     }
@@ -71,7 +84,6 @@ public class EnemyAi_W : MonoBehaviour
         animator.Play("Punch");
         AttackBox.SetActive(true);
         isAttacking = true;
-        Debug.Log("Enemy is attacking the player");
 
         // Simulate attack duration
         Invoke("ResetAttack", attackCooldown);
@@ -91,6 +103,14 @@ public class EnemyAi_W : MonoBehaviour
         {
             Debug.Log("Enemy Took 25 Damage");
             HP.TakeDamage(damage);
+            StartCoroutine(ChangeColor());
         }
+    }
+
+    IEnumerator ChangeColor()
+    {
+        ren.material.color = Color.black;
+        yield return new WaitForSeconds(.4f);
+        ren.material.color = originalcolor;
     }
 }

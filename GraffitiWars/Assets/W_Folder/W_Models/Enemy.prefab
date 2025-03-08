@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8209816074726195227}
   m_Layer: 0
   m_Name: Hitmarker
-  m_TagString: Hit_Player
+  m_TagString: NormalEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -830,7 +830,7 @@ MonoBehaviour:
   attackRange: 2
   attackCooldown: 2
   damage: 25
-  HP: {fileID: 0}
+  HP: {fileID: 7914541792101893086}
 --- !u!54 &3536174860079785844
 Rigidbody:
   m_ObjectHideFlags: 0

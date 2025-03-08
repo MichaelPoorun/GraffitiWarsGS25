@@ -7,6 +7,9 @@ TagManager:
   - Floor
   - Hit_Enemy
   - Hit_Player
+  - NormalEnemy
+  - TankEnemy
+  - MouseEnemy
   layers:
   - Default
   - TransparentFX

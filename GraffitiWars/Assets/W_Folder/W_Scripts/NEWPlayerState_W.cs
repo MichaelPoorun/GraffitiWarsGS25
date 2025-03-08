@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerState //Where all player states are kept
 {
@@ -23,6 +24,7 @@ public class NEWPlayerState_W : MonoBehaviour
     public float speed; //Player Speed
     public float jumpForce;
     public float gravityScale;
+    public int damage;
     private Rigidbody rb;
 
     [Header("Player Bools")]
@@ -68,6 +70,17 @@ public class NEWPlayerState_W : MonoBehaviour
     void Update()
     {
         HandleState();
+
+        if (currentState == PlayerState.Walking)
+        {
+            PlayerMovement();
+        }
+
+        if (HP.currentHealth <= 25f)
+        {
+            SceneManager.LoadScene(3);
+        }
+        
     }
 
     //======================================================================//
@@ -78,7 +91,6 @@ public class NEWPlayerState_W : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.Idle:
-                Debug.Log("In Idle State");
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
                     ChangeState(PlayerState.Walking);
@@ -102,7 +114,6 @@ public class NEWPlayerState_W : MonoBehaviour
                 break;
 
             case PlayerState.Walking:
-                PlayerMovement();
                 if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
                 {
                     ChangeState(PlayerState.Idle);
@@ -143,32 +154,26 @@ public class NEWPlayerState_W : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.BasicPunch:
-                Debug.Log("In BasicPunch State");
                 StartCoroutine(BasicPunchAttack());
                 break;
 
             case PlayerState.ComboPunch1:
-                Debug.Log("In ComboPunch State");
                 StartCoroutine(ComboPunchAttack1());
                 break;
 
             case PlayerState.ComboKick1:
-                Debug.Log("In Kick State");
                 StartCoroutine(ComboKickAttack1());
                 break;
 
             case PlayerState.BasicKick:
-                Debug.Log("In Kick State");
                 StartCoroutine(BasicKickAttack());
                 break;
 
             case PlayerState.ComboKick2:
-                Debug.Log("In Kick State");
                 StartCoroutine(ComboKickAttack2());
                 break;
 
             case PlayerState.ComboPunch2:
-                Debug.Log("In Kick State");
                 StartCoroutine(ComboPunchAttack2());
                 break;
             
@@ -214,23 +219,23 @@ public class NEWPlayerState_W : MonoBehaviour
         }
         if (newState == PlayerState.ComboPunch1)
         {
-            animator.SetTrigger("isComboPunch1"); //Triggers the punch animation based on the trigger that was made in the animator
+            animator.SetTrigger("isComboPunch1"); 
         }
         if (newState == PlayerState.ComboKick1)
         {
-            animator.SetTrigger("isComboKick1"); //Triggers the punch animation based on the trigger that was made in the animator
+            animator.SetTrigger("isComboKick1"); 
         }
         if (newState == PlayerState.BasicKick)
         {
-            animator.SetTrigger("isBasicKick"); //Triggers the punch animation based on the trigger that was made in the animator
+            animator.SetTrigger("isBasicKick"); 
         }
         if (newState == PlayerState.ComboKick2)
         {
-            animator.SetTrigger("isComboKick2"); //Triggers the punch animation based on the trigger that was made in the animator
+            animator.SetTrigger("isComboKick2"); 
         }
         if (newState == PlayerState.ComboPunch2)
         {
-            animator.SetTrigger("isComboPunch2"); //Triggers the punch animation based on the trigger that was made in the animator
+            animator.SetTrigger("isComboPunch2"); 
         }
         if (newState == PlayerState.Jump)
         {
@@ -238,7 +243,7 @@ public class NEWPlayerState_W : MonoBehaviour
         }
         if (newState == PlayerState.JumpKick1)
         {
-            animator.SetTrigger("isJumpKick1"); //Triggers the jump animation based on the trigger that was made in the animator
+            animator.SetTrigger("isJumpKick1"); 
         }
     }
 
@@ -250,6 +255,7 @@ public class NEWPlayerState_W : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
         transform.Translate(new Vector3(x * speed, 0, z * speed) * Time.deltaTime);
+     
     }
 
     //======================================================================//
@@ -258,9 +264,7 @@ public class NEWPlayerState_W : MonoBehaviour
     //COMBO 1 & Start Of COMBO 3//
     IEnumerator BasicPunchAttack()
     {
-        Debug.Log("Player Has Punched");
-
-        float timer = .75f;
+        float timer = 1f;
 
         BasicPunch.SetActive(true);
 
@@ -292,11 +296,11 @@ public class NEWPlayerState_W : MonoBehaviour
     }
     IEnumerator ComboPunchAttack1()
     {
-        float timer = 1.15f;
+        float timer = 1f;
 
         ComboPunch1.SetActive(true);
 
-        //yield return null;
+        yield return null;
 
         while (timer > 0)
         {
@@ -323,8 +327,6 @@ public class NEWPlayerState_W : MonoBehaviour
     }
     IEnumerator ComboKickAttack1()
     {
-        Debug.Log("Player Has Kicked");
-
         ComboKick1.SetActive(true);
 
         yield return new WaitForSeconds(1f);
@@ -334,7 +336,7 @@ public class NEWPlayerState_W : MonoBehaviour
         ChangeState(PlayerState.Idle);
     }
     //COMBO 1 & Start Of COMBO 3//
-    //--------------------------//
+    //---------------------------//
     //COMBO 2 & Middle Of COMBO 3//
     IEnumerator BasicKickAttack()
     {
@@ -404,7 +406,7 @@ public class NEWPlayerState_W : MonoBehaviour
     }
     //COMBO 2 & Middle Of COMBO 3//
     //---------------------------//
-    //COMBO 3//
+    //          COMBO 3          //
 
 
     //======================================================================//
@@ -415,7 +417,7 @@ public class NEWPlayerState_W : MonoBehaviour
         yield return new WaitForSeconds(.48f);
         if (!isJumping)
         {
-            float timer = .6f;
+            float timer = 1f;
             isJumping = true;
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, Mathf.Sqrt(jumpForce * -2 * Physics.gravity.y * gravityScale), rb.linearVelocity.z);
 
@@ -466,15 +468,28 @@ public class NEWPlayerState_W : MonoBehaviour
     //======================================================================//
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Hit_Player") && isBlocking == false)
+        if (other.gameObject.CompareTag("NormalEnemy") && isBlocking == false)
         {
-            Debug.Log("Player Took 25 Damage");
-            HP.TakeDamage(HP.damage);
+            Debug.Log("Player Took 20 Damage");
+            damage = 20;
+            HP.TakeDamage(damage);
+        }
+        else if (other.gameObject.CompareTag("TankEnemy") && isBlocking == false)
+        {
+            Debug.Log("Player Took 10 Damage");
+            damage = 10;
+            HP.TakeDamage(damage);
+        }
+        else if (other.gameObject.CompareTag("MouseEnemy") && isBlocking == false)
+        {
+            Debug.Log("Player Took 5 Damage");
+            damage = 5;
+            HP.TakeDamage(damage);
         }
         else if (isBlocking == true)
         {
             Debug.Log("Player Blocked Incoming Damage");
-            HP.damage = 0;
+            damage = 0;
         }
     }
 

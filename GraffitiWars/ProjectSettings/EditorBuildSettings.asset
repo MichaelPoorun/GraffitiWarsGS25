@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/W_Folder/W_Scenes/W_TestScene.unity
+    path: Assets/W_Folder/W_Scenes/Start_W.unity
+    guid: 86aa4245a231104498e536e5ea6528ab
+  - enabled: 1
+    path: Assets/W_Folder/W_Scenes/W_Blockout.unity
+    guid: a0969065833d1a1438ea9c0a148b8436
+  - enabled: 1
+    path: Assets/W_Folder/W_Scenes/End_W.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/W_Folder/W_Scenes/Death_W.unity
+    guid: 64bd439c84d107446acbce3232574dcf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
