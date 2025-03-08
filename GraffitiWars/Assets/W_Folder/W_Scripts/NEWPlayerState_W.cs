@@ -252,8 +252,8 @@ public class NEWPlayerState_W : MonoBehaviour
     //======================================================================//
     public void PlayerMovement()
     {
-        float z = Input.GetAxis("Vertical");
-        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
         transform.Translate(new Vector3(x * speed, 0, z * speed) * Time.deltaTime);
      
     }
