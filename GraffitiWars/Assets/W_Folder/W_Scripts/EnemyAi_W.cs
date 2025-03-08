@@ -1,7 +1,6 @@
 using UnityEngine;
 
-
-public class EnemyAi : MonoBehaviour
+public class EnemyAi_W : MonoBehaviour
 {
 
     public GameObject AttackBox;
@@ -9,7 +8,7 @@ public class EnemyAi : MonoBehaviour
     public float moveSpeed = 5f; // Speed at which the enemy moves
     public float attackRange = 1.5f; // Distance at which the enemy attacks
     public float attackCooldown = 1.5f; // Time between attacks
-    
+
 
     public int damage = 25;
 
@@ -20,10 +19,9 @@ public class EnemyAi : MonoBehaviour
 
     public HealthSystem HP;
 
-    
+
     void Start()
     {
-        
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         animator.Play("Idle");
@@ -33,8 +31,11 @@ public class EnemyAi : MonoBehaviour
     {
         if (player == null)
         {
-            Debug.LogWarning("Player not assigned in EnemyAI script.");
-            return;
+            GameObject playerObject = GameObject.FindWithTag("Player");
+            if (playerObject != null)
+            {
+                player = playerObject.transform;
+            }
         }
 
     }
