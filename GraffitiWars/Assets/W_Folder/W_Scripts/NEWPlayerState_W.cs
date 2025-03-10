@@ -264,7 +264,7 @@ public class NEWPlayerState_W : MonoBehaviour
     //COMBO 1 & Start Of COMBO 3//
     IEnumerator BasicPunchAttack()
     {
-        float timer = 1f;
+        float timer = .5f;
 
         BasicPunch.SetActive(true);
 
@@ -296,7 +296,7 @@ public class NEWPlayerState_W : MonoBehaviour
     }
     IEnumerator ComboPunchAttack1()
     {
-        float timer = 1f;
+        float timer = .6f;
 
         ComboPunch1.SetActive(true);
 
