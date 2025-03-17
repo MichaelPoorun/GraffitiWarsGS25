@@ -32679,11 +32679,11 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
-    functionName: Jumping2
+    functionName: ChangeState
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 17
     messageOptions: 0
   - time: 0.93333334
     functionName: BackToIdle

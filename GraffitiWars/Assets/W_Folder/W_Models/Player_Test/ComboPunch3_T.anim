@@ -31282,11 +31282,11 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.7333333
-    functionName: ComboPunchAttack3
+    functionName: ChangeState
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 15
     messageOptions: 0
   - time: 2.1666667
     functionName: BackToIdle
