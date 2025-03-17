@@ -17,7 +17,7 @@ public enum PlayerState //Where all player states are kept
     ComboPunch3,//Combo 3
     Jump2Combo3,//Combo 3
     JumpKick2,//Combo 3
-    Jump,
+    Jump1,
     JumpKick1,
     Blocking
 }
@@ -107,7 +107,7 @@ public class NEWPlayerState_W : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
                 {
-                    ChangeState(PlayerState.Jump);
+                    ChangeState(PlayerState.Jump1);
                 }
                 if (Input.GetMouseButtonDown(0) && combo1 == false && combo2 == false && combo3 == false)
                 {
@@ -130,7 +130,7 @@ public class NEWPlayerState_W : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
                 {
-                    ChangeState(PlayerState.Jump);
+                    ChangeState(PlayerState.Jump1);
                 }
                 if (Input.GetMouseButtonDown(0) && combo1 == false && combo2 == false && combo3 == false)
                 {
@@ -202,8 +202,8 @@ public class NEWPlayerState_W : MonoBehaviour
                 animator.SetBool("isJumpKick2", true);
                 break;
 
-            case PlayerState.Jump:
-                StartCoroutine(Jumping());
+            case PlayerState.Jump1:
+                animator.SetBool("isJump1", true);
                 break;
 
             case PlayerState.JumpKick1:
@@ -250,7 +250,7 @@ public class NEWPlayerState_W : MonoBehaviour
     }
 
     //======================================================================//
-    //                           Player Attacks                             //   
+    //                           Player Combos                              //   
     //======================================================================//
     void BackToIdle()
     {
@@ -265,6 +265,7 @@ public class NEWPlayerState_W : MonoBehaviour
         animator.SetBool("isJump2Combo3", false);
         animator.SetBool("isJumpKick2", false);
         animator.SetBool("isJumpKick1", false);
+        animator.SetBool("isJump1", false);
 
         combo1 = false;
         combo2 = false;
@@ -272,31 +273,25 @@ public class NEWPlayerState_W : MonoBehaviour
 
         ChangeState(PlayerState.Idle);
     }
+
     //COMBO 1 & Start Of COMBO 3//
     void BasicPunchBoxOn()
     {
         BasicPunch.SetActive(true);
     }
-    IEnumerator BasicPunchAttack()
+    void BasicPunchAttack()
     {
-        float timer = .50f;
-
-        while (timer > .25f)
-        {
             if (Input.GetMouseButtonDown(0))
             {
                 animator.SetBool("isBasicPunch", false);
                 combo1 = true;
                 ChangeState(PlayerState.ComboPunch1);
-                yield break;
             }
             else if (Input.GetKey(KeyCode.E))
             {
                 combo3 = true;
                 ChangeState(PlayerState.ComboKick3);
-                yield break;
             }
-        }
     }
     void BasicPunchBoxOff()
     {
@@ -306,12 +301,11 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         ComboPunch1.SetActive(true);
     }
-    IEnumerator ComboPunchAttack1()
+    void ComboPunchAttack1()
     {
             if (Input.GetKeyDown(KeyCode.E) && combo1 == true)
             {
                 ChangeState(PlayerState.ComboKick1);
-                yield break;
             }
     }
     void ComboPunch1BoxOff()
@@ -329,153 +323,100 @@ public class NEWPlayerState_W : MonoBehaviour
     //COMBO 1 & Start Of COMBO 3//
     //---------------------------//
     //          COMBO 2          //
-    IEnumerator BasicKickAttack()
+    void BasicKickBoxOn()
     {
-        float timer = .50f;
-        yield return new WaitForSeconds(.70f);
-
         BasicKick.SetActive(true);
-        combo2 = true;
-
-        yield return null;
-
-        while (timer > 0)
-        {
-            timer -= Time.deltaTime;
+    }
+    void BasicKickAttack()
+    {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 combo2 = true;
-                BasicKick.SetActive(false);
                 ChangeState(PlayerState.ComboKick2);
-                yield break;
             }
-
-            yield return null;
-        }
-        BasicKick.SetActive(false);
-        combo2 = false;
-        ChangeState(PlayerState.Idle);
     }
-    IEnumerator ComboKickAttack2()
+    void BasicKickBoxOff()
     {
-        float timer = .50f;
-        yield return new WaitForSeconds(.42f);
-
+        BasicKick.SetActive(false);
+    }
+    void ComboKick2BoxOn()
+    {
         ComboKick2.SetActive(true);
-        combo2 = true;
-
-        yield return null;
-
-        while (timer > 0)
-        {
-            timer -= Time.deltaTime;
+    }
+    void ComboKickAttack2()
+    {
             if (Input.GetMouseButtonDown(0) && combo2 == true)
             {
-                ComboKick2.SetActive(false);
                 ChangeState(PlayerState.ComboPunch2);
-                yield break;
             }
-            yield return null;
-        }
-        ComboKick2.SetActive(false);
-        combo2 = false;
-        ChangeState(PlayerState.Idle);
     }
-    IEnumerator ComboPunchAttack2()
+    void ComboKick2BoxOff()
     {
-        yield return new WaitForSeconds(.28f);
-
+        ComboKick2.SetActive(false);
+    }
+    void ComboPunch2BoxOn()
+    {
         ComboPunch2.SetActive(true);
-        combo2 = true;
-
-        yield return new WaitForSeconds(.48f);
-
+    }
+    void ComboPunch2BoxOff()
+    {
         ComboPunch2.SetActive(false);
-        combo2 = false;
-        ChangeState(PlayerState.Idle);
     }
     //          COMBO 2          //
     //---------------------------//
     //          COMBO 3          //
-    IEnumerator ComboKickAttack3()
+    void ComboKick3BoxOn()
     {
-        float timer = .50f;
-        yield return new WaitForSeconds(.93f);
-
         ComboKick3.SetActive(true);
-
-        yield return null;
-
-        while (timer > 0)
-        {
-            timer -= Time.deltaTime;
+    }
+    void ComboKickAttack3()
+    {
             if (Input.GetMouseButtonDown(0) && combo3 == true)
             {
-                ComboKick3.SetActive(false);
                 ChangeState(PlayerState.ComboPunch3);
-                yield break;
             }
-            yield return null;
-        }
-        ComboKick3.SetActive(false);
-        combo3 = false;
-        ChangeState(PlayerState.Idle);
     }
-    IEnumerator ComboPunchAttack3()
+    void ComboKick3BoxOff()
     {
-        float timer = .50f;
-        yield return new WaitForSeconds(1.02f);
-
+        ComboKick3.SetActive(false);
+    }
+    void ComboPunch3BoxOn()
+    {
         ComboPunch3.SetActive(true);
-
-        yield return null;
-
-        while (timer > 0)
-        {
-            timer -= Time.deltaTime;
+    }
+    void ComboPunchAttack3()
+    {
             if (Input.GetKeyDown(KeyCode.Space) && combo3 == true)
             {
-                ComboPunch3.SetActive(false);
                 ChangeState(PlayerState.Jump2Combo3);
-                yield break;
             }
-            yield return null;
-        }
-        ComboPunch3.SetActive(false);
-        combo3 = false;
-        ChangeState(PlayerState.Idle);
     }
-    IEnumerator Jumping2Combo3()
+    void ComboPunch3BoxOff()
     {
-        yield return new WaitForSeconds(.25f);
+        ComboPunch3.SetActive(false);
+    }
+    void Jumping2Combo3()
+    {
         if (!isJumping)
         {
-            float timer = .35f;
             isJumping = true;
+
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, Mathf.Sqrt(jumpForce * -2 * Physics.gravity.y * gravityScale), rb.linearVelocity.z);
-
-            yield return null;
-
-            while (timer > 0)
-            {
-                timer -= Time.deltaTime;
-                if (Input.GetKeyDown(KeyCode.E) && combo3 == true)
-                {
-                    ChangeState(PlayerState.JumpKick2);
-                    yield break;
-                }
-                yield return null;
-            }
         }
     }
-    IEnumerator JumpKickAttack2()
+    void Jumping2()
     {
-        yield return new WaitForSeconds(.82f);
-
+        if (Input.GetKeyDown(KeyCode.E) && combo3 == true)
+        {
+            ChangeState(PlayerState.JumpKick2);
+        }
+    }
+    void JumpKick2BoxOn()
+    {
         JumpKick2.SetActive(true);
-
-        yield return new WaitForSeconds(.10f);
-
+    }
+    void JumpKick2BoxOff()
+    {
         JumpKick2.SetActive(false);
     }
 
@@ -483,37 +424,28 @@ public class NEWPlayerState_W : MonoBehaviour
     //======================================================================//
     //                             Player Jump                              //   
     //======================================================================//
-    IEnumerator Jumping()
+    void Jumping()
     {
-        yield return new WaitForSeconds(.72f);
         if (!isJumping)
         {
-            float timer = .98f;
             isJumping = true;
+
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, Mathf.Sqrt(jumpForce * -2 * Physics.gravity.y * gravityScale), rb.linearVelocity.z);
-
-            yield return null;
-
-            while (timer > 0)
-            {
-                timer -= Time.deltaTime;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    ChangeState(PlayerState.JumpKick1);
-                    yield break;
-                }
-                yield return null;
-            }
         }
     }
-    IEnumerator JumpKickAttack1()
+    void Jumping1()
     {
-        yield return new WaitForSeconds(.12f);
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ChangeState(PlayerState.JumpKick1);
+        }
+    }
+    void JumpKick1BoxOn()
+    {
         JumpKick1.SetActive(true);
-
-        yield return new WaitForSeconds(.10f);
-
+    }
+    void JumpKick1BoxOff()
+    {
         JumpKick1.SetActive(false);
     }
     void OnCollisionEnter(Collision other)
