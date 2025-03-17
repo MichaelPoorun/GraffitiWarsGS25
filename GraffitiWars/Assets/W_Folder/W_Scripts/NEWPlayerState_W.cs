@@ -281,6 +281,11 @@ public class NEWPlayerState_W : MonoBehaviour
     }
     void BasicPunchAttack()
     {
+        float timer = .24f;
+
+        while (timer > .24f)
+        {
+            timer -= Time.deltaTime;
             if (Input.GetMouseButtonDown(0))
             {
                 animator.SetBool("isBasicPunch", false);
@@ -292,6 +297,7 @@ public class NEWPlayerState_W : MonoBehaviour
                 combo3 = true;
                 ChangeState(PlayerState.ComboKick3);
             }
+        }
     }
     void BasicPunchBoxOff()
     {
