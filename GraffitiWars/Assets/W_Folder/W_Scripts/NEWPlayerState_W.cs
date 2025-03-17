@@ -117,11 +117,11 @@ public class NEWPlayerState_W : MonoBehaviour
                 {
                     ChangeState(PlayerState.Jump1);
                 }
-                if (Input.GetMouseButtonDown(0) && combo1 == false && combo2 == false && combo3 == false)
+                if (Input.GetMouseButtonDown(0) /*&& combo1 == false && combo2 == false && combo3 == false*/)
                 {
                     ChangeState(PlayerState.BasicPunch);
                 }
-                if (Input.GetKeyDown(KeyCode.E) && combo2 == false && combo1 == false && combo3 == false)
+                if (Input.GetKeyDown(KeyCode.E) /*&& combo1 == false && combo2 == false && combo3 == false*/)
                 {
                     ChangeState(PlayerState.BasicKick);
                 }
@@ -140,11 +140,11 @@ public class NEWPlayerState_W : MonoBehaviour
                 {
                     ChangeState(PlayerState.Jump1);
                 }
-                if (Input.GetMouseButtonDown(0) && combo1 == false && combo2 == false && combo3 == false)
+                if (Input.GetMouseButtonDown(0) /*&& combo1 == false && combo2 == false && combo3 == false*/)
                 {
                     ChangeState(PlayerState.BasicPunch);
                 }
-                if (Input.GetKeyDown(KeyCode.E) && combo2 == false && combo1 == false && combo3 == false)
+                if (Input.GetKeyDown(KeyCode.E) /*&& combo2 == false && combo1 == false && combo3 == false*/)
                 {
                     ChangeState(PlayerState.BasicKick);
                 }
@@ -168,7 +168,6 @@ public class NEWPlayerState_W : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     animator.SetBool("isBasicPunch", false);
-                    combo1 = true;
                     ChangeState(PlayerState.ComboPunch1);
                 }
                 break;
@@ -176,7 +175,7 @@ public class NEWPlayerState_W : MonoBehaviour
 
             case PlayerState.ComboPunch1B:
             {
-               if (Input.GetKeyDown(KeyCode.E) && combo1 == true)
+               if (Input.GetKeyDown(KeyCode.E))
                {
                     animator.SetBool("isComboPunch1", false);
                     ChangeState(PlayerState.ComboKick1);
@@ -189,7 +188,6 @@ public class NEWPlayerState_W : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     animator.SetBool("isBasicKick", false);
-                    combo2 = true;
                     ChangeState(PlayerState.ComboKick2);
                 }
                 break;
@@ -197,7 +195,7 @@ public class NEWPlayerState_W : MonoBehaviour
 
             case PlayerState.ComboKick2B:
             {
-                if (Input.GetMouseButtonDown(0) && combo2 == true)
+                if (Input.GetMouseButtonDown(0))
                 {
                     animator.SetBool("isComboKick2", false);
                     ChangeState(PlayerState.ComboPunch2);
@@ -207,7 +205,7 @@ public class NEWPlayerState_W : MonoBehaviour
             
             case PlayerState.ComboKick3B:
             {
-                if (Input.GetMouseButtonDown(0) && combo3 == true)
+                if (Input.GetMouseButtonDown(0))
                 {
                     animator.SetBool("isComboKick3", false);
                     ChangeState(PlayerState.ComboPunch3);
@@ -217,7 +215,7 @@ public class NEWPlayerState_W : MonoBehaviour
 
             case PlayerState.ComboPunch3B:
             {
-                if (Input.GetKeyDown(KeyCode.Space) && combo3 == true)
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     animator.SetBool("isComboPunch3", false);
                     ChangeState(PlayerState.Jump2Combo3);
@@ -227,7 +225,7 @@ public class NEWPlayerState_W : MonoBehaviour
 
             case PlayerState.Jump2Combo3B:
             {
-                if (Input.GetKeyDown(KeyCode.E) && combo3 == true)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     animator.SetBool("isJump2Combo3", false);
                     ChangeState(PlayerState.JumpKick2);
@@ -325,26 +323,6 @@ public class NEWPlayerState_W : MonoBehaviour
                 animator.SetBool("isWalkingLeft", true);
             }
         }
-
-        if (newState == PlayerState.Idle)
-        {
-            animator.SetBool("isBasicPunch", false);
-            animator.SetBool("isComboPunch1", false);
-            animator.SetBool("isComboKick1", false);
-            animator.SetBool("isBasicKick", false);
-            animator.SetBool("isComboKick2", false);
-            animator.SetBool("isComboPunch2", false);
-            animator.SetBool("isComboKick3", false);
-            animator.SetBool("isComboPunch3", false);
-            animator.SetBool("isJump2Combo3", false);
-            animator.SetBool("isJumpKick2", false);
-            animator.SetBool("isJumpKick1", false);
-            animator.SetBool("isJump1", false);
-
-            combo1 = false;
-            combo2 = false;
-            combo3 = false;
-        }
        
         animator.SetBool("isBlocking", newState == PlayerState.Blocking); //Set isBlocking to true in the animator
     }
@@ -376,10 +354,6 @@ public class NEWPlayerState_W : MonoBehaviour
         animator.SetBool("isJumpKick2", false);
         animator.SetBool("isJumpKick1", false);
         animator.SetBool("isJump1", false);
-
-        combo1 = false;
-        combo2 = false;
-        combo3 = false;
 
         ChangeState(PlayerState.Idle);
     }
