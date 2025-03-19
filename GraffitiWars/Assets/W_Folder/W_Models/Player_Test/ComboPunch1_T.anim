@@ -19770,8 +19770,8 @@ AnimationClip:
     messageOptions: 0
   - time: 1
     functionName: BackToIdle
-    data: 
+    data: Combo Punch T
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 5
     messageOptions: 0

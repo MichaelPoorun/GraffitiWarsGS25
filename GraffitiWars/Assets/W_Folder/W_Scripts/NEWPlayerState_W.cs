@@ -170,6 +170,11 @@ public class NEWPlayerState_W : MonoBehaviour
                     animator.SetBool("isBasicPunch", false);
                     ChangeState(PlayerState.ComboPunch1);
                 }
+                else if (Input.GetKey(KeyCode.E))
+                {
+                    animator.SetBool("isBasicPunch", false);
+                    ChangeState(PlayerState.ComboKick3);
+                }
                 break;
             }
 
@@ -335,13 +340,19 @@ public class NEWPlayerState_W : MonoBehaviour
         float z = Input.GetAxisRaw("Vertical");
         float x = Input.GetAxisRaw("Horizontal");
         transform.Translate(new Vector3(x * speed, 0, z * speed) * Time.deltaTime);
+        
     }
 
     //======================================================================//
     //                           Player Combos                              //   
     //======================================================================//
-    void BackToIdle()
+    void BackToIdle(PlayerState s)
     {
+        if(currentState != s && s != PlayerState.Idle)
+        {
+            Debug.Log("CS: " + currentState + " / " + s);
+            return;
+        }
         animator.SetBool("isBasicPunch", false);
         animator.SetBool("isComboPunch1", false);
         animator.SetBool("isComboKick1", false);
@@ -354,8 +365,9 @@ public class NEWPlayerState_W : MonoBehaviour
         animator.SetBool("isJumpKick2", false);
         animator.SetBool("isJumpKick1", false);
         animator.SetBool("isJump1", false);
-
+        isJumping = false;
         ChangeState(PlayerState.Idle);
+        
     }
 
     //COMBO 1 & Start Of COMBO 3//
@@ -467,14 +479,6 @@ public class NEWPlayerState_W : MonoBehaviour
     void JumpKick1BoxOff()
     {
         JumpKick1.SetActive(false);
-    }
-    void OnCollisionEnter(Collision other)
-    {
-        if(other.gameObject.CompareTag("Floor"))
-        {
-            isJumping = false;
-            ChangeState(PlayerState.Idle);
-        }
     }
 
     //======================================================================//

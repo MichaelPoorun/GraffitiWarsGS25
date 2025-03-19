@@ -33551,8 +33551,8 @@ AnimationClip:
     messageOptions: 0
   - time: 1.6
     functionName: BackToIdle
-    data: 
+    data: Combo Kick 1T
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 6
     messageOptions: 0

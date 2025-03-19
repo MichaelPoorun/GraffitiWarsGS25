@@ -18546,8 +18546,8 @@ AnimationClip:
     messageOptions: 0
   - time: 1.0333333
     functionName: BackToIdle
-    data: 
+    data: Basic Punch T
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 3
     messageOptions: 0
