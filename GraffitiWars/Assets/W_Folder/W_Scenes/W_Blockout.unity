@@ -5089,7 +5089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5144cf9f22b1f394f8a2413425806190, type: 3}
       propertyPath: m_Name
-      value: Player@T-Pose
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5144cf9f22b1f394f8a2413425806190, type: 3}
       propertyPath: m_TagString
@@ -5267,6 +5267,8 @@ MonoBehaviour:
   combo3: 0
   isJumping: 0
   isBlocking: 0
+  ability1: 0
+  ability2: 0
   BasicPunch: {fileID: 433667122}
   ComboPunch1: {fileID: 2074784247}
   ComboKick1: {fileID: 1015337169}
@@ -5277,6 +5279,8 @@ MonoBehaviour:
   ComboPunch3: {fileID: 1767990929}
   JumpKick2: {fileID: 2113184800}
   JumpKick1: {fileID: 1303129144}
+  Spray: {fileID: 0}
+  Throw: {fileID: 0}
   HP: {fileID: 1267982084}
   animator: {fileID: 1267982082}
   currentState: 0

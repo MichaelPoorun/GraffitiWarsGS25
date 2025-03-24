@@ -27,7 +27,9 @@ public enum PlayerState //Where all player states are kept
     Jump1,
     Jump1B,
     JumpKick1,
-    Blocking
+    Blocking,
+    Spray,
+    Throw
 }
 
 public class NEWPlayerState_W : MonoBehaviour
@@ -45,6 +47,8 @@ public class NEWPlayerState_W : MonoBehaviour
     public bool combo3 = false;
     public bool isJumping = false;
     public bool isBlocking = false;
+    public bool ability1 = false;
+    public bool ability2 = false;
 
     [Header("Player Attack Hitboxes")]
     public GameObject BasicPunch;
@@ -57,6 +61,8 @@ public class NEWPlayerState_W : MonoBehaviour
     public GameObject ComboPunch3;
     public GameObject JumpKick2;
     public GameObject JumpKick1;
+    public GameObject Spray;
+    public GameObject Throw;
 
     [Header("References")]
     public HealthSystem HP;
@@ -80,6 +86,8 @@ public class NEWPlayerState_W : MonoBehaviour
         ComboPunch3.SetActive(false);
         JumpKick2.SetActive(false);
         JumpKick1.SetActive(false);
+        Spray.SetActive(false);
+        Throw.SetActive(false);
     }
     void Start()
     { 
@@ -129,6 +137,14 @@ public class NEWPlayerState_W : MonoBehaviour
                 {
                     ChangeState(PlayerState.Blocking);
                 }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+
+                }
+                if (Input.GetKeyDown(KeyCode.G))
+                {
+
+                }
                 break;
 
             case PlayerState.Walking:
@@ -151,6 +167,14 @@ public class NEWPlayerState_W : MonoBehaviour
                 if (Input.GetMouseButton(1))
                 {
                     ChangeState(PlayerState.Blocking);
+                }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    ChangeState(PlayerState.Spray);
+                }
+                if (Input.GetKeyDown(KeyCode.G))
+                {
+                    ChangeState(PlayerState.Throw);
                 }
                 break;
 
