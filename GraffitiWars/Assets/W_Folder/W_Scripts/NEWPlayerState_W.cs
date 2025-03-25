@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public enum PlayerState //Where all player states are kept
@@ -39,7 +40,10 @@ public class NEWPlayerState_W : MonoBehaviour
     public float jumpForce;
     public float gravityScale;
     public int damage;
+    public float sprayTimer;
+    public float sprayCooldown;
     private Rigidbody rb;
+    AbilitiesTimer_W TimerOn;
 
     [Header("Player Bools")]
     public bool combo1 = false;
@@ -49,6 +53,7 @@ public class NEWPlayerState_W : MonoBehaviour
     public bool isBlocking = false;
     public bool ability1 = false;
     public bool ability2 = false;
+    public bool canSpray = true;
 
     [Header("Player Attack Hitboxes")]
     public GameObject BasicPunch;
@@ -75,6 +80,9 @@ public class NEWPlayerState_W : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        TimerOn = GetComponent<AbilitiesTimer_W>();
+        TimerOn.enabled = false;
+        TimerOn.TimerTxt.enabled = false;
 
         BasicPunch.SetActive(false);
         ComboPunch1.SetActive(false);
@@ -92,6 +100,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void Start()
     { 
         animator = GetComponent<Animator>();
+        sprayTimer = sprayCooldown;
     }
     void Update()
     {
@@ -105,6 +114,19 @@ public class NEWPlayerState_W : MonoBehaviour
         if (HP.currentHealth <= 25f)
         {
             SceneManager.LoadScene(3);
+        }
+
+        if (!canSpray)
+        {
+            sprayTimer -= Time.deltaTime;
+            TimerOn.TimeLeft = sprayTimer;
+
+            if (sprayTimer <= 0)
+            {
+                canSpray = true;
+                TimerOn.enabled = false;
+                TimerOn.TimerTxt.enabled = false;
+            }
         }
         
     }
@@ -137,13 +159,19 @@ public class NEWPlayerState_W : MonoBehaviour
                 {
                     ChangeState(PlayerState.Blocking);
                 }
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.F) && canSpray)
                 {
+                    ChangeState(PlayerState.Spray);
+                    canSpray = false;
+                    sprayTimer = sprayCooldown;
+                    TimerOn.enabled = true;
+                    TimerOn.TimerTxt.enabled = true;
 
+                    
                 }
                 if (Input.GetKeyDown(KeyCode.G))
                 {
-
+                    ChangeState(PlayerState.Throw);
                 }
                 break;
 
@@ -168,9 +196,13 @@ public class NEWPlayerState_W : MonoBehaviour
                 {
                     ChangeState(PlayerState.Blocking);
                 }
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.F) && canSpray == true)
                 {
                     ChangeState(PlayerState.Spray);
+                    canSpray = false;
+                    sprayTimer = sprayCooldown;
+                    TimerOn.enabled = true;
+                    TimerOn.TimerTxt.enabled = true;
                 }
                 if (Input.GetKeyDown(KeyCode.G))
                 {
@@ -326,6 +358,13 @@ public class NEWPlayerState_W : MonoBehaviour
             case PlayerState.JumpKick1:
                 animator.SetBool("isJumpKick1", true);
                 break;
+
+            case PlayerState.Spray:
+            {
+                Debug.Log("Player CAN NOT spray");
+                animator.Play("Spray_T");
+                break;
+            }
         }
 
         animator.SetBool("isWalkingUp", false);
@@ -482,7 +521,33 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         JumpKick2.SetActive(false);
     }
-
+    //          COMBO 3          //
+    //---------------------------//
+    //          Ablilites        //
+    void SprayBoxOn()
+    {
+        Spray.SetActive(true);
+    }
+    public void updateTimer(float currentTime)
+    {
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+        TimerOn.TimerTxt.text = string.Format("{00}, seconds");
+    }
+    IEnumerator SprayCooldown()
+    {
+        while (sprayTimer > 0)
+        {
+            sprayTimer -= Time.deltaTime;
+            yield return null;
+        }
+        Debug.Log("Player can now spray");
+        canSpray = true;
+        TimerOn.sprayColor.color = Color.white;
+    }
+    void SprayBoxOff()
+    {
+        Spray.SetActive(false);
+    }
 
     //======================================================================//
     //                             Player Jump                              //   
