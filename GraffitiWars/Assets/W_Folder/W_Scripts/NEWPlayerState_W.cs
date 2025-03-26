@@ -414,11 +414,11 @@ public class NEWPlayerState_W : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                animator.SetBool("isWalkingUp", true);
+                animator.SetBool("isWalkingRight", true);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                animator.SetBool("isWalkingDown", true);
+                animator.SetBool("isWalkingRight", true);
             }
             else if (Input.GetKey(KeyCode.D))
             {
@@ -426,7 +426,7 @@ public class NEWPlayerState_W : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.A))
             {
-                animator.SetBool("isWalkingLeft", true);
+                animator.SetBool("isWalkingRight", true);
             }
         }
        
@@ -440,8 +440,16 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         float z = Input.GetAxisRaw("Vertical");
         float x = Input.GetAxisRaw("Horizontal");
-        transform.Translate(new Vector3(x * speed, 0, z * speed) * Time.deltaTime);
-        
+        /*transform.Translate(new Vector3(x * speed, 0, z * speed) * Time.deltaTime);*/
+
+        Vector3 moveDirection = new Vector3(-z, 0, x).normalized;
+
+        if (moveDirection.magnitude > 0)
+        {
+            transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
     }
 
     //======================================================================//

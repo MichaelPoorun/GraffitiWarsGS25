@@ -9,7 +9,7 @@ public class EnemyAi : MonoBehaviour
     public float moveSpeed = 5f; // Speed at which the enemy moves
     public float attackRange = 1.5f; // Distance at which the enemy attacks
     public float attackCooldown = 1.5f; // Time between attacks
-    
+
 
     public int damage = 25;
 
@@ -20,10 +20,10 @@ public class EnemyAi : MonoBehaviour
 
     public HealthSystem HP;
 
-    
+
     void Start()
     {
-        
+
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         animator.Play("Idle");
