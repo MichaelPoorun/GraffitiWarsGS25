@@ -37,7 +37,7 @@ public class EnemyBrain : MonoBehaviour
             }
             enemyReferences.anim.SetBool("punching", inRange);
         }
-        enemyReferences.anim.SetFloat("speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
+        enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
     }
 
     private void LookAtTarget()
