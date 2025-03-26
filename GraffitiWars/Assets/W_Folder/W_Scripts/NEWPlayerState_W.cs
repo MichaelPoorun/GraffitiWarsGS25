@@ -42,8 +42,16 @@ public class NEWPlayerState_W : MonoBehaviour
     public int damage;
     public float sprayTimer;
     public float sprayCooldown;
+    public float throwTimer;
+    public float throwCooldown;
     private Rigidbody rb;
-    AbilitiesTimer_W TimerOn;
+    AbilitiesTimer_W TimerOn1;
+    public GameObject objectToThrow;
+    public Transform cam;
+    public Transform attackPoint;
+    public float throwForce;
+    public float throwUpwardForce;
+    ThrowTimer_W TimerOn2;
 
     [Header("Player Bools")]
     public bool combo1 = false;
@@ -51,9 +59,8 @@ public class NEWPlayerState_W : MonoBehaviour
     public bool combo3 = false;
     public bool isJumping = false;
     public bool isBlocking = false;
-    public bool ability1 = false;
-    public bool ability2 = false;
     public bool canSpray = true;
+    public bool canThrow = true;
 
     [Header("Player Attack Hitboxes")]
     public GameObject BasicPunch;
@@ -80,9 +87,14 @@ public class NEWPlayerState_W : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        TimerOn = GetComponent<AbilitiesTimer_W>();
-        TimerOn.enabled = false;
-        TimerOn.TimerTxt.enabled = false;
+
+        TimerOn1 = GetComponent<AbilitiesTimer_W>();
+        TimerOn1.enabled = false;
+        TimerOn1.TimerTxt.enabled = false;
+
+        TimerOn2 = GetComponent<ThrowTimer_W>();
+        TimerOn2.enabled = false;
+        TimerOn2.throwTimerTxt.enabled = false;
 
         BasicPunch.SetActive(false);
         ComboPunch1.SetActive(false);
@@ -101,6 +113,7 @@ public class NEWPlayerState_W : MonoBehaviour
     { 
         animator = GetComponent<Animator>();
         sprayTimer = sprayCooldown;
+        throwTimer = throwCooldown;
     }
     void Update()
     {
@@ -119,16 +132,29 @@ public class NEWPlayerState_W : MonoBehaviour
         if (!canSpray)
         {
             sprayTimer -= Time.deltaTime;
-            TimerOn.TimeLeft = sprayTimer;
+            TimerOn1.TimeLeft = sprayTimer;
 
             if (sprayTimer <= 0)
             {
                 canSpray = true;
-                TimerOn.enabled = false;
-                TimerOn.TimerTxt.enabled = false;
+                TimerOn1.enabled = false;
+                TimerOn1.TimerTxt.enabled = false;
             }
         }
-        
+
+        if (!canThrow)
+        {
+            throwTimer -= Time.deltaTime;
+            TimerOn2.TimeLeft = throwTimer;
+
+            if (throwTimer <= 0)
+            {
+                canThrow = true;
+                TimerOn2.enabled = false;
+                TimerOn2.throwTimerTxt.enabled = false;
+            }
+        }
+
     }
 
     //======================================================================//
@@ -159,19 +185,22 @@ public class NEWPlayerState_W : MonoBehaviour
                 {
                     ChangeState(PlayerState.Blocking);
                 }
-                if (Input.GetKeyDown(KeyCode.F) && canSpray)
+                if (Input.GetKeyDown(KeyCode.Alpha1) && canSpray)
                 {
                     ChangeState(PlayerState.Spray);
                     canSpray = false;
                     sprayTimer = sprayCooldown;
-                    TimerOn.enabled = true;
-                    TimerOn.TimerTxt.enabled = true;
-
-                    
+                    TimerOn1.enabled = true;
+                    TimerOn1.TimerTxt.enabled = true;
                 }
-                if (Input.GetKeyDown(KeyCode.G))
+                if (Input.GetKeyDown(KeyCode.Alpha2) && canThrow)
                 {
                     ChangeState(PlayerState.Throw);
+                    canThrow = false;
+                    throwTimer = throwCooldown;
+                    TimerOn2.enabled = true;
+                    TimerOn2.throwTimerTxt.enabled = true;
+                    Debug.Log("Step1 - Going To State");
                 }
                 break;
 
@@ -196,17 +225,22 @@ public class NEWPlayerState_W : MonoBehaviour
                 {
                     ChangeState(PlayerState.Blocking);
                 }
-                if (Input.GetKeyDown(KeyCode.F) && canSpray == true)
+                if (Input.GetKeyDown(KeyCode.Alpha1) && canSpray)
                 {
                     ChangeState(PlayerState.Spray);
                     canSpray = false;
                     sprayTimer = sprayCooldown;
-                    TimerOn.enabled = true;
-                    TimerOn.TimerTxt.enabled = true;
+                    TimerOn1.enabled = true;
+                    TimerOn1.TimerTxt.enabled = true;
                 }
-                if (Input.GetKeyDown(KeyCode.G))
+                if (Input.GetKeyDown(KeyCode.Alpha2) && canThrow)
                 {
                     ChangeState(PlayerState.Throw);
+                    canThrow = false;
+                    throwTimer = throwCooldown;
+                    TimerOn2.enabled = true;
+                    TimerOn2.throwTimerTxt.enabled = true;
+                    Debug.Log("Step1 - Going To State");
                 }
                 break;
 
@@ -307,6 +341,8 @@ public class NEWPlayerState_W : MonoBehaviour
     }
     public void ChangeState(PlayerState newState)
     {
+        if (currentState == newState) return;
+
         currentState = newState;
 
         switch (currentState)
@@ -360,11 +396,13 @@ public class NEWPlayerState_W : MonoBehaviour
                 break;
 
             case PlayerState.Spray:
-            {
-                Debug.Log("Player CAN NOT spray");
                 animator.Play("Spray_T");
                 break;
-            }
+            
+            case PlayerState.Throw:
+                Debug.Log("Step2 - Animation Plays");
+                animator.Play("Throw_T");
+                break;
         }
 
         animator.SetBool("isWalkingUp", false);
@@ -430,7 +468,8 @@ public class NEWPlayerState_W : MonoBehaviour
         animator.SetBool("isJump1", false);
         isJumping = false;
         ChangeState(PlayerState.Idle);
-        
+        Debug.Log("Step4 - Back To Idle");
+
     }
 
     //COMBO 1 & Start Of COMBO 3//
@@ -524,14 +563,15 @@ public class NEWPlayerState_W : MonoBehaviour
     //          COMBO 3          //
     //---------------------------//
     //          Ablilites        //
-    void SprayBoxOn()
-    {
-        Spray.SetActive(true);
-    }
     public void updateTimer(float currentTime)
     {
         float seconds = Mathf.FloorToInt(currentTime % 60);
-        TimerOn.TimerTxt.text = string.Format("{00}, seconds");
+        TimerOn1.TimerTxt.text = string.Format("{00}, seconds");
+        TimerOn2.throwTimerTxt.text = string.Format("{00}, seconds");
+    }
+    void SprayBoxOn()
+    {
+        Spray.SetActive(true);
     }
     IEnumerator SprayCooldown()
     {
@@ -540,13 +580,38 @@ public class NEWPlayerState_W : MonoBehaviour
             sprayTimer -= Time.deltaTime;
             yield return null;
         }
-        Debug.Log("Player can now spray");
         canSpray = true;
-        TimerOn.sprayColor.color = Color.white;
+        TimerOn1.sprayColor.color = Color.white;
     }
     void SprayBoxOff()
     {
         Spray.SetActive(false);
+    }
+    void ThrowBoxOn()
+    {
+        Throw.SetActive(true);
+    }
+    void ThrowObj()
+    {
+        GameObject projecile = Instantiate(objectToThrow, attackPoint.position, cam.rotation);
+        Rigidbody projectileRB = projecile.GetComponent<Rigidbody>();
+        Vector3 forceToAdd = cam.transform.forward * throwForce + transform.up * throwUpwardForce;
+        projectileRB.AddForce(forceToAdd, ForceMode.Impulse);
+    }
+    IEnumerator ThrowCooldown()
+    {
+        Debug.Log("Step3 - Cooldown Started");
+        while (throwTimer > 0)
+        {
+            throwTimer -= Time.deltaTime;
+            yield return null;
+        }
+        canThrow = true;
+        TimerOn2.throwColor.color = Color.white;
+    }
+    void ThrowBoxOff()
+    {
+        Throw.SetActive(false);
     }
 
     //======================================================================//
