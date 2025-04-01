@@ -61,6 +61,7 @@ public class NEWPlayerState_W : MonoBehaviour
     public bool isBlocking = false;
     public bool canSpray = true;
     public bool canThrow = true;
+    public bool BossTime = false;
 
     [Header("Player Attack Hitboxes")]
     public GameObject BasicPunch;
@@ -108,6 +109,8 @@ public class NEWPlayerState_W : MonoBehaviour
         JumpKick1.SetActive(false);
         Spray.SetActive(false);
         Throw.SetActive(false);
+
+        BossTime = false;
     }
     void Start()
     { 
@@ -679,6 +682,10 @@ public class NEWPlayerState_W : MonoBehaviour
             Debug.Log("Player Blocked Incoming Damage");
             damage = 0;
         }
-    }
 
+        if (other.gameObject.CompareTag("Boss"))
+        {
+            BossTime = true;
+        }
+    }
 }

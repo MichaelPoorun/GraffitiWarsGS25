@@ -113,7 +113,7 @@ public class CameraLocks_W : MonoBehaviour
         }
         else if (e == "MainCamOn3")
         {
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
             Part3Cam.SetActive(false);
             WaveSpawn3.SetActive(false);
             WaveSpawn3_A.SetActive(false);

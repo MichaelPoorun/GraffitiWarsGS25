@@ -1170,9 +1170,6 @@ PrefabInstance:
       addedObject: {fileID: 2483248865613772627}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8008913220948419836}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3536174860079785844}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       insertIndex: -1
@@ -1222,25 +1219,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8008913220948419836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4519252718060181767}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd576901678fd544b4647804c621034, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackBox: {fileID: 6905659655171406547}
-  player: {fileID: -8679921383154817045, guid: 5144cf9f22b1f394f8a2413425806190, type: 3}
-  moveSpeed: 3
-  attackRange: 2
-  attackCooldown: 2
-  damage: 25
-  HP: {fileID: 7914541792101893086}
 --- !u!54 &3536174860079785844
 Rigidbody:
   m_ObjectHideFlags: 0
