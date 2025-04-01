@@ -8,15 +8,19 @@ public class WaveSpawner : MonoBehaviour
     public int currWave;
     public int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
+    public List<GameObject> activeEnemies = new List<GameObject>(); // tracks active enemies
 
-    public Transform spawnLocation;
+    public List<Transform> spawnLocations;
     public int waveDuration;
     private float waveTimer;
     private float spawnInterval;
     private float spawnTimer;
+    private WaveManager waveManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        waveManager = FindAnyObjectByType<WaveManager>();
         GenerateWave();
     }
 
@@ -27,8 +31,10 @@ public class WaveSpawner : MonoBehaviour
         {
             if(enemiesToSpawn.Count > 0)
             {
-                Instantiate(enemiesToSpawn[0], spawnLocation.position, Quaternion.identity);//spawns the first enemy within the list
+                Transform randomSpawnPoint = spawnLocations[Random.Range(0, spawnLocations.Count)];
+                GameObject newEnemy = Instantiate(enemiesToSpawn[0], randomSpawnPoint.position, Quaternion.identity);//spawns the first enemy within the list
                 enemiesToSpawn.RemoveAt(0); //removes the enemy from the list
+                activeEnemies.Add(newEnemy);
                 spawnTimer = spawnInterval;
             }
             else
@@ -41,6 +47,8 @@ public class WaveSpawner : MonoBehaviour
             spawnTimer -= Time.fixedDeltaTime;
             waveTimer -= Time.fixedDeltaTime;
         }
+
+        CheckWaveCompletion();// checks if the wave is completed
     }
 
     public void GenerateWave()
@@ -65,7 +73,7 @@ public class WaveSpawner : MonoBehaviour
                 generatedEnemies.Add(enemies[randEnemyID].enemyPrefab);
                 waveValue -= randEnemyCost;
             }
-            else if (waveValue <= 0)
+            else
             {
                 break;
             }
@@ -73,6 +81,16 @@ public class WaveSpawner : MonoBehaviour
 
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
+    }
+
+    private void CheckWaveCompletion()
+    {
+        activeEnemies.RemoveAll(enemy => enemy == null);
+
+        if (activeEnemies.Count == 0 & enemiesToSpawn.Count == 0)
+        {
+            waveManager.OnWaveCompleted();
+        }
     }
 }
 

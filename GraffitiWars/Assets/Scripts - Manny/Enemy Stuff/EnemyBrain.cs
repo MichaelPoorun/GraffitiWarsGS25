@@ -30,12 +30,14 @@ public class EnemyBrain : MonoBehaviour
             if (inRange)
             {
                 LookAtTarget();
+
             }
             else
             {
                 UpdatePath();
             }
             enemyReferences.anim.SetBool("punching", inRange);
+            
         }
         enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
     }
