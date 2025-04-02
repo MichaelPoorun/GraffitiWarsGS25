@@ -9,6 +9,11 @@ public class EnemyBrain : MonoBehaviour
     private float pathUpdateDeadline; //tracks when the path can be updated
     private float punchingDistance;
 
+    [Header("Punch Settings")]
+    public GameObject punchHitbox;
+    /*public float punchActivationDelay = 0.2f;*/ //delay before enabling the hitbox during a punch
+    public float punchDuration = 0.3f;//how long the hitbox will stay active
+
     private void Awake()
     {
         enemyReferences = GetComponent<EnemyReferences>();
@@ -18,6 +23,15 @@ public class EnemyBrain : MonoBehaviour
     {
         punchingDistance = enemyReferences.navMeshAgent.stoppingDistance;
         target = GameObject.FindFirstObjectByType<NEWPlayerState_W>();
+
+        if (punchHitbox != null)
+        {
+            punchHitbox.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Punch hitbox not assigned");
+        }
     }
 
     void Update()
@@ -30,13 +44,12 @@ public class EnemyBrain : MonoBehaviour
             if (inRange)
             {
                 LookAtTarget();
-
             }
             else
             {
                 UpdatePath();
             }
-            enemyReferences.anim.SetBool("punching", inRange);
+            /*enemyReferences.anim.SetBool("punching", inRange);*/
             
         }
         enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
@@ -54,9 +67,30 @@ public class EnemyBrain : MonoBehaviour
     {
         if (Time.time >= pathUpdateDeadline)
         {
-            Debug.Log("Updating Path");
             pathUpdateDeadline = Time.time + enemyReferences.pathUpdateDelay;
             enemyReferences.navMeshAgent.SetDestination(target.transform.position);
+        }
+    }
+
+    public void ChangeState()
+    {
+        Debug.Log("ChangeState event triggered");
+    }
+
+    public void BasicPunchBoxOn()
+    {
+        if (punchHitbox != null)
+        {
+            punchHitbox.SetActive(true); // enables the punch hitbox
+            Invoke(nameof(BasicPunchBoxOff), punchDuration); // automatically turns off the hitbox after punch duration
+        }
+    }
+
+    public void BasicPunchBoxOff()
+    {
+        if (punchHitbox != null)
+        {
+            punchHitbox.SetActive(false);
         }
     }
 }

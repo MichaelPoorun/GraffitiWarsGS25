@@ -1167,7 +1167,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2483248865613772627}
+      addedObject: {fileID: 3643248623590287167}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3536174860079785844}
@@ -1197,7 +1197,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c22bfd28f4a644489b9811833ced32, type: 3}
   m_PrefabInstance: {fileID: 3636363914574242902}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2483248865613772627
+--- !u!95 &3643248623590287167
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -1207,7 +1207,7 @@ Animator:
   m_GameObject: {fileID: 4519252718060181767}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5183fa10148731a4ab9afec535c5ec70, type: 2}
+  m_Controller: {fileID: 9100000, guid: e7a6d69dc7ddec149a9d069882850254, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1321,6 +1321,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  punchHitbox: {fileID: 6905659655171406547}
+  punchActivationDelay: 0.2
+  punchDuration: 0.3
 --- !u!114 &1129237916457940574
 MonoBehaviour:
   m_ObjectHideFlags: 0
