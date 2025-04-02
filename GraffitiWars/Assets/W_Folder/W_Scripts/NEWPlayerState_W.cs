@@ -52,7 +52,8 @@ public class NEWPlayerState_W : MonoBehaviour
     public float throwForce;
     public float throwUpwardForce;
     ThrowTimer_W TimerOn2;
-    private WAVEFORNOW wave;
+    public GameObject wav;
+    public WAVEFORNOW wave;
 
     [Header("Player Bools")]
     public bool combo1 = false;
@@ -119,6 +120,7 @@ public class NEWPlayerState_W : MonoBehaviour
         sprayTimer = sprayCooldown;
         throwTimer = throwCooldown;
         wave = GetComponent<WAVEFORNOW>();
+        wave = wav.GetComponent<WAVEFORNOW>();
     }
     void Update()
     {
@@ -699,10 +701,7 @@ public class NEWPlayerState_W : MonoBehaviour
             wave.EnemyP1_1.SetActive(true);
             wave.EnemyP1_2.SetActive(true);
             wave.EnemyP1_3.SetActive(true);
-        }
-        if (other.gameObject.CompareTag("P1E"))
-        {
-            wave.goUI.SetActive(false);
+            wave.UI.SetActive(false);
         }
         if (other.gameObject.CompareTag("P2S"))
         {
@@ -711,24 +710,16 @@ public class NEWPlayerState_W : MonoBehaviour
             wave.EnemyP1_4.SetActive(true);
             wave.EnemyP1_5.SetActive(true);
             wave.EnemyP1_6.SetActive(true);
+            wave.UI.SetActive(false);
         }
-        if (other.gameObject.CompareTag("P2E"))
-        {
-            wave.goUI.SetActive(false);
-        }
-        if (other.gameObject.CompareTag("P2S"))
+        if (other.gameObject.CompareTag("P3S"))
         {
             wave.P1Wall5.SetActive(true);
             wave.P1Wall6.SetActive(true);
             wave.EnemyP1_7.SetActive(true);
             wave.EnemyP1_8.SetActive(true);
             wave.EnemyP1_9.SetActive(true);
+            wave.UI.SetActive(false);
         }
-        if (other.gameObject.CompareTag("P2E"))
-        {
-            wave.goUI.SetActive(false);
-        }
-
-
     }
 }
