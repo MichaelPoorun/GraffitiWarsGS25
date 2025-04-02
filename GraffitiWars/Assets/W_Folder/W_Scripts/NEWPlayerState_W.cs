@@ -52,6 +52,7 @@ public class NEWPlayerState_W : MonoBehaviour
     public float throwForce;
     public float throwUpwardForce;
     ThrowTimer_W TimerOn2;
+    private WAVEFORNOW wave;
 
     [Header("Player Bools")]
     public bool combo1 = false;
@@ -117,6 +118,7 @@ public class NEWPlayerState_W : MonoBehaviour
         animator = GetComponent<Animator>();
         sprayTimer = sprayCooldown;
         throwTimer = throwCooldown;
+        wave = GetComponent<WAVEFORNOW>();
     }
     void Update()
     {
@@ -203,7 +205,7 @@ public class NEWPlayerState_W : MonoBehaviour
                     throwTimer = throwCooldown;
                     TimerOn2.enabled = true;
                     TimerOn2.throwTimerTxt.enabled = true;
-                    Debug.Log("Step1 - Going To State");
+
                 }
                 break;
 
@@ -243,7 +245,6 @@ public class NEWPlayerState_W : MonoBehaviour
                     throwTimer = throwCooldown;
                     TimerOn2.enabled = true;
                     TimerOn2.throwTimerTxt.enabled = true;
-                    Debug.Log("Step1 - Going To State");
                 }
                 break;
 
@@ -443,7 +444,6 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         float z = Input.GetAxisRaw("Vertical");
         float x = Input.GetAxisRaw("Horizontal");
-        /*transform.Translate(new Vector3(x * speed, 0, z * speed) * Time.deltaTime);*/
 
         Vector3 moveDirection = new Vector3(-z, 0, x).normalized;
 
@@ -478,9 +478,8 @@ public class NEWPlayerState_W : MonoBehaviour
         animator.SetBool("isJumpKick1", false);
         animator.SetBool("isJump1", false);
         isJumping = false;
-        ChangeState(PlayerState.Idle);
-        Debug.Log("Step4 - Back To Idle");
 
+        ChangeState(PlayerState.Idle);
     }
 
     //COMBO 1 & Start Of COMBO 3//
@@ -611,7 +610,6 @@ public class NEWPlayerState_W : MonoBehaviour
     }
     IEnumerator ThrowCooldown()
     {
-        Debug.Log("Step3 - Cooldown Started");
         while (throwTimer > 0)
         {
             throwTimer -= Time.deltaTime;
@@ -693,5 +691,44 @@ public class NEWPlayerState_W : MonoBehaviour
         {
             BossTime = true;
         }
+
+        if (other.gameObject.CompareTag("P1S"))
+        {
+            wave.P1Wall1.SetActive(true);
+            wave.P1Wall2.SetActive(true);
+            wave.EnemyP1_1.SetActive(true);
+            wave.EnemyP1_2.SetActive(true);
+            wave.EnemyP1_3.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("P1E"))
+        {
+            wave.goUI.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("P2S"))
+        {
+            wave.P1Wall3.SetActive(true);
+            wave.P1Wall4.SetActive(true);
+            wave.EnemyP1_4.SetActive(true);
+            wave.EnemyP1_5.SetActive(true);
+            wave.EnemyP1_6.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("P2E"))
+        {
+            wave.goUI.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("P2S"))
+        {
+            wave.P1Wall5.SetActive(true);
+            wave.P1Wall6.SetActive(true);
+            wave.EnemyP1_7.SetActive(true);
+            wave.EnemyP1_8.SetActive(true);
+            wave.EnemyP1_9.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("P2E"))
+        {
+            wave.goUI.SetActive(false);
+        }
+
+
     }
 }

@@ -1,34 +1,30 @@
-using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
-public enum EnemyState //Where all player states are kept
+public enum BEnemyState //Where all player states are kept
 {
-    Sitting,
-    SitToStand,
-    Roar,
-    Stomp,
-    Cooldown
+    Idle,
+    Punch
 }
 
-public class EnemyStatemachine_W : MonoBehaviour
-{
+public class BasicEnemyStatemachine_W : MonoBehaviour
+{ 
     [Header("Player Variables")]
     private Rigidbody rb;
     public int damage;
     public NEWPlayerState_W target;
     public NEWPlayerState_W player;
-    public GameObject Chair;
-    public GameObject objectToThrow;
-    public Transform cam;
-    public Transform attackPoint;
-    public float throwForce;
-    public float throwUpwardForce;
+    private EnemyReferences enemyReferences;
+
+    private float pathUpdateDeadline; //tracks when the path can be updated
+    private float punchingDistance;
+
+    public GameObject EPunch;
 
     [Header("Player Bools")]
-    public bool timeToLook = false;
+    private bool inRange;
+    private bool readyToPunch = true;
 
     [Header("Player Attack Hitboxes")]
 
@@ -37,24 +33,41 @@ public class EnemyStatemachine_W : MonoBehaviour
 
     [Header("Misc")]
     public Animator animator;
-    public EnemyState currentState; //Variable that stores current state
+    public BEnemyState currentState; //Variable that stores current state
 
     void Awake()
     {
+        EPunch.SetActive(false);
+        enemyReferences = GetComponent<EnemyReferences>();
         rb = GetComponent<Rigidbody>();
     }
     void Start()
     {
+        punchingDistance = enemyReferences.navMeshAgent.stoppingDistance;
+        target = GameObject.FindFirstObjectByType<NEWPlayerState_W>();
         animator = GetComponent<Animator>();
         target = GameObject.FindFirstObjectByType<NEWPlayerState_W>();
     }
     void Update()
     {
         HandleState();
-        if (timeToLook == true)
+        if (target != null)
         {
-            LookAtTarget();
+            //computes the distance between the enemy and target
+            inRange = Vector3.Distance(transform.position, target.transform.position) <= punchingDistance;
+
+            if (inRange)
+            {
+                LookAtTarget();
+            }
+            else
+            {
+                UpdatePath();
+            }
+            /*enemyReferences.anim.SetBool("punching", inRange);*/
+
         }
+        enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
     }
 
     //======================================================================//
@@ -64,15 +77,17 @@ public class EnemyStatemachine_W : MonoBehaviour
     {
         switch (currentState)
         {
-            case EnemyState.Sitting:
-                if (player.BossTime == true)
+            case BEnemyState.Idle:
+                animator.SetBool("isIdle", true);
+                animator.SetBool("isIdle", false);
+                if (inRange)
                 {
-                    ChangeState(EnemyState.SitToStand);
+                    ChangeState(BEnemyState.Punch);
                 }
-                break;
+                    break;
         }
     }
-    public void ChangeState(EnemyState newState)
+    public void ChangeState(BEnemyState newState)
     {
         if (currentState == newState) return;
 
@@ -80,43 +95,26 @@ public class EnemyStatemachine_W : MonoBehaviour
 
         switch (currentState)
         {
-            case EnemyState.SitToStand:
-                animator.SetBool("GoingToStand", true);
-                break;
-
-            case EnemyState.Roar:
-                Chair.SetActive(false);
-                animator.SetBool("isRoar", true);
-                break;
-
-            case EnemyState.Stomp:
-                timeToLook = true;
-                animator.SetBool("isStomp", true);
-                animator.SetBool("isCooldown", false);
-                break;
-
-            case EnemyState.Cooldown:
-                animator.SetBool("isStomp", false);
-                animator.SetBool("isCooldown", true);
+            case BEnemyState.Punch:
+                animator.SetBool("isIdle", false);
+                animator.SetBool("isPunch", true);
                 break;
         }
-
-        // animator.SetBool("isWalkingUp", newState == PlayerState.X); - Sets the Bool makes the animator bool T or F. Same as doing if isWalking == true {play animation} else {iswalking == false}
+   
     }
 
     //======================================================================//
     //                                Misc                                  //   
     //======================================================================//
-    void BackToCooldown(EnemyState s)
+    void BackToIdle(BEnemyState s)
     {
-        if (currentState != s && s != EnemyState.Cooldown)
+        if (currentState != s && s != BEnemyState.Idle)
         {
             Debug.Log("CS: " + currentState + " / " + s);
             return;
         }
-        animator.SetBool("isBasicPunch", false);
-        ChangeState(EnemyState.Cooldown);
-
+        animator.SetBool("isPunch", false);
+        ChangeState(BEnemyState.Idle);
     }
     private void LookAtTarget()
     {
@@ -125,13 +123,22 @@ public class EnemyStatemachine_W : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.2f);
     }
-
-    void ThrowObj()
+    private void UpdatePath()
     {
-        GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.rotation);
+        if (Time.time >= pathUpdateDeadline)
+        {
+            pathUpdateDeadline = Time.time + enemyReferences.pathUpdateDelay;
+            enemyReferences.navMeshAgent.SetDestination(target.transform.position);
+        }
+    }
 
-        ProjectileMover_W mover = projectile.AddComponent<ProjectileMover_W>(); // Attach movement script
-        mover.SetSpeed(throwForce);
+    void EPunchBoxOn()
+    {
+        EPunch.SetActive(true);
+    }
+    void EPunchBoxOff()
+    {
+        EPunch.SetActive(false);
     }
 
     //======================================================================//
@@ -142,7 +149,7 @@ public class EnemyStatemachine_W : MonoBehaviour
         if (other.gameObject.CompareTag("Hit_Enemy"))
         {
             Debug.Log("Enemy Took Damage");
-            damage = 20;
+            damage = 25;
             HP.TakeDamage(damage);
         }
     }

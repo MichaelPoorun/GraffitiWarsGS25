@@ -12,6 +12,12 @@ TagManager:
   - MouseEnemy
   - Boss
   - BossEnemy
+  - P1S
+  - P2S
+  - P3S
+  - P1E
+  - P2E
+  - P3E
   layers:
   - Default
   - TransparentFX

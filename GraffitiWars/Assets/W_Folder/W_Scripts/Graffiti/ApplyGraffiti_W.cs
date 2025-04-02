@@ -8,6 +8,7 @@ public class ApplyGraffiti_W : MonoBehaviour
     
     WallInteraction_W ui;
 
+    public GameObject target;
     public CameraLocks_W cams;
     public GameObject GO;
 
@@ -28,6 +29,7 @@ public class ApplyGraffiti_W : MonoBehaviour
     {
         ui = GetComponent<WallInteraction_W>();
         cams = GetComponent<CameraLocks_W>();
+        cams = target.GetComponent<CameraLocks_W>();
     }
 
     public void OnDoneButtonClicked()
