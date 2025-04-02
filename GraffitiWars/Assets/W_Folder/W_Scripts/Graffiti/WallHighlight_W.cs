@@ -4,8 +4,18 @@ public class WallHighlight_W : MonoBehaviour
 {
     public Material normalMaterial;  
     public Material highlightMaterial; 
-    private Renderer wallRenderer;  
-    public bool canInteract = false;
+    public Renderer wallRenderer;  
+    public bool canInteract = false; //Makes Wall Interactable (Plyaer Can Click E On It)
+    public GameObject BossAlive;
+    public bool BA = false;
+
+    void Update()
+    {
+        if (BossAlive == null && BA == false)
+        {
+            HighlightWall();
+        }
+    }
 
     void Start()
     {
@@ -14,10 +24,9 @@ public class WallHighlight_W : MonoBehaviour
     }
 
     // Call this when the boss is defeated
-    public void ActivateWall()
+    public void HighlightWall()
     {
         wallRenderer.material = highlightMaterial;
-        canInteract = true;
     }
     public void TurnBackColor()
     {
@@ -28,6 +37,7 @@ public class WallHighlight_W : MonoBehaviour
     {
         if (canInteract && other.CompareTag("Player"))
         {
+            //UI Saying This vvv
             Debug.Log("Press E to start drawing.");
         }
     }

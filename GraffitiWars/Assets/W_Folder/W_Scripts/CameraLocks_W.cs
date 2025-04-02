@@ -6,21 +6,21 @@ public class CameraLocks_W : MonoBehaviour
     public GameObject Main;
     public bool MainCamOn = true;
     
-    [Header("Part1--------------------------------------------------")]
+    [Header("Part1------------------------------------------------------------Part1")]
     public GameObject Part1Cam;
     public GameObject WaveSpawn1;
     public bool P1Activated = false;
     public GameObject Wall1;
     public GameObject Wall2;
 
-    [Header("Part2--------------------------------------------------")]
+    [Header("Part2------------------------------------------------------------Part2")]
     public GameObject Part2Cam;
     public GameObject WaveSpawn2;
     public bool P2Activated = false;
     public GameObject Wall3;
     public GameObject Wall4;
 
-    [Header("Part3--------------------------------------------------")]
+    [Header("Part3------------------------------------------------------------Part3")]
     public GameObject Part3Cam;
     public GameObject WaveSpawn3;
     public GameObject WaveSpawn3_A;
@@ -28,13 +28,18 @@ public class CameraLocks_W : MonoBehaviour
     public bool P3Activated = false;
     public GameObject Wall5;
     public GameObject Wall6;
-
+    [Header("Part4------------------------------------------------------------Part4")]
+    public GameObject BossCam;
+    public bool PBossActivated = false;
+    public GameObject Wall7;
+    public GameObject Wall8;
     private void Awake()
     {
         Main.SetActive(true);
         Part1Cam.SetActive(false);
         Part2Cam.SetActive(false);
         Part3Cam.SetActive(false);
+        BossCam.SetActive(false);
         WaveSpawn1.SetActive(false);
         WaveSpawn2.SetActive(false);
         WaveSpawn3.SetActive(false);
@@ -113,12 +118,19 @@ public class CameraLocks_W : MonoBehaviour
         }
         else if (e == "MainCamOn3")
         {
-            //SceneManager.LoadScene(2);
             Part3Cam.SetActive(false);
             WaveSpawn3.SetActive(false);
             WaveSpawn3_A.SetActive(false);
             WaveSpawn3_B.SetActive(false);
             Main.SetActive(true);
+        }
+        else if (e == "BossPart")
+        {
+            Main.SetActive(false);
+            BossCam.SetActive(true);
+            Wall7.SetActive(true);
+            Wall8.SetActive(true);
+
         }
     }
 

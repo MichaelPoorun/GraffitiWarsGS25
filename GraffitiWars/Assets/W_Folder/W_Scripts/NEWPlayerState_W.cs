@@ -677,6 +677,12 @@ public class NEWPlayerState_W : MonoBehaviour
             damage = 5;
             HP.TakeDamage(damage);
         }
+        else if (other.gameObject.CompareTag("BossEnemy") && isBlocking == false)
+        {
+            Debug.Log("Player Took 50 Damage");
+            damage = 50;
+            HP.TakeDamage(damage);
+        }
         else if (isBlocking == true)
         {
             Debug.Log("Player Blocked Incoming Damage");

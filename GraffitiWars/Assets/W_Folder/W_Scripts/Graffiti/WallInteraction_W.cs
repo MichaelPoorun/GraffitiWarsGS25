@@ -13,8 +13,15 @@ public class WallInteraction_W : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        if (wallHighlight.BossAlive == null && other.gameObject.CompareTag("Player"))
+        {
+            wallHighlight.canInteract = true;
+            Debug.Log("Can Interact is set to true");
+        }
+
         if (wallHighlight.CanInteract() && Input.GetKeyDown(KeyCode.E))
         {
+            wallHighlight.BA = true;
             wallHighlight.TurnBackColor();
             OpenDrawingUI();
         }
