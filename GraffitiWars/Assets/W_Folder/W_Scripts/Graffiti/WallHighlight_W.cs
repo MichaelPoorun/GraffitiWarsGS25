@@ -8,6 +8,7 @@ public class WallHighlight_W : MonoBehaviour
     public bool canInteract = false; //Makes Wall Interactable (Plyaer Can Click E On It)
     public GameObject BossAlive;
     public bool BA = false;
+    public GameObject SprayOnWallUI;
 
     void Update()
     {
@@ -27,6 +28,7 @@ public class WallHighlight_W : MonoBehaviour
     public void HighlightWall()
     {
         wallRenderer.material = highlightMaterial;
+        SprayOnWallUI.SetActive(true);
     }
     public void TurnBackColor()
     {

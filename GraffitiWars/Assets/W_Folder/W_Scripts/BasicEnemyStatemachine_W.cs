@@ -24,7 +24,6 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
 
     [Header("Player Bools")]
     private bool inRange;
-    private bool readyToPunch = true;
 
     [Header("Player Attack Hitboxes")]
 
@@ -67,7 +66,7 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
             /*enemyReferences.anim.SetBool("punching", inRange);*/
 
         }
-        enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
+        /*enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);*/
     }
 
     //======================================================================//
@@ -148,7 +147,6 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hit_Enemy"))
         {
-            Debug.Log("Enemy Took Damage");
             damage = 25;
             HP.TakeDamage(damage);
         }

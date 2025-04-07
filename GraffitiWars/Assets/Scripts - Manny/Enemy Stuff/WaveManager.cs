@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
 
     public void OnWaveCompleted()
     {
-        if (currentSectionIndex < sections.Length - 1)
+        /*if (currentSectionIndex < sections.Length - 1)
         {
             ToggleBarrier(currentSectionIndex, false);
             currentSectionIndex++;
@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
         {
             Debug.Log("All sections cleared!");
             ToggleBarrier(currentSectionIndex, false);
-        }
+        }*/
     }
 
     private void ActivateSection(int index)

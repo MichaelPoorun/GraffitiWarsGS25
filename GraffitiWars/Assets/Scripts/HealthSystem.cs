@@ -39,9 +39,6 @@ public class HealthSystem : MonoBehaviour
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
-
-        Debug.Log(gameObject.name + " Health: " + currentHealth);
-
         /*healthBar.UpdateHealthBar(currentHealth, maxHealth);*/
     }
 
@@ -58,8 +55,6 @@ public class HealthSystem : MonoBehaviour
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
-        
-        Debug.Log(gameObject.name + " took " + damage + " damage. Current health: " + currentHealth);
             /*
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
             playerHealthBar.UpdatePlayerHealthBar(currentHealth, maxHealth);*/
@@ -84,13 +79,10 @@ public class HealthSystem : MonoBehaviour
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
-
-        Debug.Log(gameObject.name + " healed " + amount + ". Current health: " + currentHealth);
     }
 
     private void Die()
     {
-        Debug.Log(gameObject.name + " has died.");
         // Player death logic (e.g., game over) should be handled separately
         if (!isPlayer)
         {

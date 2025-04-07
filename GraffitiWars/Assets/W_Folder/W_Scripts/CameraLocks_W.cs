@@ -5,7 +5,8 @@ public class CameraLocks_W : MonoBehaviour
 {
     public GameObject Main;
     public bool MainCamOn = true;
-    
+    public GameObject UITrig;
+
     [Header("Part1------------------------------------------------------------Part1")]
     public GameObject Part1Cam;
     public GameObject WaveSpawn1;
@@ -23,8 +24,6 @@ public class CameraLocks_W : MonoBehaviour
     [Header("Part3------------------------------------------------------------Part3")]
     public GameObject Part3Cam;
     public GameObject WaveSpawn3;
-    public GameObject WaveSpawn3_A;
-    public GameObject WaveSpawn3_B;
     public bool P3Activated = false;
     public GameObject Wall5;
     public GameObject Wall6;
@@ -43,9 +42,6 @@ public class CameraLocks_W : MonoBehaviour
         WaveSpawn1.SetActive(false);
         WaveSpawn2.SetActive(false);
         WaveSpawn3.SetActive(false);
-        WaveSpawn3_A.SetActive(false);
-        WaveSpawn3_B.SetActive(false);
-
     }
     void Start()
     {
@@ -55,25 +51,7 @@ public class CameraLocks_W : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Wall2.SetActive(false);
-        }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Wall4.SetActive(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Wall6.SetActive(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(0);
-        }
     }
 
     public void HandleEvent(string e)
@@ -86,46 +64,51 @@ public class CameraLocks_W : MonoBehaviour
             Wall1.SetActive(true);
             Wall2.SetActive(true);
         }
-        else if (e == "MainCamOn1")
+        else if(e == "Part1End")
         {
             Part1Cam.SetActive(false);
             WaveSpawn1.SetActive(false);
             Main.SetActive(true);
+            Wall2.SetActive(false);
+            UITrig.SetActive(true);
         }
         else if (e == "Part2")
         {
+            UITrig.SetActive(false);
             Main.SetActive(false);
             Part2Cam.SetActive(true);
             WaveSpawn2.SetActive(true);
             Wall3.SetActive(true);
             Wall4.SetActive(true);
         }
-        else if (e == "MainCamOn2")
+        else if (e == "Part2End")
         {
             Part2Cam.SetActive(false);
             WaveSpawn2.SetActive(false);
             Main.SetActive(true);
+            Wall4.SetActive(false);
+            UITrig.SetActive(true);
         }
         else if (e == "Part3")
         {
+            UITrig.SetActive(false);
             Main.SetActive(false);
             Part3Cam.SetActive(true);
             WaveSpawn3.SetActive(true);
-            WaveSpawn3_A.SetActive(true);
-            WaveSpawn3_B.SetActive(true);
             Wall5.SetActive(true);
             Wall6.SetActive(true);
         }
-        else if (e == "MainCamOn3")
+        else if (e == "Part3End")
         {
             Part3Cam.SetActive(false);
             WaveSpawn3.SetActive(false);
-            WaveSpawn3_A.SetActive(false);
-            WaveSpawn3_B.SetActive(false);
             Main.SetActive(true);
+            Wall6.SetActive(false);
+            UITrig.SetActive(true);
         }
         else if (e == "BossPart")
         {
+            UITrig.SetActive(false);
             Main.SetActive(false);
             BossCam.SetActive(true);
             Wall7.SetActive(true);

@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -17,11 +18,17 @@ public class WaveSpawner : MonoBehaviour
     private float spawnTimer;
     private WaveManager waveManager;
 
+    public bool readyToCheck;
+    public CameraLocks_W CLW;
+    public string Event;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         waveManager = FindAnyObjectByType<WaveManager>();
         GenerateWave();
+        readyToCheck = false;
+        StartCoroutine(Wait());
     }
 
     // Update is called once per frame
@@ -48,7 +55,19 @@ public class WaveSpawner : MonoBehaviour
             waveTimer -= Time.fixedDeltaTime;
         }
 
-        CheckWaveCompletion();// checks if the wave is completed
+        /*CheckWaveCompletion();// checks if the wave is completed*/
+    }
+    void Update()
+    {
+        if (readyToCheck == true)
+        {
+            activeEnemies.RemoveAll(enemy => enemy == null);
+
+            if (activeEnemies.Count == 0 && enemiesToSpawn.Count == 0)
+            {
+                CLW.HandleEvent(Event);
+            }
+        }
     }
 
     public void GenerateWave()
@@ -58,6 +77,12 @@ public class WaveSpawner : MonoBehaviour
 
         spawnInterval = waveDuration / enemiesToSpawn.Count; //gives the wave a fixed time in which enemies spawn
         waveTimer = waveDuration; 
+    }
+    
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+        readyToCheck = true;
     }
 
     public void GenerateEnemies()
@@ -83,7 +108,7 @@ public class WaveSpawner : MonoBehaviour
         enemiesToSpawn = generatedEnemies;
     }
 
-    private void CheckWaveCompletion()
+    /*private void CheckWaveCompletion()
     {
         activeEnemies.RemoveAll(enemy => enemy == null);
 
@@ -91,7 +116,7 @@ public class WaveSpawner : MonoBehaviour
         {
             waveManager.OnWaveCompleted();
         }
-    }
+    }*/
 }
 
 [System.Serializable]

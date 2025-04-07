@@ -52,8 +52,8 @@ public class NEWPlayerState_W : MonoBehaviour
     public float throwForce;
     public float throwUpwardForce;
     ThrowTimer_W TimerOn2;
-    public GameObject wav;
-    public WAVEFORNOW wave;
+    /*public GameObject wav;
+    public WAVEFORNOW wave;*/
 
     [Header("Player Bools")]
     public bool combo1 = false;
@@ -119,8 +119,8 @@ public class NEWPlayerState_W : MonoBehaviour
         animator = GetComponent<Animator>();
         sprayTimer = sprayCooldown;
         throwTimer = throwCooldown;
-        wave = GetComponent<WAVEFORNOW>();
-        wave = wav.GetComponent<WAVEFORNOW>();
+        /*wave = GetComponent<WAVEFORNOW>();
+        wave = wav.GetComponent<WAVEFORNOW>();*/
     }
     void Update()
     {
@@ -464,7 +464,7 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         if(currentState != s && s != PlayerState.Idle)
         {
-            Debug.Log("CS: " + currentState + " / " + s);
+            /*Debug.Log("CS: " + currentState + " / " + s);*/
             return;
         }
         animator.SetBool("isBasicPunch", false);
@@ -661,31 +661,26 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NormalEnemy") && isBlocking == false)
         {
-            Debug.Log("Player Took 20 Damage");
             damage = 20;
             HP.TakeDamage(damage);
         }
         else if (other.gameObject.CompareTag("TankEnemy") && isBlocking == false)
         {
-            Debug.Log("Player Took 10 Damage");
             damage = 10;
             HP.TakeDamage(damage);
         }
         else if (other.gameObject.CompareTag("MouseEnemy") && isBlocking == false)
         {
-            Debug.Log("Player Took 5 Damage");
             damage = 5;
             HP.TakeDamage(damage);
         }
         else if (other.gameObject.CompareTag("BossEnemy") && isBlocking == false)
         {
-            Debug.Log("Player Took 50 Damage");
             damage = 50;
             HP.TakeDamage(damage);
         }
         else if (isBlocking == true)
         {
-            Debug.Log("Player Blocked Incoming Damage");
             damage = 0;
         }
 
@@ -694,32 +689,9 @@ public class NEWPlayerState_W : MonoBehaviour
             BossTime = true;
         }
 
-        if (other.gameObject.CompareTag("P1S"))
+        if (other.gameObject.CompareTag("TheEnd"))
         {
-            wave.P1Wall1.SetActive(true);
-            wave.P1Wall2.SetActive(true);
-            wave.EnemyP1_1.SetActive(true);
-            wave.EnemyP1_2.SetActive(true);
-            wave.EnemyP1_3.SetActive(true);
-            wave.UI.SetActive(false);
-        }
-        if (other.gameObject.CompareTag("P2S"))
-        {
-            wave.P1Wall3.SetActive(true);
-            wave.P1Wall4.SetActive(true);
-            wave.EnemyP1_4.SetActive(true);
-            wave.EnemyP1_5.SetActive(true);
-            wave.EnemyP1_6.SetActive(true);
-            wave.UI.SetActive(false);
-        }
-        if (other.gameObject.CompareTag("P3S"))
-        {
-            wave.P1Wall5.SetActive(true);
-            wave.P1Wall6.SetActive(true);
-            wave.EnemyP1_7.SetActive(true);
-            wave.EnemyP1_8.SetActive(true);
-            wave.EnemyP1_9.SetActive(true);
-            wave.UI.SetActive(false);
+            SceneManager.LoadScene(2);
         }
     }
 }

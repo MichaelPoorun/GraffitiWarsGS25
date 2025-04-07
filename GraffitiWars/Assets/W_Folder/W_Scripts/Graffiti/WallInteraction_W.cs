@@ -21,6 +21,7 @@ public class WallInteraction_W : MonoBehaviour
 
         if (wallHighlight.CanInteract() && Input.GetKeyDown(KeyCode.E))
         {
+            wallHighlight.SprayOnWallUI.SetActive(false);
             wallHighlight.BA = true;
             wallHighlight.TurnBackColor();
             OpenDrawingUI();
