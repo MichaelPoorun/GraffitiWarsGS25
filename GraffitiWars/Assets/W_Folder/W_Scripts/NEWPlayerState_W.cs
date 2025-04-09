@@ -52,8 +52,6 @@ public class NEWPlayerState_W : MonoBehaviour
     public float throwForce;
     public float throwUpwardForce;
     ThrowTimer_W TimerOn2;
-    /*public GameObject wav;
-    public WAVEFORNOW wave;*/
 
     [Header("Player Bools")]
     public bool combo1 = false;
@@ -119,8 +117,6 @@ public class NEWPlayerState_W : MonoBehaviour
         animator = GetComponent<Animator>();
         sprayTimer = sprayCooldown;
         throwTimer = throwCooldown;
-        /*wave = GetComponent<WAVEFORNOW>();
-        wave = wav.GetComponent<WAVEFORNOW>();*/
     }
     void Update()
     {
