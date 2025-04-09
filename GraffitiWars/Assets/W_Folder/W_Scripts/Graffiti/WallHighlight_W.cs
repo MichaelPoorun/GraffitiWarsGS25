@@ -9,12 +9,14 @@ public class WallHighlight_W : MonoBehaviour
     public GameObject BossAlive;
     public bool BA = false;
     public GameObject SprayOnWallUI;
+    public GameObject BossHealth;
 
     void Update()
     {
         if (BossAlive == null && BA == false)
         {
             HighlightWall();
+            BossHealth.SetActive(false);
         }
     }
 

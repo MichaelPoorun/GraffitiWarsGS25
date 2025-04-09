@@ -10,12 +10,15 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] FloatingHealthBar healthBar;
     [SerializeField] PlayerHealthBar playerHealthBar;
+    [SerializeField] BossHealthBar_W bossHealthBar;
 
     private bool isPlayer;
+    private bool isBoss;
 
     private void Awake()
     {
         isPlayer = CompareTag("Player");
+        isBoss = CompareTag("BossH");
 
         if (isPlayer)
         {
@@ -25,6 +28,16 @@ public class HealthSystem : MonoBehaviour
         {
             healthBar = GetComponentInChildren<FloatingHealthBar>();
         }
+
+        if (isBoss)
+        {
+            bossHealthBar = Object.FindFirstObjectByType<BossHealthBar_W>(); // finds the player's healthbar in UI
+        }
+        else
+        {
+            healthBar = GetComponentInChildren<FloatingHealthBar>();
+        }
+
     }
 
     void Start()
@@ -33,7 +46,16 @@ public class HealthSystem : MonoBehaviour
 
         if (isPlayer && playerHealthBar != null)
         {
-            playerHealthBar.UpdatePlayerHealthBar(currentHealth, maxHealth);
+           playerHealthBar.UpdatePlayerHealthBar(currentHealth, maxHealth);
+        }
+        else if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+
+        if (isBoss && bossHealthBar != null)
+        {
+            bossHealthBar.UpdateBossHealthBar(currentHealth, maxHealth);
         }
         else if (healthBar != null)
         {
@@ -50,6 +72,15 @@ public class HealthSystem : MonoBehaviour
         if (isPlayer && playerHealthBar != null)
         {
             playerHealthBar.UpdatePlayerHealthBar(currentHealth, maxHealth);
+        }
+        else if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+
+        if (isBoss && bossHealthBar != null)
+        {
+            bossHealthBar.UpdateBossHealthBar(currentHealth, maxHealth);
         }
         else if (healthBar != null)
         {

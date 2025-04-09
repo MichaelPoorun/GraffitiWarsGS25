@@ -63,10 +63,9 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
             {
                 UpdatePath();
             }
-            /*enemyReferences.anim.SetBool("punching", inRange);*/
-
+            enemyReferences.anim.SetBool("punching", inRange);
         }
-        /*enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);*/
+        enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
     }
 
     //======================================================================//
@@ -74,7 +73,7 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
     //======================================================================//
     void HandleState()
     {
-        switch (currentState)
+        /*switch (currentState)
         {
             case BEnemyState.Idle:
                 animator.SetBool("isIdle", true);
@@ -83,8 +82,8 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
                 {
                     ChangeState(BEnemyState.Punch);
                 }
-                    break;
-        }
+                break;
+        }*/
     }
     public void ChangeState(BEnemyState newState)
     {
@@ -92,14 +91,13 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
 
         currentState = newState;
 
-        switch (currentState)
+        /*switch (currentState)
         {
             case BEnemyState.Punch:
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isPunch", true);
-                break;
-        }
-   
+            break;
+        }*/
     }
 
     //======================================================================//
@@ -112,7 +110,7 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
             Debug.Log("CS: " + currentState + " / " + s);
             return;
         }
-        animator.SetBool("isPunch", false);
+        //animator.SetBool("punching", false);
         ChangeState(BEnemyState.Idle);
     }
     private void LookAtTarget()
@@ -138,6 +136,10 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
     void EPunchBoxOff()
     {
         EPunch.SetActive(false);
+    }
+    void Test()
+    {
+        animator.SetBool("punching", false);
     }
 
     //======================================================================//

@@ -32,6 +32,7 @@ public class CameraLocks_W : MonoBehaviour
     public bool PBossActivated = false;
     public GameObject Wall7;
     public GameObject Wall8;
+    public GameObject BossHealth;
     private void Awake()
     {
         Main.SetActive(true);
@@ -108,6 +109,7 @@ public class CameraLocks_W : MonoBehaviour
         }
         else if (e == "BossPart")
         {
+            BossHealth.SetActive(true);
             UITrig.SetActive(false);
             Main.SetActive(false);
             BossCam.SetActive(true);

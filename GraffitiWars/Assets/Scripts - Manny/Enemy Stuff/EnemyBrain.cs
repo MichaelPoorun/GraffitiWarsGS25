@@ -39,8 +39,7 @@ public class EnemyBrain : MonoBehaviour
             {
                 UpdatePath();
             }
-            /*enemyReferences.anim.SetBool("punching", inRange);*/
-            
+            enemyReferences.anim.SetBool("punching", inRange);
         }
     }
 
