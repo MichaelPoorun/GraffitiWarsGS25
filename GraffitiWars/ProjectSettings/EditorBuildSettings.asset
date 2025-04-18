@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenuStuff/PressAnyButton.unity
+    guid: be00567d4f650a3479c97edb4bbd02f8
+  - enabled: 1
+    path: Assets/Scenes/MainMenuStuff/MainMenu.unity
+    guid: b5299ed8ac1ff424c884ab2e5f56e2f9
+  - enabled: 1
     path: Assets/W_Folder/W_Scenes/Start_W.unity
     guid: 86aa4245a231104498e536e5ea6528ab
   - enabled: 1
