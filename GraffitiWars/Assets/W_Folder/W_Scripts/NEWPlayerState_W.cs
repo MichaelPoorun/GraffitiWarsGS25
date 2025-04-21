@@ -81,7 +81,7 @@ public class NEWPlayerState_W : MonoBehaviour
     public HealthSystem HP;
 
     [Header("Misc")]
-    
+
     public Animator animator;
     public PlayerState currentState; //Variable that stores current state
 
@@ -112,14 +112,21 @@ public class NEWPlayerState_W : MonoBehaviour
 
         BossTime = false;
     }
+
     void Start()
-    { 
+    {
         animator = GetComponent<Animator>();
         sprayTimer = sprayCooldown;
         throwTimer = throwCooldown;
     }
     void Update()
     {
+        string[] joystickNames = Input.GetJoystickNames();
+        foreach (var joystick in joystickNames)
+        {
+            Debug.Log("Joystick: " + joystick);
+        }
+
         HandleState();
 
         if (currentState == PlayerState.Walking)
@@ -158,6 +165,14 @@ public class NEWPlayerState_W : MonoBehaviour
             }
         }
 
+        float LT = Input.GetAxis("Restart1");
+        float RT = Input.GetAxis("Restart2");
+
+        if (Input.GetKeyDown(KeyCode.P) || (LT > 0.1f && RT > 0.1f))
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
 
     //======================================================================//
@@ -168,27 +183,30 @@ public class NEWPlayerState_W : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.Idle:
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+                float z = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("Vertical_Controller");
+                float x = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Horizontal_Controller");
+
+                if (Mathf.Abs(z) > 0.1f || Mathf.Abs(x) > 0.1f)
                 {
                     ChangeState(PlayerState.Walking);
                 }
-                if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
+                if (Input.GetButtonDown("Jump") && isJumping == false)
                 {
                     ChangeState(PlayerState.Jump1);
                 }
-                if (Input.GetMouseButtonDown(0) /*&& combo1 == false && combo2 == false && combo3 == false*/)
+                if (Input.GetButtonDown("Punch") /*&& combo1 == false && combo2 == false && combo3 == false*/)
                 {
                     ChangeState(PlayerState.BasicPunch);
                 }
-                if (Input.GetKeyDown(KeyCode.E) /*&& combo1 == false && combo2 == false && combo3 == false*/)
+                if (Input.GetButtonDown("Kick") /*&& combo1 == false && combo2 == false && combo3 == false*/)
                 {
                     ChangeState(PlayerState.BasicKick);
                 }
-                if (Input.GetMouseButton(1))
+                if (Input.GetButton("Block"))
                 {
                     ChangeState(PlayerState.Blocking);
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha1) && canSpray)
+                if (Input.GetButtonDown("Spray") && canSpray)
                 {
                     ChangeState(PlayerState.Spray);
                     canSpray = false;
@@ -196,7 +214,7 @@ public class NEWPlayerState_W : MonoBehaviour
                     TimerOn1.enabled = true;
                     TimerOn1.TimerTxt.enabled = true;
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha2) && canThrow)
+                if (Input.GetButtonDown("Throw") && canThrow)
                 {
                     ChangeState(PlayerState.Throw);
                     canThrow = false;
@@ -208,27 +226,30 @@ public class NEWPlayerState_W : MonoBehaviour
                 break;
 
             case PlayerState.Walking:
-                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+                float c = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("Vertical_Controller");
+                float v = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Horizontal_Controller");
+
+                if (Mathf.Abs(c) < 0.1f && Mathf.Abs(v) < 0.1f)
                 {
                     ChangeState(PlayerState.Idle);
                 }
-                if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
+                if (Input.GetButtonDown("Jump") && isJumping == false)
                 {
                     ChangeState(PlayerState.Jump1);
                 }
-                if (Input.GetMouseButtonDown(0) /*&& combo1 == false && combo2 == false && combo3 == false*/)
+                if (Input.GetButtonDown("Punch") /*&& combo1 == false && combo2 == false && combo3 == false*/)
                 {
                     ChangeState(PlayerState.BasicPunch);
                 }
-                if (Input.GetKeyDown(KeyCode.E) /*&& combo2 == false && combo1 == false && combo3 == false*/)
+                if (Input.GetButtonDown("Kick") /*&& combo2 == false && combo1 == false && combo3 == false*/)
                 {
                     ChangeState(PlayerState.BasicKick);
                 }
-                if (Input.GetMouseButton(1))
+                if (Input.GetButton("Block"))
                 {
                     ChangeState(PlayerState.Blocking);
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha1) && canSpray)
+                if (Input.GetButtonDown("Spray") && canSpray)
                 {
                     ChangeState(PlayerState.Spray);
                     canSpray = false;
@@ -236,7 +257,7 @@ public class NEWPlayerState_W : MonoBehaviour
                     TimerOn1.enabled = true;
                     TimerOn1.TimerTxt.enabled = true;
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha2) && canThrow)
+                if (Input.GetButtonDown("Throw") && canThrow)
                 {
                     ChangeState(PlayerState.Throw);
                     canThrow = false;
@@ -248,7 +269,7 @@ public class NEWPlayerState_W : MonoBehaviour
 
             case PlayerState.Blocking:
                 Blocking();
-                if (Input.GetMouseButtonUp(1))
+                if (Input.GetButtonUp("Block"))
                 {
                     isBlocking = false;
                     ChangeState(PlayerState.Idle);
@@ -256,89 +277,89 @@ public class NEWPlayerState_W : MonoBehaviour
                 break;
 
             case PlayerState.BasicPunchB:
-            {
-                if (Input.GetMouseButtonDown(0))
                 {
-                    animator.SetBool("isBasicPunch", false);
-                    ChangeState(PlayerState.ComboPunch1);
+                    if (Input.GetButtonDown("Punch"))
+                    {
+                        animator.SetBool("isBasicPunch", false);
+                        ChangeState(PlayerState.ComboPunch1);
+                    }
+                    else if (Input.GetButton("Kick"))
+                    {
+                        animator.SetBool("isBasicPunch", false);
+                        ChangeState(PlayerState.ComboKick3);
+                    }
+                    break;
                 }
-                else if (Input.GetKey(KeyCode.E))
-                {
-                    animator.SetBool("isBasicPunch", false);
-                    ChangeState(PlayerState.ComboKick3);
-                }
-                break;
-            }
 
             case PlayerState.ComboPunch1B:
-            {
-               if (Input.GetKeyDown(KeyCode.E))
-               {
-                    animator.SetBool("isComboPunch1", false);
-                    ChangeState(PlayerState.ComboKick1);
-               }
-               break;
-            }
+                {
+                    if (Input.GetButtonDown("Kick"))
+                    {
+                        animator.SetBool("isComboPunch1", false);
+                        ChangeState(PlayerState.ComboKick1);
+                    }
+                    break;
+                }
 
             case PlayerState.BasicKickB:
-            {
-                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    animator.SetBool("isBasicKick", false);
-                    ChangeState(PlayerState.ComboKick2);
+                    if (Input.GetButtonDown("Kick"))
+                    {
+                        animator.SetBool("isBasicKick", false);
+                        ChangeState(PlayerState.ComboKick2);
+                    }
+                    break;
                 }
-                break;
-            }
 
             case PlayerState.ComboKick2B:
-            {
-                if (Input.GetMouseButtonDown(0))
                 {
-                    animator.SetBool("isComboKick2", false);
-                    ChangeState(PlayerState.ComboPunch2);
+                    if (Input.GetButtonDown("Punch"))
+                    {
+                        animator.SetBool("isComboKick2", false);
+                        ChangeState(PlayerState.ComboPunch2);
+                    }
+                    break;
                 }
-                break;
-            }
-            
+
             case PlayerState.ComboKick3B:
-            {
-                if (Input.GetMouseButtonDown(0))
                 {
-                    animator.SetBool("isComboKick3", false);
-                    ChangeState(PlayerState.ComboPunch3);
+                    if (Input.GetButtonDown("Punch"))
+                    {
+                        animator.SetBool("isComboKick3", false);
+                        ChangeState(PlayerState.ComboPunch3);
+                    }
+                    break;
                 }
-                break;
-            }
 
             case PlayerState.ComboPunch3B:
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    animator.SetBool("isComboPunch3", false);
-                    ChangeState(PlayerState.Jump2Combo3);
+                    if (Input.GetButtonDown("Jump"))
+                    {
+                        animator.SetBool("isComboPunch3", false);
+                        ChangeState(PlayerState.Jump2Combo3);
+                    }
+                    break;
                 }
-                break;
-            }
 
             case PlayerState.Jump2Combo3B:
-            {
-                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    animator.SetBool("isJump2Combo3", false);
-                    ChangeState(PlayerState.JumpKick2);
+                    if (Input.GetButtonDown("Kick"))
+                    {
+                        animator.SetBool("isJump2Combo3", false);
+                        ChangeState(PlayerState.JumpKick2);
+                    }
+                    break;
                 }
-                break;
-            }
 
             case PlayerState.Jump1B:
-            {
-                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    animator.SetBool("isJump1", false);
-                    ChangeState(PlayerState.JumpKick1);
+                    if (Input.GetButtonDown("Kick"))
+                    {
+                        animator.SetBool("isJump1", false);
+                        ChangeState(PlayerState.JumpKick1);
+                    }
+                    break;
                 }
-                break;
-            }
         }
     }
     public void ChangeState(PlayerState newState)
@@ -400,7 +421,7 @@ public class NEWPlayerState_W : MonoBehaviour
             case PlayerState.Spray:
                 animator.Play("Spray_T");
                 break;
-            
+
             case PlayerState.Throw:
                 Debug.Log("Step2 - Animation Plays");
                 animator.Play("Throw_T");
@@ -414,24 +435,28 @@ public class NEWPlayerState_W : MonoBehaviour
         // animator.SetBool("isWalkingUp", newState == PlayerState.X); - Sets the Bool makes the animator bool T or F. Same as doing if isWalking == true {play animation} else {iswalking == false}
         if (newState == PlayerState.Walking)
         {
-            if (Input.GetKey(KeyCode.W))
+            float z = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("Vertical_Controller");
+            float x = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Horizontal_Controller");
+
+            if (z > 0.1f)
             {
                 animator.SetBool("isWalkingRight", true);
             }
-            if (Input.GetKey(KeyCode.S))
+            else if (z < -0.1f)
             {
                 animator.SetBool("isWalkingRight", true);
             }
-            else if (Input.GetKey(KeyCode.D))
+
+            if (x < -0.1f)
             {
                 animator.SetBool("isWalkingRight", true);
             }
-            else if (Input.GetKey(KeyCode.A))
+            else if (x > 0.1f)
             {
                 animator.SetBool("isWalkingRight", true);
             }
         }
-       
+
         animator.SetBool("isBlocking", newState == PlayerState.Blocking); //Set isBlocking to true in the animator
     }
 
@@ -440,8 +465,8 @@ public class NEWPlayerState_W : MonoBehaviour
     //======================================================================//
     public void PlayerMovement()
     {
-        float z = Input.GetAxisRaw("Vertical");
-        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("Vertical_Controller");
+        float x = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Horizontal_Controller");
 
         Vector3 moveDirection = new Vector3(-z, 0, x).normalized;
 
@@ -458,7 +483,7 @@ public class NEWPlayerState_W : MonoBehaviour
     //======================================================================//
     void BackToIdle(PlayerState s)
     {
-        if(currentState != s && s != PlayerState.Idle)
+        if (currentState != s && s != PlayerState.Idle)
         {
             /*Debug.Log("CS: " + currentState + " / " + s);*/
             return;

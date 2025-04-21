@@ -19,7 +19,7 @@ public class WallInteraction_W : MonoBehaviour
             Debug.Log("Can Interact is set to true");
         }
 
-        if (wallHighlight.CanInteract() && Input.GetKeyDown(KeyCode.E))
+        if (wallHighlight.CanInteract() && Input.GetButtonDown("Interact"))
         {
             wallHighlight.SprayOnWallUI.SetActive(false);
             wallHighlight.BA = true;

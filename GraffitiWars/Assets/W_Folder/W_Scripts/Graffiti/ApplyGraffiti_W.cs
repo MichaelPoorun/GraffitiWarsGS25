@@ -41,6 +41,9 @@ public class ApplyGraffiti_W : MonoBehaviour
         DonePressed = true;
 
         ui.CloseDrawingUI();
+
+        CanvasRenderer virtualCursorRenderer = graffitiDrawer.virtualCursor.GetComponent<CanvasRenderer>();
+        virtualCursorRenderer.SetAlpha(0f);
     }
 
     private void ApplyDrawingToWall(Texture2D drawing)

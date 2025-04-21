@@ -8,28 +8,67 @@ public class GraffitiDrawer_W : MonoBehaviour
     public int brushSize = 10;
     public GameObject drawingUI;
 
+    private Vector2 virtualCursorPos;
+    public float controllerSpeed = 2000f;
+    public RectTransform virtualCursor; 
+
     void Start()
     {
+        CanvasRenderer virtualCursorRenderer = virtualCursor.GetComponent<CanvasRenderer>();
+        virtualCursorRenderer.SetAlpha(0f);  // Hide the virtual cursor
+
         drawingTexture = new Texture2D(500, 500, TextureFormat.RGBA32, false);
         /*ClearCanvas();*/
-
         drawingCanvas.texture = drawingTexture;
+
+        virtualCursorPos = new Vector2(Screen.width / 2f, Screen.height / 2f);
     }
 
     void Update()
     {
-        if (drawingUI.activeSelf && Input.GetMouseButton(0))
+        CanvasRenderer virtualCursorRenderer = virtualCursor.GetComponent<CanvasRenderer>();
+        virtualCursor.position = virtualCursorPos;
+
+        //if (drawingUI.activeSelf && Input.GetButton("Draw"))
+        //{
+        //    Vector2 mousePos = Input.mousePosition;
+        //    DrawAt(mousePos);
+        //}
+
+        if (!drawingUI.activeSelf) return;
+
+        float moveX = Input.GetAxis("Horizontal_LeftStick");
+        float moveY = Input.GetAxis("Vertical_LeftStick");
+        Debug.Log($"Stick X: {moveX}, Y: {moveY}");
+
+        virtualCursorPos += new Vector2(moveX, moveY) * controllerSpeed * Time.deltaTime;
+        virtualCursorPos.x = Mathf.Clamp(virtualCursorPos.x, 0, Screen.width);
+        virtualCursorPos.y = Mathf.Clamp(virtualCursorPos.y, 0, Screen.height);
+
+        /*if (Input.GetButton("Draw"))
         {
-            Vector2 mousePos = Input.mousePosition;
-            DrawAt(mousePos);
+            Vector2 drawPos = Input.GetMouseButton(0) ? (Vector2)Input.mousePosition : virtualCursorPos;
+        }*/
+
+        bool usingMouse = Input.GetMouseButton(0);
+        bool usingController = Input.GetButton("Draw");
+
+        if (usingMouse)
+        {
+            DrawAt(Input.mousePosition);
+            virtualCursorRenderer.SetAlpha(0f);
+        }
+        else if (usingController)
+        {
+            DrawAt(virtualCursorPos);
+            virtualCursorRenderer.SetAlpha(1f);
         }
     }
 
     void DrawAt(Vector2 position)
     {
         RectTransform rt = drawingCanvas.GetComponent<RectTransform>();
-        Vector2 localPos;
-        
+        Vector2 localPos; 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rt, position, null, out localPos);
 
         localPos.x += rt.rect.width * 0.5f;
