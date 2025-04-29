@@ -13,6 +13,9 @@ public class CameraLocks_W : MonoBehaviour
     public bool P1Activated = false;
     public GameObject Wall1;
     public GameObject Wall2;
+    public GameObject Spray1;
+    public GameObject Spray2;
+    public GameObject Spray3;
 
     [Header("Part2------------------------------------------------------------Part2")]
     public GameObject Part2Cam;
@@ -20,6 +23,9 @@ public class CameraLocks_W : MonoBehaviour
     public bool P2Activated = false;
     public GameObject Wall3;
     public GameObject Wall4;
+    public GameObject Spray4;
+    public GameObject Spray5;
+    public GameObject Spray6;
 
     [Header("Part3------------------------------------------------------------Part3")]
     public GameObject Part3Cam;
@@ -27,6 +33,10 @@ public class CameraLocks_W : MonoBehaviour
     public bool P3Activated = false;
     public GameObject Wall5;
     public GameObject Wall6;
+    public GameObject Spray7;
+    public GameObject Spray8;
+    public GameObject Spray9;
+
     [Header("Part4------------------------------------------------------------Part4")]
     public GameObject BossCam;
     public bool PBossActivated = false;
@@ -52,7 +62,7 @@ public class CameraLocks_W : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+ 
     }
 
     public void HandleEvent(string e)
@@ -64,6 +74,12 @@ public class CameraLocks_W : MonoBehaviour
             WaveSpawn1.SetActive(true);
             Wall1.SetActive(true);
             Wall2.SetActive(true);
+        }
+        else if (e == "Part1Mid")
+        {
+            Spray1.SetActive(true);
+            Spray2.SetActive(true);
+            Spray3.SetActive(true);
         }
         else if(e == "Part1End")
         {
@@ -82,6 +98,12 @@ public class CameraLocks_W : MonoBehaviour
             Wall3.SetActive(true);
             Wall4.SetActive(true);
         }
+        else if (e == "Part2Mid")
+        {
+            Spray4.SetActive(true);
+            Spray5.SetActive(true);
+            Spray6.SetActive(true);
+        }
         else if (e == "Part2End")
         {
             Part2Cam.SetActive(false);
@@ -98,6 +120,12 @@ public class CameraLocks_W : MonoBehaviour
             WaveSpawn3.SetActive(true);
             Wall5.SetActive(true);
             Wall6.SetActive(true);
+        }
+        else if (e == "Part3Mid")
+        {
+            Spray7.SetActive(true);
+            Spray8.SetActive(true);
+            Spray9.SetActive(true);
         }
         else if (e == "Part3End")
         {
