@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -8,16 +9,26 @@ public class WaveSpawner : MonoBehaviour
     public int currWave;
     public int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
+    public List<GameObject> activeEnemies = new List<GameObject>(); // tracks active enemies
 
-    public Transform spawnLocation;
+    public List<Transform> spawnLocations;
     public int waveDuration;
     private float waveTimer;
     private float spawnInterval;
     private float spawnTimer;
+    private WaveManager waveManager;
+
+    public bool readyToCheck;
+    public CameraLocks_W CLW;
+    public string Event;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        waveManager = FindAnyObjectByType<WaveManager>();
         GenerateWave();
+        readyToCheck = false;
+        StartCoroutine(Wait());
     }
 
     // Update is called once per frame
@@ -27,8 +38,10 @@ public class WaveSpawner : MonoBehaviour
         {
             if(enemiesToSpawn.Count > 0)
             {
-                Instantiate(enemiesToSpawn[0], spawnLocation.position, Quaternion.identity);//spawns the first enemy within the list
+                Transform randomSpawnPoint = spawnLocations[Random.Range(0, spawnLocations.Count)];
+                GameObject newEnemy = Instantiate(enemiesToSpawn[0], randomSpawnPoint.position, Quaternion.identity);//spawns the first enemy within the list
                 enemiesToSpawn.RemoveAt(0); //removes the enemy from the list
+                activeEnemies.Add(newEnemy);
                 spawnTimer = spawnInterval;
             }
             else
@@ -41,15 +54,35 @@ public class WaveSpawner : MonoBehaviour
             spawnTimer -= Time.fixedDeltaTime;
             waveTimer -= Time.fixedDeltaTime;
         }
+
+        /*CheckWaveCompletion();// checks if the wave is completed*/
+    }
+    void Update()
+    {
+        if (readyToCheck == true)
+        {
+            activeEnemies.RemoveAll(enemy => enemy == null);
+
+            if (activeEnemies.Count == 0 && enemiesToSpawn.Count == 0)
+            {
+                CLW.HandleEvent(Event);
+            }
+        }
     }
 
     public void GenerateWave()
     {
-        waveValue = currWave * 5;
+        waveValue = currWave * 2;
         GenerateEnemies();
 
         spawnInterval = waveDuration / enemiesToSpawn.Count; //gives the wave a fixed time in which enemies spawn
         waveTimer = waveDuration; 
+    }
+    
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+        readyToCheck = true;
     }
 
     public void GenerateEnemies()
@@ -65,7 +98,7 @@ public class WaveSpawner : MonoBehaviour
                 generatedEnemies.Add(enemies[randEnemyID].enemyPrefab);
                 waveValue -= randEnemyCost;
             }
-            else if (waveValue <= 0)
+            else
             {
                 break;
             }
@@ -74,6 +107,16 @@ public class WaveSpawner : MonoBehaviour
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
     }
+
+    /*private void CheckWaveCompletion()
+    {
+        activeEnemies.RemoveAll(enemy => enemy == null);
+
+        if (activeEnemies.Count == 0 & enemiesToSpawn.Count == 0)
+        {
+            waveManager.OnWaveCompleted();
+        }
+    }*/
 }
 
 [System.Serializable]

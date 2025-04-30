@@ -10,6 +10,19 @@ TagManager:
   - NormalEnemy
   - TankEnemy
   - MouseEnemy
+  - Boss
+  - BossEnemy
+  - TheEnd
+  - BossH
+  - Spray1
+  - Spray2
+  - Spray3
+  - Spray4
+  - Spray5
+  - Spray6
+  - Spray7
+  - Spray8
+  - Spray9
   layers:
   - Default
   - TransparentFX

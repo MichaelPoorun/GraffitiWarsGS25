@@ -5,12 +5,16 @@ public class EnemyBrain : MonoBehaviour
 {
     public NEWPlayerState_W target;
     private EnemyReferences enemyReferences;
+    private BasicEnemyStatemachine_W State;
 
     private float pathUpdateDeadline; //tracks when the path can be updated
-    private float punchingDistance;
+    public float punchingDistance;
+
+    
 
     private void Awake()
     {
+        State = GetComponent<BasicEnemyStatemachine_W>();
         enemyReferences = GetComponent<EnemyReferences>();
     }
 
@@ -20,7 +24,7 @@ public class EnemyBrain : MonoBehaviour
         target = GameObject.FindFirstObjectByType<NEWPlayerState_W>();
     }
 
-    void Update()
+    public void Update()
     {
         if (target != null) 
         {
@@ -37,7 +41,6 @@ public class EnemyBrain : MonoBehaviour
             }
             enemyReferences.anim.SetBool("punching", inRange);
         }
-        enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
     }
 
     private void LookAtTarget()
@@ -52,7 +55,6 @@ public class EnemyBrain : MonoBehaviour
     {
         if (Time.time >= pathUpdateDeadline)
         {
-            Debug.Log("Updating Path");
             pathUpdateDeadline = Time.time + enemyReferences.pathUpdateDelay;
             enemyReferences.navMeshAgent.SetDestination(target.transform.position);
         }

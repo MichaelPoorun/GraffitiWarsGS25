@@ -11,7 +11,6 @@ public class EventP1_W : MonoBehaviour
         {
             CLW.P1Activated = true;
             CLW.HandleEvent(Event);
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
 
     }
