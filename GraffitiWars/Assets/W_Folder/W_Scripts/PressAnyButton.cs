@@ -17,7 +17,7 @@ public class PressAnyButton : MonoBehaviour
 
     void LoadMenu()
     {
-        SceneManager.LoadScene(menuSceneName);
+        SceneManager.LoadScene(1);
     }
     //yea//
 }
