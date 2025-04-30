@@ -19,7 +19,6 @@ public class ApplyGraffiti_W : MonoBehaviour
         if (DonePressed == true)
         {
             cams.BossCam.SetActive(false);
-            cams.Main.SetActive(true);
             cams.Wall8.SetActive(false);
             GO.SetActive(true);
             DonePressed = false;
@@ -39,6 +38,9 @@ public class ApplyGraffiti_W : MonoBehaviour
         ApplyDrawingToWall(finalDrawing);
 
         DonePressed = true;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         ui.CloseDrawingUI();
 

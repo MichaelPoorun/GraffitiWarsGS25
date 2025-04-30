@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MidSprayManager_W : MonoBehaviour
@@ -97,16 +98,19 @@ public class MidSprayManager_W : MonoBehaviour
         if (other.CompareTag("Spray1") && (Input.GetButtonDown("Interact")))
         {
             Spray1 = true;
+            CLW.Arrow1.SetActive(false);
             rendererM1.material = changedM;
         }
         else if (other.CompareTag("Spray2") && (Input.GetButtonDown("Interact")))
         {
             Spray2 = true;
+            CLW.Arrow2.SetActive(false);
             rendererM2.material = changedM;
         }
         else if (other.CompareTag("Spray3") && (Input.GetButtonDown("Interact")))
         {
             Spray3 = true;
+            CLW.Arrow3.SetActive(false);
             rendererM3.material = changedM;
         }
         else if (other.CompareTag("Spray4") && (Input.GetButtonDown("Interact")))

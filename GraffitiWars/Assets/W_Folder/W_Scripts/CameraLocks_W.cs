@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class CameraLocks_W : MonoBehaviour
     public GameObject UITrig;
 
     [Header("Part1------------------------------------------------------------Part1")]
+    public bool PP = false;
     public GameObject Part1Cam;
     public GameObject WaveSpawn1;
     public bool P1Activated = false;
@@ -16,6 +18,11 @@ public class CameraLocks_W : MonoBehaviour
     public GameObject Spray1;
     public GameObject Spray2;
     public GameObject Spray3;
+    public GameObject Arrow1;
+    public GameObject Arrow2;
+    public GameObject Arrow3;
+    public GameObject SprayText;
+    public bool sprayTextHasRun = false;
 
     [Header("Part2------------------------------------------------------------Part2")]
     public GameObject Part2Cam;
@@ -75,17 +82,24 @@ public class CameraLocks_W : MonoBehaviour
             Wall1.SetActive(true);
             Wall2.SetActive(true);
         }
-        else if (e == "Part1Mid")
+        else if (e == "Part1Mid" && PP == false)
         {
+            PP = true;
+
+            Part1Cam.SetActive(false);
+            Main.SetActive(true);
+
             Spray1.SetActive(true);
             Spray2.SetActive(true);
             Spray3.SetActive(true);
+            Arrow1.SetActive(true);
+            Arrow2.SetActive(true);
+            Arrow3.SetActive(true);
+            StartCoroutine(SprayTxt());
         }
         else if(e == "Part1End")
         {
-            Part1Cam.SetActive(false);
             WaveSpawn1.SetActive(false);
-            Main.SetActive(true);
             Wall2.SetActive(false);
             UITrig.SetActive(true);
         }
@@ -100,15 +114,16 @@ public class CameraLocks_W : MonoBehaviour
         }
         else if (e == "Part2Mid")
         {
+            Part2Cam.SetActive(false);
+            Main.SetActive(true);
+
             Spray4.SetActive(true);
             Spray5.SetActive(true);
             Spray6.SetActive(true);
         }
         else if (e == "Part2End")
         {
-            Part2Cam.SetActive(false);
             WaveSpawn2.SetActive(false);
-            Main.SetActive(true);
             Wall4.SetActive(false);
             UITrig.SetActive(true);
         }
@@ -123,15 +138,16 @@ public class CameraLocks_W : MonoBehaviour
         }
         else if (e == "Part3Mid")
         {
+            Part3Cam.SetActive(false);
+            Main.SetActive(true);
+
             Spray7.SetActive(true);
             Spray8.SetActive(true);
             Spray9.SetActive(true);
         }
         else if (e == "Part3End")
         {
-            Part3Cam.SetActive(false);
             WaveSpawn3.SetActive(false);
-            Main.SetActive(true);
             Wall6.SetActive(false);
             UITrig.SetActive(true);
         }
@@ -145,6 +161,20 @@ public class CameraLocks_W : MonoBehaviour
             Wall8.SetActive(true);
 
         }
+    }
+
+    IEnumerator SprayTxt()
+    {
+        if (sprayTextHasRun)
+        {
+            yield break;
+        }
+          
+        sprayTextHasRun = true;
+
+        SprayText.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        SprayText.SetActive(false);
     }
 
 }

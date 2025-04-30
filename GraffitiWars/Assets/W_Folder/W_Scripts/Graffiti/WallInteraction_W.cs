@@ -9,6 +9,8 @@ public class WallInteraction_W : MonoBehaviour
     void Start()
     {
         wallHighlight = GetComponent<WallHighlight_W>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void OnTriggerStay(Collider other)
@@ -21,9 +23,12 @@ public class WallInteraction_W : MonoBehaviour
 
         if (wallHighlight.CanInteract() && Input.GetButtonDown("Interact"))
         {
-            wallHighlight.SprayOnWallUI.SetActive(false);
+            wallHighlight.Arrow1.SetActive(false);
+            wallHighlight.Arrow2.SetActive(false);
             wallHighlight.BA = true;
             wallHighlight.TurnBackColor();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             OpenDrawingUI();
         }
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class WallHighlight_W : MonoBehaviour
 {
@@ -8,13 +9,17 @@ public class WallHighlight_W : MonoBehaviour
     public bool canInteract = false; //Makes Wall Interactable (Plyaer Can Click E On It)
     public GameObject BossAlive;
     public bool BA = false;
-    public GameObject SprayOnWallUI;
+    public GameObject Arrow1;
+    public GameObject Arrow2;
     public GameObject BossHealth;
+    public CameraLocks_W cams;
+    public GameObject target;
 
     void Update()
     {
         if (BossAlive == null && BA == false)
         {
+            cams.Main.SetActive(true);
             HighlightWall();
             BossHealth.SetActive(false);
         }
@@ -22,6 +27,8 @@ public class WallHighlight_W : MonoBehaviour
 
     void Start()
     {
+        cams = GetComponent<CameraLocks_W>();
+        cams = target.GetComponent<CameraLocks_W>();
         wallRenderer = GetComponent<Renderer>();
         wallRenderer.material = normalMaterial;
     }
@@ -30,7 +37,8 @@ public class WallHighlight_W : MonoBehaviour
     public void HighlightWall()
     {
         wallRenderer.material = highlightMaterial;
-        SprayOnWallUI.SetActive(true);
+        Arrow1.SetActive(true);
+        Arrow2.SetActive(true);
     }
     public void TurnBackColor()
     {
