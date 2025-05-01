@@ -164,15 +164,6 @@ public class NEWPlayerState_W : MonoBehaviour
                 TimerOn2.throwTimerTxt.enabled = false;
             }
         }
-
-        float LT = Input.GetAxis("Restart1");
-        float RT = Input.GetAxis("Restart2");
-
-        if (Input.GetKeyDown(KeyCode.P) || (LT > 0.1f && RT > 0.1f))
-        {
-            SceneManager.LoadScene(0);
-        }
-
     }
 
     //======================================================================//
