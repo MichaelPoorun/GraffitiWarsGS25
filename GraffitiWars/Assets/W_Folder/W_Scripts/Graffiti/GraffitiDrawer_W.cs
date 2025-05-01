@@ -10,10 +10,13 @@ public class GraffitiDrawer_W : MonoBehaviour
 
     private Vector2 virtualCursorPos;
     public float controllerSpeed = 2000f;
-    public RectTransform virtualCursor; 
+    public RectTransform virtualCursor;
 
     void Start()
     {
+        CanvasRenderer virtualCursorRenderer = virtualCursor.GetComponent<CanvasRenderer>();
+        virtualCursorRenderer.SetAlpha(0f);  // Hide the virtual cursor
+
         drawingTexture = new Texture2D(500, 500, TextureFormat.RGBA32, false);
         /*ClearCanvas();*/
         drawingCanvas.texture = drawingTexture;
@@ -23,6 +26,9 @@ public class GraffitiDrawer_W : MonoBehaviour
 
     void Update()
     {
+        CanvasRenderer virtualCursorRenderer = virtualCursor.GetComponent<CanvasRenderer>();
+        virtualCursor.position = virtualCursorPos;
+
         //if (drawingUI.activeSelf && Input.GetButton("Draw"))
         //{
         //    Vector2 mousePos = Input.mousePosition;
@@ -46,6 +52,17 @@ public class GraffitiDrawer_W : MonoBehaviour
 
         bool usingMouse = Input.GetMouseButton(0);
         bool usingController = Input.GetButton("Draw");
+        
+        if (usingMouse)
+        {
+            DrawAt(Input.mousePosition);
+            virtualCursorRenderer.SetAlpha(0f);
+        }
+        else if (usingController)
+        {
+            DrawAt(virtualCursorPos);
+            virtualCursorRenderer.SetAlpha(1f);
+        }
     }
 
     void DrawAt(Vector2 position)
