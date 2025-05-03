@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public int attackDamage = 10; // Damage per hit
+    public int attackDamage = 10;
 
     private void OnTriggerEnter(Collider other)
     {
