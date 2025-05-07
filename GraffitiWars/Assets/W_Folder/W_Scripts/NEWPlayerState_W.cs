@@ -133,6 +133,10 @@ public class NEWPlayerState_W : MonoBehaviour
         {
             PlayerMovement();
         }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
 
         if (HP.currentHealth <= 25f)
         {
@@ -463,9 +467,13 @@ public class NEWPlayerState_W : MonoBehaviour
 
         if (moveDirection.magnitude > 0)
         {
-            transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+            rb.linearVelocity = moveDirection * speed;// * Time.deltaTime, Space.World);
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
         }
     }
 
