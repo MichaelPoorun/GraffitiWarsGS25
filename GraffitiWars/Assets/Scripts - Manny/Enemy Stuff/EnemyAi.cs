@@ -61,8 +61,6 @@ public class EnemyAi : MonoBehaviour
     {
         Vector3 direction = (player.position - transform.position).normalized;
         rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
-
-        //Debug.Log("Enemy is moving towards the player");
     }
 
     void AttackPlayer()

@@ -22,7 +22,6 @@ public class WaveSpawner : MonoBehaviour
     public CameraLocks_W CLW;
     public string Event;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         waveManager = FindAnyObjectByType<WaveManager>();

@@ -10,7 +10,7 @@ public class GraffitiDrawer_W : MonoBehaviour
 
     private Vector2 virtualCursorPos;
     public float controllerSpeed = 2000f;
-    public RectTransform virtualCursor; 
+    public RectTransform virtualCursor;
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class GraffitiDrawer_W : MonoBehaviour
 
         bool usingMouse = Input.GetMouseButton(0);
         bool usingController = Input.GetButton("Draw");
-
+        
         if (usingMouse)
         {
             DrawAt(Input.mousePosition);
