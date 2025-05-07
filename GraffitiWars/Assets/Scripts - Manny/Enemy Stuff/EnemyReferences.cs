@@ -9,7 +9,7 @@ public class EnemyReferences : MonoBehaviour
 
     [Header("Stats")]
 
-    public float pathUpdateDelay = 0.2f; //updates destination
+    public float pathUpdateDelay = 0.1f; //updates destination
 
     private void Awake()
     {

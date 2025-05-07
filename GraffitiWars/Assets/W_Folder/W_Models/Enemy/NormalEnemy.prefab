@@ -897,9 +897,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &2734799997191869368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +917,7 @@ MonoBehaviour:
   damage: 25
   healthBar: {fileID: 6377901609297048051, guid: a1a46ee01520f6d49b48a4d1ae79c071, type: 3}
   playerHealthBar: {fileID: 0}
+  bossHealthBar: {fileID: 0}
 --- !u!136 &4119601883121660721
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -995,7 +996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 0}
   anim: {fileID: 0}
-  pathUpdateDelay: 0.2
+  pathUpdateDelay: 0.1
 --- !u!4 &6586103906037267405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7bf26b296d01934468a31f2d556a2a12, type: 3}

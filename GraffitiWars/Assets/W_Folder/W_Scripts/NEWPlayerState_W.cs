@@ -133,6 +133,10 @@ public class NEWPlayerState_W : MonoBehaviour
         {
             PlayerMovement();
         }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
 
         if (HP.currentHealth <= 25f)
         {
@@ -164,15 +168,6 @@ public class NEWPlayerState_W : MonoBehaviour
                 TimerOn2.throwTimerTxt.enabled = false;
             }
         }
-
-        float LT = Input.GetAxis("Restart1");
-        float RT = Input.GetAxis("Restart2");
-
-        if (Input.GetKeyDown(KeyCode.P) || (LT > 0.1f && RT > 0.1f))
-        {
-            SceneManager.LoadScene(0);
-        }
-
     }
 
     //======================================================================//
@@ -472,9 +467,13 @@ public class NEWPlayerState_W : MonoBehaviour
 
         if (moveDirection.magnitude > 0)
         {
-            transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+            rb.linearVelocity = moveDirection * speed;// * Time.deltaTime, Space.World);
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
         }
     }
 
@@ -509,6 +508,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void BasicPunchBoxOn()
     {
         BasicPunch.SetActive(true);
+
     }
     void BasicPunchBoxOff()
     {
