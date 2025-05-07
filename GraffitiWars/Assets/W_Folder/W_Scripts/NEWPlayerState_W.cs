@@ -508,6 +508,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void BasicPunchBoxOn()
     {
         BasicPunch.SetActive(true);
+
     }
     void BasicPunchBoxOff()
     {
