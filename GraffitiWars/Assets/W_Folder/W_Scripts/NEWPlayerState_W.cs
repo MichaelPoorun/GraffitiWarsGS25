@@ -30,7 +30,8 @@ public enum PlayerState //Where all player states are kept
     JumpKick1,
     Blocking,
     Spray,
-    Throw
+    Throw,
+    GotHit
 }
 
 public class NEWPlayerState_W : MonoBehaviour
@@ -355,6 +356,7 @@ public class NEWPlayerState_W : MonoBehaviour
                     }
                     break;
                 }
+
         }
     }
     public void ChangeState(PlayerState newState)
@@ -418,8 +420,10 @@ public class NEWPlayerState_W : MonoBehaviour
                 break;
 
             case PlayerState.Throw:
-                Debug.Log("Step2 - Animation Plays");
                 animator.Play("Throw_T");
+                break;
+            case PlayerState.GotHit:
+                animator.Play("GotHit");
                 break;
         }
 
@@ -499,6 +503,7 @@ public class NEWPlayerState_W : MonoBehaviour
         animator.SetBool("isJumpKick2", false);
         animator.SetBool("isJumpKick1", false);
         animator.SetBool("isJump1", false);
+        animator.SetBool("GetHit", false);
         isJumping = false;
 
         ChangeState(PlayerState.Idle);
@@ -508,7 +513,6 @@ public class NEWPlayerState_W : MonoBehaviour
     void BasicPunchBoxOn()
     {
         BasicPunch.SetActive(true);
-
     }
     void BasicPunchBoxOff()
     {
@@ -682,21 +686,25 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NormalEnemy") && isBlocking == false)
         {
+            animator.SetTrigger("GetHit"); 
             damage = 20;
             HP.TakeDamage(damage);
         }
         else if (other.gameObject.CompareTag("TankEnemy") && isBlocking == false)
         {
+            animator.SetBool("GetHit", true);
             damage = 10;
             HP.TakeDamage(damage);
         }
         else if (other.gameObject.CompareTag("MouseEnemy") && isBlocking == false)
         {
+            animator.SetBool("GetHit", true);
             damage = 5;
             HP.TakeDamage(damage);
         }
         else if (other.gameObject.CompareTag("BossEnemy") && isBlocking == false)
         {
+            animator.SetBool("GetHit", true);
             damage = 50;
             HP.TakeDamage(damage);
         }
