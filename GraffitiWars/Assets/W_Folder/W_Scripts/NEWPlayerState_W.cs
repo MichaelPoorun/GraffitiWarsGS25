@@ -63,6 +63,7 @@ public class NEWPlayerState_W : MonoBehaviour
     public bool canSpray = true;
     public bool canThrow = true;
     public bool BossTime = false;
+    public bool GotHit = false;
 
     [Header("Player Attack Hitboxes")]
     public GameObject BasicPunch;
@@ -423,7 +424,7 @@ public class NEWPlayerState_W : MonoBehaviour
                 animator.Play("Throw_T");
                 break;
             case PlayerState.GotHit:
-                animator.Play("GotHit");
+                animator.SetTrigger("GetHit");
                 break;
         }
 
@@ -503,8 +504,8 @@ public class NEWPlayerState_W : MonoBehaviour
         animator.SetBool("isJumpKick2", false);
         animator.SetBool("isJumpKick1", false);
         animator.SetBool("isJump1", false);
-        animator.SetBool("GetHit", false);
         isJumping = false;
+        GotHit = false;
 
         ChangeState(PlayerState.Idle);
     }
@@ -686,7 +687,11 @@ public class NEWPlayerState_W : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NormalEnemy") && isBlocking == false)
         {
-            animator.SetTrigger("GetHit"); 
+            if (GotHit == false)
+            {
+                GotHit = true;
+                ChangeState(PlayerState.GotHit);
+            } 
             damage = 20;
             HP.TakeDamage(damage);
         }
