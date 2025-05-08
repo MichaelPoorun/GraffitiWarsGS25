@@ -1654,7 +1654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -1671,6 +1671,10 @@ PrefabInstance:
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Intensity
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 99.32991
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1700,6 +1704,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (8)
@@ -2311,17 +2355,17 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_AllowHDROutput: 1
@@ -2387,7 +2431,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 589a2657ff1ecb94a86286e7e868bc7c, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -3605,7 +3649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -3622,6 +3666,10 @@ PrefabInstance:
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Intensity
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 81.30225
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3651,6 +3699,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (9)
@@ -3830,6 +3918,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Color.b
       value: 0.31728372
       objectReference: {fileID: 0}
@@ -3845,6 +3937,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 76.86008
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -3853,6 +3949,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.815937
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92571
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0077684
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar back (6)
@@ -4466,7 +4602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -4484,10 +4620,54 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 73.43244
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (1)
@@ -4610,17 +4790,17 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_AllowHDROutput: 1
@@ -4686,7 +4866,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 589a2657ff1ecb94a86286e7e868bc7c, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -4968,6 +5148,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Color.b
       value: 0.31728372
       objectReference: {fileID: 0}
@@ -4983,6 +5167,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 95.40882
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -4991,6 +5179,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.815937
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92571
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0077684
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar back (1)
@@ -5950,6 +6178,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Color.b
       value: 0.31728372
       objectReference: {fileID: 0}
@@ -5965,6 +6197,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 83.14911
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5973,6 +6209,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.815937
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92571
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0077684
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar back (2)
@@ -6101,7 +6377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -6118,6 +6394,14 @@ PrefabInstance:
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Intensity
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 92.57211
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6155,6 +6439,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (5)
@@ -6646,7 +6970,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 861773624}
   - {fileID: 1626604674}
   - {fileID: 2078949422}
   - {fileID: 251425658}
@@ -6897,78 +7220,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857799331}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &861773623
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 861773624}
-  - component: {fileID: 861773626}
-  - component: {fileID: 861773625}
-  m_Layer: 5
-  m_Name: RawImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &861773624
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861773623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 810235270}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &861773625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861773623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 589a2657ff1ecb94a86286e7e868bc7c, type: 2}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &861773626
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861773623}
-  m_CullTransparentMesh: 1
 --- !u!1001 &872959388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7030,6 +7281,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Color.b
       value: 0.31728372
       objectReference: {fileID: 0}
@@ -7045,6 +7300,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 76.904564
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7053,6 +7312,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.815937
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92571
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0077684
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar back (3)
@@ -7288,17 +7587,17 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_AllowHDROutput: 1
@@ -7364,7 +7663,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 589a2657ff1ecb94a86286e7e868bc7c, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -7842,7 +8141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -7860,10 +8159,54 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 93.389046
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (2)
@@ -7940,6 +8283,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Color.b
       value: 0.31764707
       objectReference: {fileID: 0}
@@ -7951,6 +8298,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.58431375
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 94.94034
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7959,6 +8310,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.815937
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92571
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0077684
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar back
@@ -8083,17 +8474,17 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_AllowHDROutput: 1
@@ -8159,7 +8550,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 589a2657ff1ecb94a86286e7e868bc7c, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -9179,7 +9570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -9196,6 +9587,10 @@ PrefabInstance:
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Intensity
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 83.54225
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9225,6 +9620,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (7)
@@ -10572,17 +11007,17 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_AllowHDROutput: 1
@@ -10648,7 +11083,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 589a2657ff1ecb94a86286e7e868bc7c, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -14214,7 +14649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -14232,10 +14667,54 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 87.88147
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar
@@ -14307,6 +14786,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Color.b
       value: 0.31728372
       objectReference: {fileID: 0}
@@ -14322,6 +14805,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 73.2325
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -14330,6 +14817,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.815937
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92571
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0077684
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar back (7)
@@ -14390,7 +14917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -14408,10 +14935,54 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 96.94233
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (3)
@@ -14544,7 +15115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -14562,10 +15133,54 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 87.72844
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (4)
@@ -15784,6 +16399,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Color.b
       value: 0.31728372
       objectReference: {fileID: 0}
@@ -15799,6 +16418,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 73.05908
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -15807,6 +16430,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.815937
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92571
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0077684
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar back (5)
@@ -15878,6 +16541,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Color.b
       value: 0.31728372
       objectReference: {fileID: 0}
@@ -15893,6 +16560,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 71.44013
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -15901,6 +16572,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.815937
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92571
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0077684
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f802a1cb0935f7b42b509b6fb5fb3e5d, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar back (4)
@@ -16614,8 +17325,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 0.8494018, b: 0.43867922, a: 1}
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -16657,9 +17368,9 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
+  m_BounceIntensity: 0.27
+  m_ColorTemperature: 5723
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -16677,13 +17388,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791041584}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12824377, y: -0.18458548, z: -0.02430108, w: 0.9741105}
-  m_LocalPosition: {x: 8.4, y: 5.11, z: -25.54}
+  m_LocalRotation: {x: 0.11970673, y: 0.1800292, z: 0.012194755, w: 0.97627413}
+  m_LocalPosition: {x: 58.5, y: 5.11, z: -25.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 13.938, y: -22.145, z: -5.599}
+  m_LocalEulerAnglesHint: {x: 13.258, y: 21.355, z: 3.942}
 --- !u!1001 &1791466077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19624,7 +20335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Color.b
@@ -19641,6 +20352,10 @@ PrefabInstance:
     - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Intensity
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -6722085885383957590, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_SpotAngle
+      value: 82.980576
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19670,6 +20385,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fb012998f7780b0488ba0b3536a448f4, type: 2}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -447275898630060098, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e3e423407c810343a56eeb977919c72, type: 3}
       propertyPath: m_Name
       value: GSD Subway Pillar (6)
