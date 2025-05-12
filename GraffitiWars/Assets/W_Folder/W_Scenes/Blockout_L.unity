@@ -10741,7 +10741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f6476cb01a844d0bbeba71d0e6fb1fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.63
+      value: 58.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f6476cb01a844d0bbeba71d0e6fb1fb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12062,8 +12062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  target: {fileID: 0}
-  player: {fileID: 0}
+  target: {fileID: 1267982083}
+  player: {fileID: 1267982083}
   Chair: {fileID: 2100156650}
   objectToThrow: {fileID: 1368209724}
   cam: {fileID: 1028661270}
@@ -14826,6 +14826,7 @@ MonoBehaviour:
   canSpray: 1
   canThrow: 1
   BossTime: 0
+  GotHit: 0
   BasicPunch: {fileID: 433667122}
   ComboPunch1: {fileID: 2074784247}
   ComboKick1: {fileID: 1015337169}
