@@ -614,6 +614,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 9.743461
       objectReference: {fileID: 0}
+    - target: {fileID: -3740865851615636721, guid: 7bf26b296d01934468a31f2d556a2a12, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 377735217583420206, guid: 7bf26b296d01934468a31f2d556a2a12, type: 3}
+    - target: {fileID: -3740865851615636721, guid: 7bf26b296d01934468a31f2d556a2a12, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b3ce2565cabd68429abb289d061e559, type: 2}
     - target: {fileID: -3480699329000672020, guid: 7bf26b296d01934468a31f2d556a2a12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -1.5194253
@@ -917,6 +925,7 @@ MonoBehaviour:
   damage: 25
   healthBar: {fileID: 6377901609297048051, guid: a1a46ee01520f6d49b48a4d1ae79c071, type: 3}
   playerHealthBar: {fileID: 0}
+  bossHealthBar: {fileID: 0}
 --- !u!136 &4119601883121660721
 CapsuleCollider:
   m_ObjectHideFlags: 0
