@@ -145,28 +145,28 @@ MonoBehaviour:
   active: 1
   scanlinesWeight:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.85
   noiseWeight:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.77
   screenBendX:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 7.9
   screenBendY:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 7.09
   vignetteAmount:
     m_OverrideState: 1
-    m_Value: 0.83
+    m_Value: 0.47
   vignetteSize:
     m_OverrideState: 1
-    m_Value: 2.02
+    m_Value: 2.56
   vignetteRounding:
     m_OverrideState: 1
-    m_Value: 3.63
+    m_Value: 5.88
   vignetteSmoothing:
     m_OverrideState: 1
-    m_Value: 0.41
+    m_Value: 0.05
   scanlinesDensity:
     m_OverrideState: 1
     m_Value: 200
@@ -500,13 +500,13 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.9697251, y: 0.9616402, z: 1, w: 0}
+    m_Value: {x: 0.92861855, y: 0.91974145, z: 1, w: -0.008143323}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9629334, z: 0.9405037, w: 0}
+    m_Value: {x: 1, y: 0.9653265, z: 0.995116, w: 0.21172641}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.96758187, y: 0.98327, z: 1, w: -0.32573295}
 --- !u!114 &-758010384845797820
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -547,7 +547,7 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 3.82
+    m_Value: 2.29
   contrast:
     m_OverrideState: 1
     m_Value: -22.4
@@ -559,7 +559,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 17.9
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,10 +740,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 20.6
   tint:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 76.7
 --- !u!114 &4551806443986116986
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -762,7 +762,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.056
   response:
     m_OverrideState: 1
     m_Value: 0.8
@@ -784,10 +784,10 @@ MonoBehaviour:
   active: 1
   distance:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.159
   cropToFit:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.361
 --- !u!114 &4749570547869430821
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -825,7 +825,7 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_Value: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
@@ -834,7 +834,7 @@ MonoBehaviour:
     m_Value: 0
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.375
+    m_Value: 0.11
   rounded:
     m_OverrideState: 1
     m_Value: 1
@@ -856,10 +856,10 @@ MonoBehaviour:
     m_Value: 0.013
   xMultiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   yMultiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
@@ -901,25 +901,25 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.13843648}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.8709112, y: 0.8906482, z: 1, w: 0.17915311}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   shadowsStart:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.12
   shadowsEnd:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.76
   highlightsStart:
     m_OverrideState: 1
-    m_Value: 0.55
+    m_Value: 0.52
   highlightsEnd:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.57
 --- !u!114 &8375527978374425180
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -935,7 +935,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   gaussianStart:
     m_OverrideState: 1
     m_Value: 10
@@ -944,10 +944,10 @@ MonoBehaviour:
     m_Value: 30
   gaussianMaxRadius:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.583
   highQualitySampling:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   focusDistance:
     m_OverrideState: 1
     m_Value: 10
