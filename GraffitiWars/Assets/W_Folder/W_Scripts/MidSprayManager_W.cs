@@ -15,7 +15,9 @@ public class MidSprayManager_W : MonoBehaviour
     public Renderer rendererM7;
     public Renderer rendererM8;
     public Renderer rendererM9;
-    public Material changedM;
+    public Material changedM1;
+    public Material changedM2;
+    public Material changedM3;
 
     public GameObject S1;
     public GameObject S2;
@@ -99,49 +101,49 @@ public class MidSprayManager_W : MonoBehaviour
         {
             Spray1 = true;
             CLW.Arrow1.SetActive(false);
-            rendererM1.material = changedM;
+            rendererM1.material = changedM1;
         }
         else if (other.CompareTag("Spray2") && (Input.GetButtonDown("Interact")))
         {
             Spray2 = true;
             CLW.Arrow2.SetActive(false);
-            rendererM2.material = changedM;
+            rendererM2.material = changedM2;
         }
         else if (other.CompareTag("Spray3") && (Input.GetButtonDown("Interact")))
         {
             Spray3 = true;
             CLW.Arrow3.SetActive(false);
-            rendererM3.material = changedM;
+            rendererM3.material = changedM3;
         }
         else if (other.CompareTag("Spray4") && (Input.GetButtonDown("Interact")))
         {
             Spray4 = true;
-            rendererM4.material = changedM;
+            rendererM4.material = changedM1;
         }
         else if (other.CompareTag("Spray5") && (Input.GetButtonDown("Interact")))
         {
             Spray5 = true;
-            rendererM5.material = changedM;
+            rendererM5.material = changedM2;
         }
         else if (other.CompareTag("Spray6") && (Input.GetButtonDown("Interact")))
         {
             Spray6 = true;
-            rendererM6.material = changedM;
+            rendererM6.material = changedM3;
         }
         else if (other.CompareTag("Spray7") && (Input.GetButtonDown("Interact")))
         {
             Spray7 = true;
-            rendererM7.material = changedM;
+            rendererM7.material = changedM1;
         }
         else if (other.CompareTag("Spray8") && (Input.GetButtonDown("Interact")))
         {
             Spray8 = true;
-            rendererM8.material = changedM;
+            rendererM8.material = changedM2;
         }
         else if (other.CompareTag("Spray9") && (Input.GetButtonDown("Interact")))
         {
             Spray9 = true;
-            rendererM9.material = changedM;
+            rendererM9.material = changedM3;
         }
     }
 }

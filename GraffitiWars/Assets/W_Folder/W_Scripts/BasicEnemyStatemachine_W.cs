@@ -5,7 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 public enum BEnemyState //Where all player states are kept
 {
     Idle,
-    Punch
+    Punch,
+    GotHit
 }
 
 public class BasicEnemyStatemachine_W : MonoBehaviour
@@ -24,6 +25,7 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
 
     [Header("Player Bools")]
     private bool inRange;
+    public bool GotHit = false;
 
     [Header("Player Attack Hitboxes")]
 
@@ -91,13 +93,12 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
 
         currentState = newState;
 
-        /*switch (currentState)
+        switch (currentState)
         {
-            case BEnemyState.Punch:
-                animator.SetBool("isIdle", false);
-                animator.SetBool("isPunch", true);
-            break;
-        }*/
+            case BEnemyState.GotHit:
+                animator.SetTrigger("GetHit");
+                break;
+        }
     }
 
     //======================================================================//
@@ -149,6 +150,12 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hit_Enemy"))
         {
+            if (GotHit == false)
+            {
+                GotHit = true;
+                ChangeState(BEnemyState.GotHit);
+            }
+
             damage = 30;
             HP.TakeDamage(damage);
         }

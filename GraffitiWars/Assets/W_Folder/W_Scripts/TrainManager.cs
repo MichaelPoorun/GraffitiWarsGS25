@@ -19,11 +19,11 @@ public class TrainManager : MonoBehaviour
     {
         if (currentTrain != null && trainMovement != null && trainMovement.delTrain == true)
         {
-            Destroy(currentTrain);
+            trainMovement.delTrain = false;
             currentTrain = null;
             trainMovement = null;
+            Destroy(currentTrain);
             StartCoroutine(RespawnTrainAfterDelay());
-            trainMovement.delTrain = false;
         }
     }
 
