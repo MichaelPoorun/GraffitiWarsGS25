@@ -35,6 +35,8 @@ public class ApplyGraffiti_W : MonoBehaviour
     {
         Texture2D finalDrawing = graffitiDrawer.GetDrawing();
 
+        GraffitiData.SavedTexture = finalDrawing;
+
         ApplyDrawingToWall(finalDrawing);
 
         DonePressed = true;

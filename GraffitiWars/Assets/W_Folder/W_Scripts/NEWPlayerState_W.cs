@@ -31,7 +31,7 @@ public enum PlayerState //Where all player states are kept
     Blocking,
     Spray,
     Throw,
-    GotHit
+    GetHit
 }
 
 public class NEWPlayerState_W : MonoBehaviour
@@ -53,6 +53,7 @@ public class NEWPlayerState_W : MonoBehaviour
     public float throwForce;
     public float throwUpwardForce;
     ThrowTimer_W TimerOn2;
+    public ParticleSystem Hit;
 
     [Header("Player Bools")]
     public bool combo1 = false;
@@ -89,6 +90,7 @@ public class NEWPlayerState_W : MonoBehaviour
 
     void Awake()
     {
+        Hit = Hit.GetComponent<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
 
         TimerOn1 = GetComponent<AbilitiesTimer_W>();
@@ -423,7 +425,7 @@ public class NEWPlayerState_W : MonoBehaviour
             case PlayerState.Throw:
                 animator.Play("Throw_T");
                 break;
-            case PlayerState.GotHit:
+            case PlayerState.GetHit:
                 animator.SetTrigger("GetHit");
                 break;
         }
@@ -514,6 +516,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void BasicPunchBoxOn()
     {
         BasicPunch.SetActive(true);
+        Hit.Play();
     }
     void BasicPunchBoxOff()
     {
@@ -522,6 +525,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void ComboPunch1BoxOn()
     {
         ComboPunch1.SetActive(true);
+        Hit.Play();
     }
     void ComboPunch1BoxOff()
     {
@@ -530,6 +534,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void ComboKick1BoxOn()
     {
         ComboKick1.SetActive(true);
+        Hit.Play();
     }
     void ComboKick1BoxOff()
     {
@@ -541,6 +546,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void BasicKickBoxOn()
     {
         BasicKick.SetActive(true);
+        Hit.Play();
     }
     void BasicKickBoxOff()
     {
@@ -549,6 +555,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void ComboKick2BoxOn()
     {
         ComboKick2.SetActive(true);
+        Hit.Play();
     }
     void ComboKick2BoxOff()
     {
@@ -557,6 +564,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void ComboPunch2BoxOn()
     {
         ComboPunch2.SetActive(true);
+        Hit.Play();
     }
     void ComboPunch2BoxOff()
     {
@@ -568,6 +576,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void ComboKick3BoxOn()
     {
         ComboKick3.SetActive(true);
+        Hit.Play();
     }
     void ComboKick3BoxOff()
     {
@@ -576,6 +585,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void ComboPunch3BoxOn()
     {
         ComboPunch3.SetActive(true);
+        Hit.Play();
     }
     void ComboPunch3BoxOff()
     {
@@ -593,6 +603,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void JumpKick2BoxOn()
     {
         JumpKick2.SetActive(true);
+        Hit.Play();
     }
     void JumpKick2BoxOff()
     {
@@ -666,6 +677,7 @@ public class NEWPlayerState_W : MonoBehaviour
     void JumpKick1BoxOn()
     {
         JumpKick1.SetActive(true);
+        Hit.Play();
     }
     void JumpKick1BoxOff()
     {
@@ -690,7 +702,7 @@ public class NEWPlayerState_W : MonoBehaviour
             if (GotHit == false)
             {
                 GotHit = true;
-                ChangeState(PlayerState.GotHit);
+                ChangeState(PlayerState.GetHit);
             } 
             damage = 20;
             HP.TakeDamage(damage);
@@ -700,7 +712,7 @@ public class NEWPlayerState_W : MonoBehaviour
             if (GotHit == false)
             {
                 GotHit = true;
-                ChangeState(PlayerState.GotHit);
+                ChangeState(PlayerState.GetHit);
             }
             damage = 10;
             HP.TakeDamage(damage);
@@ -710,7 +722,7 @@ public class NEWPlayerState_W : MonoBehaviour
             if (GotHit == false)
             {
                 GotHit = true;
-                ChangeState(PlayerState.GotHit);
+                ChangeState(PlayerState.GetHit);
             }
             HP.TakeDamage(damage);
         }
@@ -719,7 +731,7 @@ public class NEWPlayerState_W : MonoBehaviour
             if (GotHit == false)
             {
                 GotHit = true;
-                ChangeState(PlayerState.GotHit);
+                ChangeState(PlayerState.GetHit);
             }
             damage = 80;
             HP.TakeDamage(damage);

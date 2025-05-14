@@ -111,6 +111,7 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
             Debug.Log("CS: " + currentState + " / " + s);
             return;
         }
+        GotHit = false;
         //animator.SetBool("punching", false);
         ChangeState(BEnemyState.Idle);
     }
@@ -157,6 +158,17 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
             }
 
             damage = 30;
+            HP.TakeDamage(damage);
+        }
+        else if (other.gameObject.CompareTag("Ability"))
+        {
+            if (GotHit == false)
+            {
+                GotHit = true;
+                ChangeState(BEnemyState.GotHit);
+            }
+
+            damage = 60;
             HP.TakeDamage(damage);
         }
     }

@@ -24,6 +24,7 @@ TagManager:
   - Spray8
   - Spray9
   - DelTrain
+  - Ability
   layers:
   - Default
   - TransparentFX

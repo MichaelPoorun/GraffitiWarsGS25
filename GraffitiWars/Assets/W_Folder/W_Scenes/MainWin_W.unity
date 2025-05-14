@@ -1503,6 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96825f9e3a0aac54eba693754e368757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graffiti: {fileID: 1463813514}
 --- !u!1 &1948924749
 GameObject:
   m_ObjectHideFlags: 0

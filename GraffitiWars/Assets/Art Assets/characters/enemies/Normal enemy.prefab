@@ -3246,7 +3246,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7629804057047473843}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3618,6 +3618,7 @@ MonoBehaviour:
   target: {fileID: 0}
   player: {fileID: 0}
   EPunch: {fileID: 7629804057047473843}
+  GotHit: 0
   HP: {fileID: 302874039949160793}
   animator: {fileID: 8992875155096127020}
   currentState: 0

@@ -162,5 +162,10 @@ public class BasicEnemyStatemachine_W1 : MonoBehaviour
             damage = 25;
             HP.TakeDamage(damage);
         }
+        else if (other.gameObject.CompareTag("Ability"))
+        {
+            damage = 60;
+            HP.TakeDamage(damage);
+        }
     }
 }
