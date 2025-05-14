@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Explosion_W : MonoBehaviour
 {
+
+    public AudioSource AS;
+
     public GameObject AOEHitBox;
     void Awake()
     {
@@ -21,6 +24,7 @@ public class Explosion_W : MonoBehaviour
 
         if(AOEHitBox == true)
         {
+            AS.Play();
             Destroy(gameObject, 1.5f);
         }
 
