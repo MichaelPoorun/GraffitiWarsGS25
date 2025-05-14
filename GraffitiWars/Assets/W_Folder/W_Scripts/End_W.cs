@@ -18,15 +18,12 @@ public class End_W : MonoBehaviour
     {
         if (ready == true)
         {
-            float LT = Input.GetAxis("Restart1");
-            float RT = Input.GetAxis("Restart2");
-
             if (Input.anyKeyDown)
             {
                 SceneManager.LoadScene(1);
             }
 
-            if (Input.GetButtonDown("Punch") || Input.GetButtonDown("Kick") || Input.GetButtonDown("Jump") || Input.GetButtonDown("Block") || Input.GetButtonDown("Spray") || Input.GetButtonDown("Throw") || LT > 0.1f || RT > 0.1f)
+            if (Input.GetButtonDown("Punch") || Input.GetButtonDown("Kick") || Input.GetButtonDown("Jump") || Input.GetButtonDown("Block") || Input.GetButtonDown("Spray") || Input.GetButtonDown("Throw"))
             {
                 SceneManager.LoadScene(1);
             }

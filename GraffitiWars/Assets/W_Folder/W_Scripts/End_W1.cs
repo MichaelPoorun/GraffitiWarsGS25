@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Start_W : MonoBehaviour
+public class End_W1 : MonoBehaviour
 {
     bool ready = false;
 
@@ -20,16 +20,16 @@ public class Start_W : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             }
 
             if (Input.GetButtonDown("Punch") || Input.GetButtonDown("Kick") || Input.GetButtonDown("Jump") || Input.GetButtonDown("Block") || Input.GetButtonDown("Spray") || Input.GetButtonDown("Throw"))
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             }
         }
     }
-
+    
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(2f);

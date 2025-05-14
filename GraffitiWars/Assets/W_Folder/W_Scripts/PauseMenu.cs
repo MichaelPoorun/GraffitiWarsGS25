@@ -6,6 +6,22 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenu;
     public static bool isPaused;
+    public GameObject q;
+    public GameObject w;
+    public GameObject e;
+    public GameObject r;
+    public GameObject t;
+    public GameObject button;
+    public GameObject quitbutton;
+
+    public void Awake()
+    {
+        q.SetActive(false);
+        w.SetActive(false);
+        e.SetActive(false);
+        r.SetActive(false);
+        t.SetActive(false);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,19 +67,35 @@ public class PauseMenu : MonoBehaviour
     public void OpenMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainStart_W");
     }
 
 
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("W_Blockout");
+        SceneManager.LoadScene("MainGame_W");
     }
 
     public void OpenMovelist()
     {
-
+        q.SetActive(true);
+        w.SetActive(true);
+        e.SetActive(true);
+        r.SetActive(true);
+        t.SetActive(true);
+        button.SetActive(true);
+        quitbutton.SetActive(false);
+    }
+    public void CloseMovelist()
+    {
+        q.SetActive(false);
+        w.SetActive(false);
+        e.SetActive(false);
+        r.SetActive(false);
+        t.SetActive(false);
+        button.SetActive(false);
+        quitbutton.SetActive(true);
     }
 
     public void QuitGame()

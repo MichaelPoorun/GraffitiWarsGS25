@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: f784273eeef88bf498975f3e1c4ccd8e, type: 3}
+  m_Texture: {fileID: 2800000, guid: 7e2e75466948de1458a74a053ab4de9f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -434,15 +434,15 @@ RectTransform:
   m_GameObject: {fileID: 1621343132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3774, y: 2.3774, z: 2.3774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1957571209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -413}
-  m_SizeDelta: {x: 631.2875, y: 517.4895}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1621343134
 MonoBehaviour:
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: d6cfdd5503c711d44b6791aa7dab69d8, type: 3}
+  m_Texture: {fileID: 2800000, guid: 65e97af700dbb9e45b0e2bfd62700cba, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 1801209136}
   - component: {fileID: 1801209138}
   - component: {fileID: 1801209137}
+  - component: {fileID: 1801209139}
   m_Layer: 5
   m_Name: RawImage (1)
   m_TagString: Untagged
@@ -506,15 +507,15 @@ RectTransform:
   m_GameObject: {fileID: 1801209135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3102016, y: 1.3102016, z: 1.3102016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1957571209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 123}
-  m_SizeDelta: {x: 752.4362, y: 81.3448}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801209137
 MonoBehaviour:
@@ -536,7 +537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b7f5e6dcd058e3c4b996276e7663b454, type: 3}
+  m_Texture: {fileID: 2800000, guid: e51f832cbc5ff4343a01cf20f4f6b5ad, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -551,6 +552,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801209135}
   m_CullTransparentMesh: 1
+--- !u!95 &1801209139
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801209135}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d69505b4c2c93e541826dbaf9e8274ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1957571205
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +829,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7f056b562cdf50942aa796c74079227d, type: 3}
   m_Resource: {fileID: 8300000, guid: 7f056b562cdf50942aa796c74079227d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.32
   m_Pitch: 1
   Loop: 1
   Mute: 0
