@@ -7,7 +7,7 @@ public class WaveSpawner : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
-    public int waveValue;
+    public float waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
     public List<GameObject> activeEnemies = new List<GameObject>(); // tracks active enemies
 
@@ -90,7 +90,7 @@ public class WaveSpawner : MonoBehaviour
         while (waveValue > 0)
         {
             int randEnemyID = Random.Range(0, enemies.Count);
-            int randEnemyCost = enemies[randEnemyID].cost;
+            float randEnemyCost = enemies[randEnemyID].cost;
 
             if (waveValue - randEnemyID >= 0)
             {
@@ -122,5 +122,5 @@ public class WaveSpawner : MonoBehaviour
 public class Enemy
 {
     public GameObject enemyPrefab;
-    public int cost;
+    public float cost;
 }

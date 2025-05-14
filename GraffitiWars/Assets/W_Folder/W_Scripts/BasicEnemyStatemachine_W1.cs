@@ -1,14 +1,15 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using System.Collections;
 
-public enum BEnemyState //Where all player states are kept
+public enum REnemyState //Where all player states are kept
 {
     Idle,
-    Punch
+    Bite
 }
 
-public class BasicEnemyStatemachine_W : MonoBehaviour
+public class BasicEnemyStatemachine_W1 : MonoBehaviour
 { 
     [Header("Player Variables")]
     private Rigidbody rb;
@@ -18,9 +19,12 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
     private EnemyReferences enemyReferences;
 
     private float pathUpdateDeadline; //tracks when the path can be updated
-    private float punchingDistance;
+    private float bitingDistance;
 
-    public GameObject EPunch;
+    public GameObject EBite;
+
+    public float attackCooldown = 2f; // 2 seconds between bites
+    private float lastAttackTime = -Mathf.Infinity;
 
     [Header("Player Bools")]
     private bool inRange;
@@ -32,17 +36,17 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
 
     [Header("Misc")]
     public Animator animator;
-    public BEnemyState currentState; //Variable that stores current state
+    public REnemyState currentState; //Variable that stores current state
 
     void Awake()
     {
-        EPunch.SetActive(false);
+        EBite.SetActive(false);
         enemyReferences = GetComponent<EnemyReferences>();
         rb = GetComponent<Rigidbody>();
     }
     void Start()
     {
-        punchingDistance = enemyReferences.navMeshAgent.stoppingDistance;
+        bitingDistance = enemyReferences.navMeshAgent.stoppingDistance;
         target = GameObject.FindFirstObjectByType<NEWPlayerState_W>();
         animator = GetComponent<Animator>();
         target = GameObject.FindFirstObjectByType<NEWPlayerState_W>();
@@ -53,19 +57,25 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
         if (target != null)
         {
             //computes the distance between the enemy and target
-            inRange = Vector3.Distance(transform.position, target.transform.position) <= punchingDistance;
+            inRange = Vector3.Distance(transform.position, target.transform.position) <= bitingDistance;
 
-            if (inRange)
+            if (inRange && Time.time >= lastAttackTime + attackCooldown)
             {
                 LookAtTarget();
+                AttackPlayer();
             }
             else
             {
                 UpdatePath();
             }
-            enemyReferences.anim.SetBool("punching", inRange);
         }
         enemyReferences.anim.SetFloat("Speed", enemyReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
+    }
+
+    private void AttackPlayer()
+    {
+        lastAttackTime = Time.time;
+        animator.SetTrigger("Bite"); // Make sure you have a trigger called "Bite" in Animator
     }
 
     //======================================================================//
@@ -85,7 +95,7 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
                 break;
         }*/
     }
-    public void ChangeState(BEnemyState newState)
+    public void ChangeState(REnemyState newState)
     {
         if (currentState == newState) return;
 
@@ -103,15 +113,15 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
     //======================================================================//
     //                                Misc                                  //   
     //======================================================================//
-    void BackToIdle(BEnemyState s)
+    void BackToIdle(REnemyState s)
     {
-        if (currentState != s && s != BEnemyState.Idle)
+        if (currentState != s && s != REnemyState.Idle)
         {
             Debug.Log("CS: " + currentState + " / " + s);
             return;
         }
         //animator.SetBool("punching", false);
-        ChangeState(BEnemyState.Idle);
+        ChangeState(REnemyState.Idle);
     }
     private void LookAtTarget()
     {
@@ -129,17 +139,17 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
         }
     }
 
-    void EPunchBoxOn()
+    void EBiteBoxOn()
     {
-        EPunch.SetActive(true);
+        EBite.SetActive(true);
     }
-    void EPunchBoxOff()
+    void EBiteBoxOff()
     {
-        EPunch.SetActive(false);
+        EBite.SetActive(false);
     }
     void Test()
     {
-        animator.SetBool("punching", false);
+        animator.SetBool("biting", false);
     }
 
     //======================================================================//
@@ -149,7 +159,7 @@ public class BasicEnemyStatemachine_W : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hit_Enemy"))
         {
-            damage = 30;
+            damage = 25;
             HP.TakeDamage(damage);
         }
     }

@@ -23,6 +23,7 @@ TagManager:
   - Spray7
   - Spray8
   - Spray9
+  - DelTrain
   layers:
   - Default
   - TransparentFX

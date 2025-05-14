@@ -697,20 +697,31 @@ public class NEWPlayerState_W : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("TankEnemy") && isBlocking == false)
         {
-            animator.SetBool("GetHit", true);
+            if (GotHit == false)
+            {
+                GotHit = true;
+                ChangeState(PlayerState.GotHit);
+            }
             damage = 10;
             HP.TakeDamage(damage);
         }
         else if (other.gameObject.CompareTag("MouseEnemy") && isBlocking == false)
         {
-            animator.SetBool("GetHit", true);
-            damage = 5;
+            if (GotHit == false)
+            {
+                GotHit = true;
+                ChangeState(PlayerState.GotHit);
+            }
             HP.TakeDamage(damage);
         }
         else if (other.gameObject.CompareTag("BossEnemy") && isBlocking == false)
         {
-            animator.SetBool("GetHit", true);
-            damage = 50;
+            if (GotHit == false)
+            {
+                GotHit = true;
+                ChangeState(PlayerState.GotHit);
+            }
+            damage = 80;
             HP.TakeDamage(damage);
         }
         else if (isBlocking == true)
