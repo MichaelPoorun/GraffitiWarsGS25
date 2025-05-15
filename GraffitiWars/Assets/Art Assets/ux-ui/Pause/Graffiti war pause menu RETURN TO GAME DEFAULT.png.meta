@@ -108,7 +108,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Graffiti war pause menu RETURN TO GAME DEFAULT_0
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 254
+        width: 555
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97c2db21f19990488b54ddaebf7ff9f
+      internalID: -2060422284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -122,7 +144,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Graffiti war pause menu RETURN TO GAME DEFAULT_0: -2060422284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

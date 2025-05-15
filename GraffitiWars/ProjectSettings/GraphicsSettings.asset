@@ -34,8 +34,11 @@ GraphicsSettings:
   - {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10783, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -6465566751694194690, guid: 2b3b7d0b179748b449e12721ea4fcfa6, type: 3}
+  - {fileID: -6465566751694194690, guid: 805145bdd23e99a449608ba982401acc, type: 3}
+  - {fileID: -6465566751694194690, guid: 9811a975b6d99df45b93bb716dacc497, type: 3}
   m_PreloadedShaders: []
-  m_PreloadShadersBatchTimeLimit: -1
+  m_PreloadShadersBatchTimeLimit: 0
   m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_CustomRenderPipeline: {fileID: 11400000, guid: 82d50e16a695c214d8025c47c33a0d1f, type: 2}
   m_TransparencySortMode: 1
@@ -47,15 +50,15 @@ GraphicsSettings:
   m_FogStripping: 1
   m_InstancingStripping: 0
   m_BrgStripping: 0
-  m_LightmapKeepPlain: 1
-  m_LightmapKeepDirCombined: 1
-  m_LightmapKeepDynamicPlain: 1
-  m_LightmapKeepDynamicDirCombined: 1
-  m_LightmapKeepShadowMask: 1
-  m_LightmapKeepSubtractive: 1
-  m_FogKeepLinear: 1
-  m_FogKeepExp: 1
-  m_FogKeepExp2: 1
+  m_LightmapKeepPlain: 0
+  m_LightmapKeepDirCombined: 0
+  m_LightmapKeepDynamicPlain: 0
+  m_LightmapKeepDynamicDirCombined: 0
+  m_LightmapKeepShadowMask: 0
+  m_LightmapKeepSubtractive: 0
+  m_FogKeepLinear: 0
+  m_FogKeepExp: 0
+  m_FogKeepExp2: 0
   m_AlbedoSwatchInfos: []
   m_RenderPipelineGlobalSettingsMap:
     UnityEngine.Rendering.Universal.UniversalRenderPipeline: {fileID: 11400000, guid: 18dc0cd2c080841dea60987a38ce93fa, type: 2}
